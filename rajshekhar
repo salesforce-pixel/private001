@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1d4e57">
+<title>Health Journal — Raj Shekhar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f3efe6;
+    --surface:#fbfaf5;
+    --surface-2:#f7f4ec;
+    --ink:#283a31;
+    --ink-soft:#5f6f66;
+    --ink-faint:#8a978f;
+    --primary:#4a6f5d;
+    --primary-deep:#36513f;
+    --accent:#c07a52;
+    --line:rgba(58,84,67,0.12);
+    --line-soft:rgba(58,84,67,0.07);
+    --good:#3f8a66;
+    --good-bg:#e6f0e9;
+    --treat:#bd8a36;
+    --treat-bg:#f6efdd;
+    --watch:#5180a3;
+    --watch-bg:#e6eef3;
+    --alert:#bf6049;
+    --alert-bg:#f6e6e1;
+    --radius:18px;
+    --shadow:0 1px 2px rgba(40,58,49,.04), 0 8px 24px rgba(40,58,49,.06);
+    --shadow-soft:0 1px 2px rgba(40,58,49,.04);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Hanken Grotesk',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.55;
+    font-size:15px;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 12% 8%, rgba(74,111,93,.06), transparent 38%),
+                     radial-gradient(circle at 88% 92%, rgba(192,122,82,.05), transparent 42%);
+    background-attachment:fixed;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 16px 64px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    margin:0 -16px 0;
+    padding:calc(28px + env(safe-area-inset-top)) 24px 30px;
+    background:linear-gradient(155deg,#1c4953 0%,#2a626c 58%,#347580 100%);
+    color:#f3efe6;
+    border-radius:0 0 30px 30px;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-50px;top:-60px;width:220px;height:220px;
+    border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.10),transparent 70%);
+  }
+  .hero .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.72;font-weight:600;}
+  .hero h1{font-family:'Newsreader',serif;font-weight:500;font-size:34px;line-height:1.05;margin:6px 0 4px;letter-spacing:-.01em;}
+  .hero .sub{opacity:.8;font-size:13.5px;}
+  .vitals{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:1;}
+  .chip{
+    background:rgba(255,255,255,.14);backdrop-filter:blur(4px);
+    border:1px solid rgba(255,255,255,.16);
+    padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:600;
+    display:flex;align-items:center;gap:5px;
+  }
+  .chip small{opacity:.7;font-weight:500;}
+
+  /* ---------- EMERGENCY ---------- */
+  .emergency{
+    margin-top:-18px;position:relative;z-index:2;
+    background:var(--surface);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:14px 16px;
+    display:flex;align-items:center;gap:14px;
+    border:1px solid var(--line-soft);
+  }
+  .emergency .icon{
+    flex-shrink:0;width:42px;height:42px;border-radius:12px;
+    background:var(--alert-bg);color:var(--alert);
+    display:grid;place-items:center;
+  }
+  .emergency .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;}
+  .emergency .name{font-weight:700;font-size:16px;color:var(--ink);}
+  .emergency .phone{font-weight:700;font-size:15px;color:var(--accent);letter-spacing:.01em;margin-top:1px;}
+  .emergency .role{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    margin:18px -16px 0;padding:10px 16px;
+    background:rgba(243,239,230,.86);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .navscroll{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  .navscroll::-webkit-scrollbar{display:none;}
+  .navscroll a{
+    flex-shrink:0;text-decoration:none;color:var(--ink-soft);
+    font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;
+    background:var(--surface);border:1px solid var(--line);white-space:nowrap;
+    transition:.2s;
+  }
+  .navscroll a:active{transform:scale(.96);}
+  .navscroll a.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+
+  /* ---------- SECTIONS ---------- */
+  section{scroll-margin-top:64px;margin-top:30px;}
+  .sec-head{display:flex;align-items:baseline;gap:10px;margin:0 4px 14px;}
+  .sec-head h2{font-family:'Newsreader',serif;font-weight:500;font-size:21px;letter-spacing:-.01em;color:var(--primary-deep);}
+  .sec-head .count{font-size:12px;color:var(--ink-faint);font-weight:600;background:var(--surface-2);padding:2px 9px;border-radius:999px;}
+
+  .card{
+    background:var(--surface);border-radius:var(--radius);
+    box-shadow:var(--shadow-soft);border:1px solid var(--line-soft);
+    margin-bottom:12px;overflow:hidden;
+  }
+  .card.pad{padding:16px 17px;}
+
+  /* accordion */
+  .acc-btn{
+    width:100%;border:none;background:none;cursor:pointer;
+    display:flex;align-items:center;gap:12px;text-align:left;
+    padding:15px 16px;font-family:inherit;color:inherit;
+  }
+  .acc-btn .num{
+    flex-shrink:0;width:26px;height:26px;border-radius:8px;
+    background:var(--surface-2);color:var(--primary);
+    font-size:12px;font-weight:700;display:grid;place-items:center;
+  }
+  .acc-btn .ttl{flex:1;font-weight:700;font-size:14.5px;line-height:1.25;}
+  .acc-btn .chev{flex-shrink:0;color:var(--ink-faint);transition:transform .3s;}
+  .acc-btn[aria-expanded="true"] .chev{transform:rotate(180deg);}
+  .acc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s ease;}
+  .acc-body>div{overflow:hidden;}
+  .acc-btn[aria-expanded="true"]+.acc-body{grid-template-rows:1fr;}
+  .acc-inner{padding:0 16px 16px 54px;font-size:13.5px;color:var(--ink-soft);}
+  .acc-inner p{margin-bottom:8px;}
+  .acc-inner strong{color:var(--ink);font-weight:700;}
+  .acc-inner ul{list-style:none;margin:6px 0;}
+  .acc-inner li{position:relative;padding-left:15px;margin-bottom:5px;}
+  .acc-inner li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--primary);opacity:.5;}
+
+  /* badges */
+  .badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;letter-spacing:.01em;}
+  .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;}
+  .b-good{background:var(--good-bg);color:var(--good);}
+  .b-treat{background:var(--treat-bg);color:var(--treat);}
+  .b-watch{background:var(--watch-bg);color:var(--watch);}
+  .b-alert{background:var(--alert-bg);color:var(--alert);}
+
+  /* meds */
+  .med{padding:14px 16px;border-bottom:1px solid var(--line-soft);}
+  .med:last-child{border-bottom:none;}
+  .med .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .med .mname{font-weight:700;font-size:14.5px;color:var(--ink);}
+  .med .dose{font-size:12.5px;color:var(--primary);font-weight:700;background:var(--surface-2);padding:3px 9px;border-radius:8px;white-space:nowrap;}
+  .med .meta{font-size:12.5px;color:var(--ink-soft);margin-top:4px;}
+  .med .note{font-size:12px;color:var(--ink-faint);margin-top:6px;font-style:italic;}
+
+  /* schedule */
+  .sched{padding:6px 0;}
+  .srow{display:flex;gap:13px;padding:11px 17px;align-items:flex-start;}
+  .srow:not(:last-child){border-bottom:1px solid var(--line-soft);}
+  .stime{flex-shrink:0;width:74px;font-size:12px;font-weight:700;color:var(--primary);padding-top:1px;}
+  .sitem{font-size:13.5px;color:var(--ink);font-weight:600;}
+  .snote{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+
+  /* labs */
+  .labgroup{padding:13px 16px;border-bottom:1px solid var(--line-soft);}
+  .labgroup:last-child{border-bottom:none;}
+  .labgroup>h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:9px;}
+  .lab{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;padding:6px 0;border-top:1px solid var(--line-soft);}
+  .lab:first-of-type{border-top:none;}
+  .lab .lname{font-size:13.5px;font-weight:600;color:var(--ink);}
+  .lab .lref{font-size:11px;color:var(--ink-faint);}
+  .lab .lvals{display:flex;align-items:center;gap:7px;justify-self:end;font-variant-numeric:tabular-nums;}
+  .lab .old{font-size:12.5px;color:var(--ink-faint);}
+  .lab .arr{font-size:11px;color:var(--ink-faint);}
+  .lab .new{font-size:14px;font-weight:700;}
+  .n-good{color:var(--good);}.n-treat{color:var(--treat);}.n-alert{color:var(--alert);}.n-ink{color:var(--ink);}
+  .labkey{display:flex;gap:14px;flex-wrap:wrap;padding:11px 17px;font-size:11px;color:var(--ink-faint);background:var(--surface-2);}
+  .labkey span{display:flex;align-items:center;gap:5px;}
+  .dot{width:8px;height:8px;border-radius:50%;}
+
+  /* BP */
+  .bpgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+  .bpcard{background:var(--surface);border:1px solid var(--line-soft);border-radius:14px;padding:14px;box-shadow:var(--shadow-soft);}
+  .bpcard .per{font-size:11px;color:var(--ink-faint);font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+  .bpcard .med-n{font-size:12.5px;color:var(--primary);font-weight:700;margin:4px 0 9px;line-height:1.3;}
+  .bpcard .big{font-family:'Newsreader',serif;font-size:27px;font-weight:500;color:var(--ink);line-height:1;}
+  .bpcard .big small{font-size:13px;color:var(--ink-faint);font-family:'Hanken Grotesk';}
+  .bpcard .det{font-size:11.5px;color:var(--ink-soft);margin-top:7px;}
+  .note-line{font-size:12.5px;color:var(--ink-soft);background:var(--surface-2);border-radius:12px;padding:11px 13px;margin-top:11px;}
+  .note-line strong{color:var(--ink);}
+
+  /* timeline */
+  .timeline{position:relative;padding-left:8px;}
+  .tl{position:relative;padding:0 0 4px 26px;}
+  .tl::before{content:"";position:absolute;left:5px;top:6px;bottom:-12px;width:2px;background:var(--line);}
+  .tl:last-child::before{display:none;}
+  .tl .dotmark{position:absolute;left:0;top:5px;width:12px;height:12px;border-radius:50%;background:var(--primary);border:2.5px solid var(--surface);box-shadow:0 0 0 1.5px var(--primary);}
+  .tl.alert .dotmark{background:var(--good);box-shadow:0 0 0 1.5px var(--good);}
+  .tl .tdate{font-size:11px;color:var(--ink-faint);font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+  .tl .ttitle{font-weight:700;font-size:14px;color:var(--ink);margin:2px 0 4px;}
+  .tl .tdesc{font-size:13px;color:var(--ink-soft);margin-bottom:16px;}
+
+  /* providers */
+  .prov{padding:14px 16px;border-bottom:1px solid var(--line-soft);}
+  .prov:last-child{border-bottom:none;}
+  .prov .pn{font-weight:700;font-size:14.5px;color:var(--ink);}
+  .prov .ps{font-size:12px;color:var(--primary);font-weight:600;margin-top:1px;}
+  .prov .pp{font-size:12.5px;color:var(--ink-soft);margin-top:5px;}
+  .prov a{color:var(--accent);text-decoration:none;font-weight:600;}
+
+  /* checklist */
+  .check{display:flex;gap:12px;align-items:flex-start;padding:13px 16px;border-bottom:1px solid var(--line-soft);cursor:pointer;}
+  .check:last-child{border-bottom:none;}
+  .check .box{flex-shrink:0;width:21px;height:21px;border-radius:7px;border:2px solid var(--line);margin-top:1px;display:grid;place-items:center;transition:.2s;}
+  .check .box svg{opacity:0;transform:scale(.5);transition:.2s;}
+  .check.done .box{background:var(--primary);border-color:var(--primary);}
+  .check.done .box svg{opacity:1;transform:scale(1);}
+  .check .txt{font-size:13.5px;color:var(--ink);line-height:1.45;transition:.2s;}
+  .check.done .txt{color:var(--ink-faint);text-decoration:line-through;}
+  .check .txt b{font-weight:700;}
+
+  /* notes / pills inside */
+  .notecard{padding:15px 16px;}
+  .notecard h4{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:14px 0 7px;}
+  .notecard h4:first-child{margin-top:0;}
+  .notecard ul{list-style:none;}
+  .notecard li{position:relative;padding-left:16px;margin-bottom:7px;font-size:13.5px;color:var(--ink-soft);line-height:1.5;}
+  .notecard li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.55;}
+  .notecard li strong{color:var(--ink);font-weight:700;}
+
+  .info-strip{display:flex;flex-wrap:wrap;gap:8px;}
+  .info-pill{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:12px;padding:9px 13px;font-size:12.5px;flex:1 1 calc(50% - 4px);min-width:130px;}
+  .info-pill .k{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;}
+  .info-pill .v{font-weight:700;color:var(--ink);margin-top:1px;}
+
+  .allergy-ok{display:flex;align-items:center;gap:11px;padding:15px 16px;}
+  .allergy-ok .ic{width:38px;height:38px;border-radius:11px;background:var(--good-bg);color:var(--good);display:grid;place-items:center;flex-shrink:0;}
+  .allergy-ok .t{font-weight:700;color:var(--ink);font-size:14px;}
+  .allergy-ok .s{font-size:12px;color:var(--ink-soft);}
+
+  footer{margin-top:40px;text-align:center;}
+  .disclaimer{font-size:11.5px;color:var(--ink-faint);line-height:1.6;padding:0 12px;}
+  .log-toggle{background:none;border:none;color:var(--ink-faint);font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;margin:18px auto 14px;display:flex;align-items:center;gap:6px;padding:8px;}
+  .logbody{display:none;text-align:left;}
+  .logbody.open{display:block;}
+  .logrow{font-size:12px;color:var(--ink-soft);padding:9px 0;border-top:1px solid var(--line-soft);}
+  .logrow .ld{font-weight:700;color:var(--ink);font-size:11px;}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Patient Health Journal</div>
+  <h1>Raj Shekhar</h1>
+  <div class="sub">Living family record · Last updated 5 June 2026</div>
+  <div class="vitals">
+    <span class="chip"><small>Age</small> 30</span>
+    <span class="chip"><small>Sex</small> Male</span>
+    <span class="chip"><small>Ht</small> 175 cm</span>
+    <span class="chip"><small>Wt</small> 72.6 kg</span>
+    <span class="chip"><small>BMI</small> 23.7</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <a class="emergency reveal" href="tel:+917766875297" style="text-decoration:none;color:inherit;">
+    <div class="icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
+    <div>
+      <div class="lbl">Emergency · Caretaker</div>
+      <div class="name">Rajeev Shekhar</div>
+      <div class="phone">+91 77668 75297</div>
+      <div class="role">Tap to call · primary contact for all medical matters</div>
+    </div>
+  </a>
+
+  <nav>
+    <div class="navscroll" id="nav">
+      <a href="#conditions" class="active">Conditions</a>
+      <a href="#labs">Labs</a>
+      <a href="#bp">Blood Pressure</a>
+      <a href="#timeline">History</a>
+      <a href="#medications">Medications</a>
+      <a href="#providers">Providers</a>
+      <a href="#todo">To-Do</a>
+      <a href="#notes">Notes</a>
+    </div>
+  </nav>
+
+  <!-- ALLERGIES + IDENTITY -->
+  <section id="overview" class="reveal" style="margin-top:24px;">
+    <div class="sec-head"><h2>At a Glance</h2></div>
+    <div class="card allergy-ok" style="margin-bottom:12px;">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <div>
+        <div class="t">No known allergies</div>
+        <div class="s">Update if any are identified</div>
+      </div>
+    </div>
+    <div class="card pad">
+      <div class="info-strip">
+        <div class="info-pill"><div class="k">Blood Group</div><div class="v">O+</div></div>
+        <div class="info-pill"><div class="k">BMI Status</div><div class="v">Normal (23.7)</div></div>
+        <div class="info-pill"><div class="k">Energy</div><div class="v">Good</div></div>
+        <div class="info-pill"><div class="k">Sleep</div><div class="v">Good</div></div>
+      </div>
+      <div class="note-line" style="margin-top:12px;"><strong>Current status (Jun 2026):</strong> Vertigo resolved after Epley. Mild residual lightheadedness on standing (being managed). Occasional mild neck stiffness. No acute symptoms.</div>
+    </div>
+  </section>
+
+  <!-- CONDITIONS -->
+  <section id="conditions" class="reveal">
+    <div class="sec-head"><h2>Active Conditions</h2><span class="count">10 tracked</span></div>
+
+    <div class="card">
+      <button class="acc-btn" aria-expanded="false">
+        <span class="num">1</span>
+        <span class="ttl">BPPV — Left Posterior Canal<br><span class="badge b-good" style="margin-top:6px;">Resolved · monitor for recurrence</span></span>
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-body"><div><div class="acc-inner">
+        <p>Benign Paroxysmal Positional Vertigo of the left posterior semicircular canal. Presented with spinning on turning over / rising from bed.</p>
+        <p><strong>Diagnosed & treated</strong> by Dr. Abhinav Rai (ENT, Buxar) on 5 Jun 2026. Dix-Hallpike, Supine Roll and Deep Head Hanging tests confirmed left-sided BPPV (upbeating crescendo-decrescendo nystagmus, ~1 s latency, ~9 s duration).</p>
+        <p><strong>Treatment:</strong> Epley maneuver in-clinic — immediate relief. Symptoms resolved.</p>
+        <p><strong>Monitoring:</strong> Resolved but kept on watch — BPPV recurs in ~15–30% over 1–5 years. Watch for any return of positional spinning.</p>
+        <ul>
+          <li>This was the true cause of the episodes that triggered the May 2026 workup.</li>
+          <li>If it recurs: return to Dr. Rai for repeat Epley (first line — not medication).</li>
+          <li>Maintaining Vitamin D may lower recurrence risk.</li>
+        </ul>
+      </div></div></div>
+    </div>
+
+    <div class="card">
+      <button class="acc-btn" aria-expanded="false">
+        <span class="num">2</span>
+        <span class="ttl">Subclinical Hypothyroidism<br><span class="badge b-good" style="margin-top:6px;">Resolved · lifestyle</span></span>
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-body"><div><div class="acc-inner">
+        <p>TSH 4.81 (Sep 2025) → <strong>2.61 (May 2026)</strong> — normalized through exercise and diet. No medication.</p>
+        <ul>
+          <li>Monitor with annual TSH.</li>
+          <li>Anti-TPO not yet tested — consider if TSH rises again.</li>
+        </ul>
+      </div></div></div>
+    </div>
+
+    <div class="card">
+      <button class="acc-btn" aria-expanded="false">
+        <span class="num">3</span>
+        <span class="ttl">Vitamin B12 Deficiency<br><span class="badge b-treat" style="margin-top:6px;">Under treatment</span></span>
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-body"><div><div class="acc-inner">
+        <p>208.5 (Sep 2025) → <strong>194.5 pg/mL (May 2026)</strong>; ref 211–946. Worsening, now treated.</p>
+        <p><strong>Treatment:</strong> Mylamin once daily × 3 months (Methylcobalamin 1500 mcg + ALA + B1/B6 + Folic Acid).</p>
+        <ul>
+          <li>Retest August 2026.</li>
+          <li>If normalized → switch to plain methylcobalamin 500–1000 mcg/day.</li>
+          <li>Consider homocysteine / MMA if it doesn't normalize.</li>
+        </ul>
+      </div></div></div>
+    </div>
+
+    <div class="card">
+      <button class="acc-btn" aria-expanded="false">
+        <span class="num">4</span>
+        <span class="ttl">Vitamin D Deficiency<br><span class="badge b-treat" style="margin-top:6px;">Under treatment</span></span>
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-body"><div><div class="acc-inner">
+        <p>67.72 (Sep 2025) → <strong>48.57 nmol/L (May 2026)</strong> — worsened to deficient.</p>
+        <p><strong>Treatment:</strong> D3 60,000 IU weekly × 8 weeks, then 1000–2000 IU daily maintenance.</p>
+        <ul><li>Retest at 3 months. Linked to BPPV recurrence risk.</li></ul>
+      </div></div></div>
+    </div>
+
+    <div class="card">
+      <button class="acc-btn" aria-expanded="false">
+        <span class="num">5</span>
+        <span class="ttl">Mixed Dyslipidemia<br><span class="badge b-watch" style="margin-top:6px;">Improving · lifestyle</span></span>
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-body"><div><div class="acc-inner">
+        <p>Triglycerides 261→241, HDL 34→32, LDL 110→104, VLDL 52→48. Modestly improving on lifestyle alone — no medication.</p>
+        <p><strong>Goals:</strong> TG &lt;150, HDL &gt;40, LDL &lt;100. Continue exercise and dietary changes.</p>
+      </div></div></div>
+    </div>
+
+    <div class="card">
+      <button class="acc-btn" aria-expanded="false">
+        <span class="num">6</span>
+        <span class="ttl">Cervical Lordosis Straightening<br><span class="badge b-watch" style="margin-top:6px;">Incidental · postural</span></span>
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-body"><div><div class="acc-inner">
+        <p>X-ray (Mar 2026): straightening of normal cervical curve. No fracture, subluxation or disc abnormality. Likely postural — common in desk/phone users.</p>
+        <p>Now considered <strong>largely incidental</strong> — the vertigo was confirmed as BPPV, not cervicogenic.</p>
+        <ul>
+          <li>Postural correction: screen at eye level; daily chin tucks & gentle neck mobility.</li>
+          <li>Sleep: single medium-firm pillow; side or back sleeping.</li>
+        </ul>
+      </div></div></div>
+    </div>
+
+    <div class="card">
+      <button class="acc-btn" aria-expanded="false">
+        <span class="num">7</span>
+        <span class="ttl">Hypertension<br><span class="badge b-treat" style="margin-top:6px;">Treated · regimen under review</span></span>
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-body"><div><div class="acc-inner">
+        <p>Currently on <strong>Propranolol LA 20 mg</strong> once daily (since Aug 2024). Home BP ~128/79 over 102 readings; diastolic ~5 mmHg higher than on the previous combination. Pulse averages 77 — suggesting limited beta-blockade at this dose.</p>
+        <p><strong>Concern:</strong> diastolic creeping up; possible contribution to lightheadedness. Prior Bisoprolol + Amlodipine combination gave better control (126/74).</p>
+        <ul>
+          <li>Plan: telemedicine consult (cardiology / internal med) to consider class switch (ARB e.g. Telmisartan, or restore Amlodipine) or 24-hr ABPM given white-coat tendency.</li>
+          <li>Weight loss, exercise, thyroid normalization may have lowered underlying BP — re-evaluate intensity.</li>
+        </ul>
+      </div></div></div>
+    </div>
+
+    <div class="card">
+      <button class="acc-btn" aria-expanded="false">
+        <span class="num">8</span>
+        <span class="ttl">Gilbert's Syndrome (suspected)<br><span class="badge b-watch" style="margin-top:6px;">Benign · hereditary</span></span>
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-body"><div><div class="acc-inner">
+        <p>Mildly elevated unconjugated bilirubin (1.69 total / 1.18 indirect) with normal liver enzymes. Likely shared with brother (UGT1A1 variant). No treatment needed.</p>
+        <ul>
+          <li><strong>Flag before any liver workup</strong> to avoid unnecessary investigation.</li>
+          <li>May affect metabolism of some drugs (irinotecan, atazanavir, certain statins).</li>
+          <li>Mild jaundice can appear with fasting/illness/stress — benign.</li>
+        </ul>
+      </div></div></div>
+    </div>
+
+    <div class="card">
+      <button class="acc-btn" aria-expanded="false">
+        <span class="num">9</span>
+        <span class="ttl">Borderline Hyperuricemia<br><span class="badge b-watch" style="margin-top:6px;">Monitor</span></span>
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-body"><div><div class="acc-inner">
+        <p>Uric acid 7.25 → 7.40 mg/dL (cutoff 7.0). No gout symptoms. Monitor; reduce alcohol, fructose, excess red meat. No medication needed.</p>
+      </div></div></div>
+    </div>
+
+    <div class="card">
+      <button class="acc-btn" aria-expanded="false">
+        <span class="num">10</span>
+        <span class="ttl">Mild Iron-Related Pattern<br><span class="badge b-watch" style="margin-top:6px;">Subclinical · investigating</span></span>
+        <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+      </button>
+      <div class="acc-body"><div><div class="acc-inner">
+        <p>MCH just below range (26.5–26.8), RDW mildly elevated (15.2–15.3), hemoglobin normal.</p>
+        <ul>
+          <li>10-day empirical iron trial (Orofer XT) started May 2026.</li>
+          <li>Add <strong>ferritin</strong> to August 2026 bloodwork to confirm iron stores.</li>
+          <li>Continue iron-rich foods (greens, lentils, dates, jaggery).</li>
+        </ul>
+      </div></div></div>
+    </div>
+  </section>
+
+
+  <!-- LABS -->
+  <section id="labs" class="reveal">
+    <div class="sec-head"><h2>Lab Trends</h2><span class="count">Sep '25 → May '26</span></div>
+    <div class="card">
+      <div class="labgroup">
+        <h4>Thyroid</h4>
+        <div class="lab"><div><div class="lname">TSH</div><div class="lref">0.27–4.20</div></div><div class="lvals"><span class="old">4.81</span><span class="arr">→</span><span class="new n-good">2.61</span></div></div>
+        <div class="lab"><div><div class="lname">T3 Total</div><div class="lref">0.80–2.00</div></div><div class="lvals"><span class="old">1.42</span><span class="arr">→</span><span class="new n-ink">1.21</span></div></div>
+        <div class="lab"><div><div class="lname">T4 Total</div><div class="lref">5.10–14.10</div></div><div class="lvals"><span class="old">9.30</span><span class="arr">→</span><span class="new n-ink">10.82</span></div></div>
+      </div>
+      <div class="labgroup">
+        <h4>Vitamins</h4>
+        <div class="lab"><div><div class="lname">Vitamin B12</div><div class="lref">211–946</div></div><div class="lvals"><span class="old">208.5</span><span class="arr">→</span><span class="new n-treat">194.5</span></div></div>
+        <div class="lab"><div><div class="lname">Vitamin D (25-OH)</div><div class="lref">75–250</div></div><div class="lvals"><span class="old">67.7</span><span class="arr">→</span><span class="new n-alert">48.6</span></div></div>
+      </div>
+      <div class="labgroup">
+        <h4>Lipids</h4>
+        <div class="lab"><div><div class="lname">Total Cholesterol</div><div class="lref">&lt;200</div></div><div class="lvals"><span class="old">197</span><span class="arr">→</span><span class="new n-good">184</span></div></div>
+        <div class="lab"><div><div class="lname">Triglycerides</div><div class="lref">&lt;150</div></div><div class="lvals"><span class="old">261</span><span class="arr">→</span><span class="new n-treat">241</span></div></div>
+        <div class="lab"><div><div class="lname">HDL</div><div class="lref">&gt;40</div></div><div class="lvals"><span class="old">34</span><span class="arr">→</span><span class="new n-treat">32</span></div></div>
+        <div class="lab"><div><div class="lname">LDL</div><div class="lref">&lt;100</div></div><div class="lvals"><span class="old">110</span><span class="arr">→</span><span class="new n-treat">104</span></div></div>
+        <div class="lab"><div><div class="lname">VLDL</div><div class="lref">&lt;30</div></div><div class="lvals"><span class="old">52</span><span class="arr">→</span><span class="new n-treat">48</span></div></div>
+      </div>
+      <div class="labgroup">
+        <h4>Sugar</h4>
+        <div class="lab"><div><div class="lname">Fasting Glucose</div><div class="lref">70–100</div></div><div class="lvals"><span class="old">91.8</span><span class="arr">→</span><span class="new n-good">92.0</span></div></div>
+        <div class="lab"><div><div class="lname">HbA1c</div><div class="lref">4.0–5.6</div></div><div class="lvals"><span class="old">5.6</span><span class="arr">→</span><span class="new n-treat">5.6</span></div></div>
+      </div>
+      <div class="labgroup">
+        <h4>Liver / Kidney</h4>
+        <div class="lab"><div><div class="lname">Creatinine</div><div class="lref">&lt;1.20</div></div><div class="lvals"><span class="old">0.67</span><span class="arr">→</span><span class="new n-good">0.62</span></div></div>
+        <div class="lab"><div><div class="lname">eGFR</div><div class="lref">&gt;59</div></div><div class="lvals"><span class="old">128</span><span class="arr">→</span><span class="new n-good">132</span></div></div>
+        <div class="lab"><div><div class="lname">Uric Acid</div><div class="lref">3.4–7.0</div></div><div class="lvals"><span class="old">7.25</span><span class="arr">→</span><span class="new n-treat">7.40</span></div></div>
+        <div class="lab"><div><div class="lname">AST (SGOT)</div><div class="lref">&lt;40</div></div><div class="lvals"><span class="old">25.3</span><span class="arr">→</span><span class="new n-good">22.2</span></div></div>
+        <div class="lab"><div><div class="lname">ALT (SGPT)</div><div class="lref">&lt;41</div></div><div class="lvals"><span class="old">18.3</span><span class="arr">→</span><span class="new n-good">22.7</span></div></div>
+        <div class="lab"><div><div class="lname">Bilirubin Total</div><div class="lref">&lt;1.10</div></div><div class="lvals"><span class="old">1.08</span><span class="arr">→</span><span class="new n-treat">1.69</span></div></div>
+        <div class="lab"><div><div class="lname">CRP</div><div class="lref">&lt;5.00</div></div><div class="lvals"><span class="old">—</span><span class="arr">→</span><span class="new n-good">0.96</span></div></div>
+      </div>
+      <div class="labgroup">
+        <h4>Blood Count</h4>
+        <div class="lab"><div><div class="lname">Hemoglobin</div><div class="lref">13–17</div></div><div class="lvals"><span class="old">15.0</span><span class="arr">→</span><span class="new n-good">14.0</span></div></div>
+        <div class="lab"><div><div class="lname">MCH</div><div class="lref">27–32</div></div><div class="lvals"><span class="old">26.5</span><span class="arr">→</span><span class="new n-treat">26.8</span></div></div>
+        <div class="lab"><div><div class="lname">RDW</div><div class="lref">11.6–14</div></div><div class="lvals"><span class="old">15.3</span><span class="arr">→</span><span class="new n-treat">15.2</span></div></div>
+        <div class="lab"><div><div class="lname">Platelets</div><div class="lref">150–410</div></div><div class="lvals"><span class="old">154</span><span class="arr">→</span><span class="new n-ink">151</span></div></div>
+        <div class="lab"><div><div class="lname">TLC</div><div class="lref">4–10</div></div><div class="lvals"><span class="old">10.37</span><span class="arr">→</span><span class="new n-good">9.53</span></div></div>
+      </div>
+      <div class="labkey">
+        <span><span class="dot" style="background:var(--good)"></span>In range / improving</span>
+        <span><span class="dot" style="background:var(--treat)"></span>Borderline / watch</span>
+        <span><span class="dot" style="background:var(--alert)"></span>Out of range</span>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:20px;"><h2 style="font-size:18px;">Imaging</h2></div>
+    <div class="card pad">
+      <div class="notecard" style="padding:0;">
+        <ul>
+          <li><strong>5 Jun 2026 — Vestibular exam</strong> (Dr. A. Rai): Left posterior canal BPPV confirmed; treated with Epley.</li>
+          <li><strong>3 May 2026 — Cervical Spine X-ray:</strong> Straightening of lordosis; no acute bony abnormality.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BP -->
+  <section id="bp" class="reveal">
+    <div class="sec-head"><h2>Home BP Log</h2><span class="count">~2 yrs · 334 readings</span></div>
+    <div class="bpgrid">
+      <div class="bpcard">
+        <div class="per">Apr–Jul 2024</div>
+        <div class="med-n">Bisoprolol 5 + Amlodipine 5</div>
+        <div class="big">126<small>/74</small></div>
+        <div class="det">232 readings · 0% ≥140/90 — well controlled</div>
+      </div>
+      <div class="bpcard">
+        <div class="per">Aug 2024 – now</div>
+        <div class="med-n">Propranolol LA 20</div>
+        <div class="big">128<small>/79</small></div>
+        <div class="det">102 readings · ~2% ≥140/90 · diastolic ~5 higher</div>
+      </div>
+    </div>
+    <div class="note-line"><strong>Pulse on Propranolol:</strong> mean 77 (71–88, none &lt;70) — suggests limited beta-blockade at current dose.</div>
+    <div class="note-line"><strong>White-coat pattern:</strong> first reading higher in ~30% of sessions (avg drop 2 mmHg). 24-hr ABPM may clarify true status.</div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="reveal">
+    <div class="sec-head"><h2>Medical History</h2></div>
+    <div class="card pad">
+      <div class="timeline">
+        <div class="tl alert">
+          <div class="dotmark"></div>
+          <div class="tdate">June 2026 · ENT</div>
+          <div class="ttitle">BPPV diagnosed & treated</div>
+          <div class="tdesc">Dr. Rai confirmed left posterior canal BPPV via Dix-Hallpike / Supine Roll / Deep Head Hanging. Epley maneuver gave immediate relief. Identified the true cause of the May episodes — a clean single-visit fix.</div>
+        </div>
+        <div class="tl">
+          <div class="dotmark"></div>
+          <div class="tdate">May 2026 · Workup</div>
+          <div class="ttitle">Lightheadedness investigation</div>
+          <div class="tdesc">Family-led re-evaluation: returned an over-aggressive prescription, ordered comprehensive bloodwork instead. Found low B12, deficient vitamin D, normalized TSH, improving lipids, suspected Gilbert's. Analyzed ~2 yrs of home BP — flagged that the Aug 2024 switch to Propranolol worsened control. Planned a telemedicine BP review.</div>
+        </div>
+        <div class="tl">
+          <div class="dotmark"></div>
+          <div class="tdate">Sept 2025 · Screening</div>
+          <div class="ttitle">SwasthFit Super 4 panel</div>
+          <div class="tdesc">General screening (Dr Lal PathLabs). Found elevated TSH, low B12, insufficient vitamin D, dyslipidemia. Lifestyle changes followed; B12 supplementation was missed at the time (corrected May 2026).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDICATIONS -->
+  <section id="medications" class="reveal">
+    <div class="sec-head"><h2>Current Medications</h2></div>
+    <div class="card">
+      <div class="med">
+        <div class="top"><div class="mname">Ciplar LA 20 (Propranolol)</div><div class="dose">20 mg</div></div>
+        <div class="meta">Once daily after breakfast · Hypertension · since Aug 2024</div>
+        <div class="note">Under review — may contribute to lightheadedness; pulse suggests limited effect</div>
+      </div>
+      <div class="med">
+        <div class="top"><div class="mname">Vitamin D3 (Calcirol 60K)</div><div class="dose">60,000 IU</div></div>
+        <div class="meta">Weekly × 8 weeks, then 1000–2000 IU daily · Vitamin D deficiency</div>
+        <div class="note">Take Sunday with a fat-containing lunch</div>
+      </div>
+      <div class="med">
+        <div class="top"><div class="mname">Mylamin (Macleods)</div><div class="dose">1 cap</div></div>
+        <div class="meta">Once daily after breakfast · B12 + neurotropic support</div>
+        <div class="note">Methylcobalamin 1500 mcg + ALA 100 mg + B1 + B6 + Folic Acid · retest 3 months</div>
+      </div>
+      <div class="med">
+        <div class="top"><div class="mname">Iron (Orofer XT)</div><div class="dose">1 tab</div></div>
+        <div class="meta">Once daily at 5 PM with lemon/amla · borderline MCH/RDW</div>
+        <div class="note">10-day course only · avoid tea/coffee/dairy within 1 hr · reassess with ferritin in Aug</div>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:20px;"><h2 style="font-size:18px;">Stopped / Refused</h2></div>
+    <div class="card pad">
+      <div class="notecard" style="padding:0;">
+        <ul>
+          <li><strong>Oractive-N</strong> (Pregabalin + Nortriptyline) — not justified for intermittent lightheadedness without neuropathic features</li>
+          <li><strong>Aqwatrol-T</strong> (Thiocolchicoside + Aceclofenac) — no muscle spasm</li>
+          <li><strong>Rabmark-DSR</strong> (Rabeprazole + Domperidone) — paired with the above</li>
+          <li><strong>Vertigon</strong> (Cinnarizine) — root causes addressed instead</li>
+          <li><strong>Onpical-Z</strong> (Calcitriol + Ca + Zn) — D treated separately at therapeutic dose</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVIDERS -->
+  <section id="providers" class="reveal">
+    <div class="sec-head"><h2>Care Team</h2></div>
+    <div class="card">
+      <div class="prov">
+        <div class="pn">Dr. Abhinav Rai</div>
+        <div class="ps">ENT (MBBS, MS, Gold Medalist PMCH)</div>
+        <div class="pp">Diagnosed & treated BPPV. Go-to for vertigo recurrence.<br>📞 <a href="tel:8252421911">8252421911</a> · Pyari Devi Puram, Block Road, Nayi Bazar, Buxar</div>
+      </div>
+      <div class="prov">
+        <div class="pn">Dr. Rajiv</div>
+        <div class="ps">Radiology (DMC Reg 53315)</div>
+        <div class="pp">Cervical spine X-ray reporting</div>
+      </div>
+      <div class="prov">
+        <div class="pn">Telemedicine consult — to book</div>
+        <div class="ps">Cardiology / Internal Medicine</div>
+        <div class="pp">Via Practo / Apollo 24/7 to review BP regimen. Send clinical summary + bloodwork + BP log in advance.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODO -->
+  <section id="todo" class="reveal">
+    <div class="sec-head"><h2>Action Items</h2><span class="count">tap to check</span></div>
+    <div class="card" id="checklist">
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt">Take <b>Mylamin</b> daily after breakfast</div></div>
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt">Take <b>Vitamin D3 60,000 IU</b> every Sunday × 8 weeks</div></div>
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt"><b>10-day iron trial</b> at 5 PM with lemon/amla; reassess</div></div>
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt">Continue daily home BP monitoring (morning + standing)</div></div>
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt"><b>Book telemedicine consult</b> (cardiology / internal med); send summary + labs + BP log</div></div>
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt">Discuss BP: class switch (ARB / restore Amlodipine) or 24-hr ABPM</div></div>
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt">Morning protocol: water by bed, slow standing, calf pumps</div></div>
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt">Postural care: screen at eye level, daily chin tucks</div></div>
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt"><b>Aug 2026 bloodwork:</b> TSH, Free T4, B12, Vit D, lipids, <b>ferritin</b>, CBC</div></div>
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt">Consider anti-TPO (thyroid) and homocysteine/MMA (if B12 lags)</div></div>
+      <div class="check"><div class="box"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div class="txt"><b>If vertigo recurs:</b> return to Dr. Rai for repeat Epley; maintain Vit D</div></div>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section id="notes" class="reveal">
+    <div class="sec-head"><h2>Notes for Future Visits</h2></div>
+    <div class="card notecard">
+      <h4>Always flag</h4>
+      <ul>
+        <li><strong>Liver / bilirubin workup:</strong> mention suspected <strong>Gilbert's syndrome</strong> (shared with brother) before broader investigation.</li>
+        <li><strong>CNS-active drugs</strong> (pregabalin, gabapentin, tricyclics): review carefully — prior Oractive-N felt aggressive for the symptoms.</li>
+        <li><strong>Major / strong new medication starts:</strong> flag UGT1A1 / Gilbert's status, as it can slow how some drugs are cleared and affect safe dosing.</li>
+      </ul>
+      <h4>History to bring</h4>
+      <ul>
+        <li><strong>Thyroid:</strong> TSH trend since 2025 documented here.</li>
+        <li><strong>Recurrent vertigo:</strong> left posterior canal BPPV (Jun 2026), responded to Epley. First line is repositioning, not medication — Dr. Rai holds the history.</li>
+      </ul>
+      <h4>Family history</h4>
+      <ul>
+        <li><strong>Gilbert's syndrome</strong> (suspected, autosomal recessive UGT1A1): both Raj and his brother show mildly elevated unconjugated bilirubin with normal enzymes. Benign; no treatment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <button class="log-toggle" id="logBtn">
+      Document maintenance log
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="logbody" id="logBody">
+      <div class="card pad">
+        <div class="logrow"><div class="ld">5 Jun 2026</div>Journal revision: added caretaker phone (tap-to-call), blood group O+, current-status summary. BPPV reclassified resolved-but-monitor. Reordered so labs, imaging, BP and history surface first; removed daily-schedule view.</div>
+        <div class="logrow"><div class="ld">5 Jun 2026</div>Added BPPV diagnosis & Epley treatment; reclassified cervical lordosis as incidental; updated symptoms, encounters, imaging, action items.</div>
+        <div class="logrow"><div class="ld">5 May 2026</div>Added CRP result; switched B12 supplement to Mylamin; added 10-day iron trial and daily schedule.</div>
+        <div class="logrow"><div class="ld">5 May 2026</div>Corrected antihypertensive history; added 2-year home BP analysis (334 readings); set up telemedicine consult plan.</div>
+        <div class="logrow"><div class="ld">5 May 2026</div>Initial creation: compiled Sept 2025 + May 2026 bloodwork, Mar 2026 X-ray, medication history, Gilbert's family link.</div>
+      </div>
+    </div>
+    <p class="disclaimer">
+      Living family health record maintained by Rajeev Shekhar. For information and care coordination only — not a substitute for professional medical advice.<br>
+      Last updated 5 June 2026.
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  // Accordion
+  document.querySelectorAll('.acc-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+  });
+
+  // Checklist (in-memory)
+  document.querySelectorAll('#checklist .check').forEach(function(c){
+    c.addEventListener('click', function(){ c.classList.toggle('done'); });
+  });
+
+  // Maintenance log
+  var logBtn = document.getElementById('logBtn');
+  var logBody = document.getElementById('logBody');
+  logBtn.addEventListener('click', function(){
+    logBody.classList.toggle('open');
+    logBtn.querySelector('svg').style.transform = logBody.classList.contains('open') ? 'rotate(180deg)' : '';
+  });
+
+  // Nav active state on scroll
+  var links = Array.from(document.querySelectorAll('#nav a'));
+  var sections = links.map(function(l){ return document.querySelector(l.getAttribute('href')); });
+  var navEl = document.getElementById('nav');
+  function syncNav(){
+    var pos = window.scrollY + 110;
+    var idx = 0;
+    sections.forEach(function(s, i){ if(s && s.offsetTop <= pos) idx = i; });
+    links.forEach(function(l,i){ l.classList.toggle('active', i===idx); });
+    var act = links[idx];
+    if(act){
+      var l = act.offsetLeft - navEl.clientWidth/2 + act.clientWidth/2;
+      navEl.scrollTo({left:l, behavior:'smooth'});
+    }
+  }
+  window.addEventListener('scroll', function(){ window.requestAnimationFrame(syncNav); }, {passive:true});
+
+  // Reveal on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:0.06});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
