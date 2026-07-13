@@ -4,935 +4,337 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light"/>
-<meta name="description" content="Dr. Hingmani — clinical coordination summary (hilar cholangiocarcinoma). Updated 11 Jul 2026 evening (fifth admission, day 4 / C3D6): a mixed but net-okay day. Day-4 labs confirm the cholangitis resolving (T.Bili 0.99, AST 41, ALT 18), but another rigor + 102°F despite pip-tazo + Dorimate S → saline + paracetamol + lignocaine; Amikacin added (3rd antibiotic). Liver IR screening: both existing drains working but a dilated, UNDRAINED right posterior sectoral duct (RPSD) = likely recurrent-fever source, a potentially fixable mechanical cause (open decision: whether/when to drain + trigger). Hb 6.9 corrected with 1 unit A+ve PRBC (uneventful; blood group A Rh-positive). Na 128.3→129.3 correcting; K 3.07 being replaced. Still spiking on 3 antibiotics — the bile/blood culture (still awaited) is the tiebreaker. On TAF antiviral. C3D8 pushed to ~18–20 Jul, gated on infection clearing."/>
-<title>Dr. Hingmani — Clinical Summary — 5th admission, cholangitis resolving; Hb 6.9 — 11 Jul 2026</title>
+<meta name="description" content="Dr. Hingmani — clinical coordination summary (hilar cholangiocarcinoma, Bismuth IV). As of 13 Jul 2026: 5th admission day 6 / C3D8, acute cholangitis IMPROVING — afebrile ~24–36h. Bile culture back (Pseudomonas + E. coli, both piperacillin-tazobactam-resistant); recurrent rigors were a coverage gap, closed by Amikacin + carbapenem; antibiotics now sensitivity-guided, inpatient ~4–5 more days. IR declined draining the undrained RPSD (a known PTBD trade-off). Transfusion worked (Hb 6.9→8.1). Plt 96 nadir; Na corrected 135.2; K 2.94 replacing. On TAF antiviral. C3D8 + interim PET ~18–20 Jul, gated on infection clearing."/>
+<title>Dr. Hingmani — Clinical Summary — 13 Jul 2026 (improving; culture-guided)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#fcfbf7;--paper-2:#f5f3ec;--ink:#181b21;--ink-2:#2b2f37;--muted:#5a636f;--faint:#8a93a0;--rule:#dcd7c9;--rule-soft:#eae5d6;--rule-strong:#a8a294;
-  --brand:#3a6478;--brand-soft:#e8eff2;
-  --ok:#1f6b3a;--ok-bg:#eaf3ec;--ok-rule:#bcd6c2;
-  --warn:#8a5a16;--warn-bg:#faf2e1;--warn-rule:#e6cd9a;
-  --danger:#a4263a;--danger-bg:#f9e7ea;--danger-rule:#e6b4be;
-  --info:#1e497a;--info-bg:#e6eef6;--info-rule:#b6c6dc;
-  --serif:"Source Serif 4",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
-  --shadow:0 1px 2px rgba(24,27,33,.04),0 2px 8px rgba(24,27,33,.05)
+  --paper:#fbfaf6;--card:#ffffff;--ink:#1a1d23;--ink2:#2c313a;--muted:#5c6470;--faint:#8b93a0;
+  --rule:#e4dfd1;--rule-soft:#efeade;--rule-strong:#c9c2b0;
+  --brand:#34687d;--brand-bg:#e9f0f3;
+  --ok:#1f6b3a;--ok-bg:#eaf3ec;--ok-rule:#c3ddc9;
+  --warn:#8a5a16;--warn-bg:#faf3e2;--warn-rule:#e7d19f;
+  --danger:#a4263a;--danger-bg:#f9e8eb;--danger-rule:#e6b6bf;
+  --info:#1e497a;--info-bg:#e7eef6;--info-rule:#bcccdf;
+  --serif:"Source Serif 4",Georgia,serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --shadow:0 1px 2px rgba(24,27,33,.04),0 2px 8px rgba(24,27,33,.05);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;font-family:var(--sans);font-size:15px;line-height:1.55;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-.num,td,th,.lab-value,.metric-value,.metric-value-dual{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);font-size:15px;line-height:1.55;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.num,td,th,.mval,.m-val{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 a{color:var(--brand);text-underline-offset:3px}
-html,body{overflow-x:hidden;max-width:100%}
 
-/* ---------- Sticky patient banner ---------- */
-.banner{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#45798f 0%,#315a6e 100%);color:#fff;box-shadow:0 2px 12px rgba(43,77,94,.22)}
-.banner-inner{max-width:1180px;margin:0 auto;padding:11px 22px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center}
-.b-id{display:flex;align-items:center;gap:13px;min-width:0}
-.b-avatar{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:17px;color:#fff;border:1.5px solid rgba(255,255,255,.35);flex:0 0 auto}
-.b-name{font-family:var(--serif);font-weight:600;font-size:17px;line-height:1.1}
-.b-name .b-demo-inline{color:rgba(255,255,255,.65);font-weight:400;font-size:13px}
-.b-sub{font-size:11.5px;color:rgba(255,255,255,.72);margin-top:2px;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.b-sub .b-maint{color:rgba(255,255,255,.9);font-weight:600}
-.b-chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;min-width:0}
-.b-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;border:1px solid transparent}
-.b-chip .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
-.b-chip.danger{background:rgba(244,180,190,.16);border-color:rgba(244,180,190,.45);color:#ffd9df}
-.b-chip.ok{background:rgba(160,220,180,.16);border-color:rgba(160,220,180,.4);color:#c8efd4}
-.b-chip.info{background:rgba(180,210,245,.16);border-color:rgba(180,210,245,.4);color:#d4e6fb}
-.b-chip.warn{background:rgba(240,210,150,.16);border-color:rgba(240,210,150,.4);color:#f6e2b8}
-.b-chip.danger .dot::after{content:"";position:absolute;inset:-3px;border-radius:50%;background:currentColor;opacity:.4;animation:pulse 1.8s ease-in-out infinite}
-.b-chip.danger .dot{position:relative}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.7);opacity:0}}
-.b-meta{display:flex;gap:16px;align-items:center;white-space:nowrap}
-.b-cycle{display:inline-flex;align-items:center;gap:9px;padding:5px 12px 5px 9px;border-radius:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18)}
-.b-cycle-badge{font-family:var(--serif);font-weight:700;font-size:16px;line-height:1}
-.b-cycle-meta{display:flex;flex-direction:column;line-height:1.15}
-.b-cycle-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.72}
-.b-cycle-detail{font-size:10.5px;font-weight:600;opacity:.95;margin-top:1px}
-.b-fresh{text-align:right}
-.b-fresh-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.68}
-.b-fresh-time{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:1px}
+/* header */
+.hdr{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,#3d7089 0%,#2f596d 100%);color:#fff;box-shadow:0 2px 12px rgba(43,77,94,.22)}
+.hdr-in{max-width:1080px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.avatar{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.35);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:16px;flex:0 0 auto}
+.hdr-id{min-width:0;flex:1 1 auto}
+.hdr-name{font-family:var(--serif);font-weight:600;font-size:17px;line-height:1.15}
+.hdr-name span{color:rgba(255,255,255,.66);font-weight:400;font-size:13px}
+.hdr-dx{font-size:11.5px;color:rgba(255,255,255,.74);margin-top:1px}
+.hdr-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hdr-stat{display:inline-flex;align-items:center;gap:7px;background:rgba(160,220,180,.16);border:1px solid rgba(160,220,180,.42);color:#c8efd4;padding:4px 11px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+.hdr-stat .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+.hdr-asof{text-align:right;font-size:10px;line-height:1.3;color:rgba(255,255,255,.7)}
+.hdr-asof b{display:block;font-size:12.5px;color:#fff;font-variant-numeric:tabular-nums}
 
-/* ---------- Page & nav ---------- */
-.page{max-width:1180px;margin:0 auto;padding:30px 22px 80px}
-.nav{position:sticky;top:65px;z-index:40;background:rgba(252,251,247,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);margin:0 -22px 26px;padding:0 22px}
-.nav-inner{max-width:1180px;margin:0 auto;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
-.nav-inner::-webkit-scrollbar{display:none}
-.nav a{flex:0 0 auto;padding:12px 14px;font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap}
-.nav a:hover,.nav a.active{color:var(--brand);border-bottom-color:var(--brand)}
+/* page */
+.page{max-width:1080px;margin:0 auto;padding:26px 22px 70px}
+section{margin:34px 0;scroll-margin-top:70px}
+.s-head{display:flex;align-items:baseline;gap:12px;margin-bottom:15px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.s-num{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.s-title{font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:-.015em;margin:0}
+.s-by{margin-left:auto;font-size:11px;color:var(--muted);text-align:right}
+h3{font-family:var(--serif);font-size:15.5px;font-weight:600;margin:20px 0 9px}
 
-/* ---------- Title ---------- */
-.title-block{margin:6px 0 26px}
-.doc-meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;font-weight:600;flex-wrap:wrap;gap:6px}
-.doc-meta .doc-id{font-family:var(--mono);text-transform:none;letter-spacing:0;font-size:11px;color:var(--faint)}
-.doc-title{font-family:var(--serif);font-size:clamp(27px,4vw,42px);font-weight:700;line-height:1.08;letter-spacing:-.025em;margin:0 0 9px}
-.doc-title span{color:var(--muted);font-weight:400}
-.doc-sub{font-family:var(--serif);font-size:clamp(15px,1.8vw,17px);font-style:italic;color:var(--muted);font-weight:400;max-width:80ch;margin:0;line-height:1.5}
+/* situation hero */
+.hero{padding:18px 20px;background:linear-gradient(120deg,var(--ok-bg) 0%,#f2f8f1 100%);border:1px solid var(--ok-rule);border-left:4px solid var(--ok);border-radius:9px;box-shadow:var(--shadow)}
+.hero-tag{font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--ok);margin-bottom:7px}
+.hero p{margin:0 0 9px;font-size:14px;line-height:1.6;color:var(--ink2)}
+.hero p:last-child{margin-bottom:0}
+.hero strong{color:var(--ink)}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
+.chip{font-size:11px;font-weight:600;padding:4px 11px;border-radius:999px;border:1px solid var(--rule);background:#fff;color:var(--ink2);white-space:nowrap}
+.chip.ok{background:var(--ok-bg);border-color:var(--ok-rule);color:var(--ok)}
+.chip.warn{background:var(--warn-bg);border-color:var(--warn-rule);color:var(--warn)}
+.chip.danger{background:var(--danger-bg);border-color:var(--danger-rule);color:var(--danger)}
+.chip.info{background:var(--info-bg);border-color:var(--info-rule);color:var(--info)}
 
-/* ---------- Sections ---------- */
-section{margin:38px 0;scroll-margin-top:118px}
-.s-head{display:flex;align-items:baseline;gap:13px;margin-bottom:18px;padding-bottom:9px;border-bottom:2px solid var(--ink)}
-.s-num{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--faint);letter-spacing:.05em}
-.s-title{font-family:var(--serif);font-size:23px;font-weight:700;letter-spacing:-.015em;margin:0}
-.s-by{margin-left:auto;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-weight:600}
-h3{font-family:var(--serif);font-size:17px;font-weight:600;margin:24px 0 10px}
-h4{font-family:var(--sans);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:16px 0 7px}
-.text-small{font-size:12.5px}.text-muted{color:var(--muted)}.mt0{margin-top:0}.mb0{margin-bottom:0}
+/* metric grid */
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}
+.m{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:12px 13px;box-shadow:var(--shadow);border-top:3px solid var(--rule-strong)}
+.m.ok{border-top-color:var(--ok)}.m.warn{border-top-color:var(--warn)}.m.danger{border-top-color:var(--danger)}.m.info{border-top-color:var(--info)}
+.m-label{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.m-val{font-family:var(--serif);font-size:23px;font-weight:700;line-height:1;letter-spacing:-.02em;display:flex;align-items:baseline;gap:4px}
+.m-unit{font-size:10.5px;font-weight:500;color:var(--muted);font-family:var(--sans)}
+.m-flag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:700;text-transform:uppercase;margin-left:2px;vertical-align:middle}
+.m-flag.L,.m-flag.LL,.m-flag.HH,.m-flag.H{background:var(--danger);color:#fff}
+.m-flag.warnflag{background:var(--warn);color:#fff}
+.m-flag.OK{background:var(--ok);color:#fff}
+.m-note{font-size:10.5px;color:var(--muted);margin-top:6px;line-height:1.4}
+.m-note b{color:var(--ink2);font-weight:600;font-family:var(--mono);font-size:10px}
 
-/* ---------- Hero alert ---------- */
-.hero{display:grid;grid-template-columns:auto 1fr;gap:16px;margin:0 0 22px;padding:18px 20px;background:linear-gradient(120deg,var(--danger-bg) 0%,#fbf0f2 100%);border:1px solid var(--danger-rule);border-left:4px solid var(--danger);border-radius:8px;box-shadow:var(--shadow)}
-.hero-icon{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--danger);color:#fff;display:grid;place-items:center;font-weight:700;font-size:18px;font-family:var(--serif)}
-.hero-tag{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--danger);margin-bottom:5px}
-.hero-text{font-size:14px;color:var(--ink-2);line-height:1.55;margin:0}
-.hero-text strong{color:var(--ink)}
-.hero-pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
-.hero-pill{font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--danger-rule);color:var(--danger);font-variant-numeric:tabular-nums}
+/* issues */
+.issues{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.issue{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--rule-strong);border-radius:8px;padding:13px 15px;box-shadow:var(--shadow)}
+.issue.danger{border-left-color:var(--danger)}.issue.warn{border-left-color:var(--warn)}.issue.ok{border-left-color:var(--ok)}.issue.info{border-left-color:var(--info)}
+.issue-top{display:flex;align-items:center;gap:9px;margin-bottom:5px}
+.issue-code{font-family:var(--mono);font-size:9.5px;font-weight:600;padding:1px 6px;border-radius:4px;background:var(--paper);border:1px solid var(--rule-soft);color:var(--muted)}
+.issue-title{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);line-height:1.25}
+.issue-badge{margin-left:auto;font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.issue.danger .issue-badge{background:var(--danger-bg);color:var(--danger)}.issue.warn .issue-badge{background:var(--warn-bg);color:var(--warn)}.issue.ok .issue-badge{background:var(--ok-bg);color:var(--ok)}.issue.info .issue-badge{background:var(--info-bg);color:var(--info)}
+.issue p{margin:0;font-size:12.5px;line-height:1.5;color:var(--muted)}
+.issue p .nx{color:var(--ink2);font-weight:600}
+.more{margin-top:11px;font-size:12px;color:var(--muted);line-height:1.55}
 
-/* ---------- Purpose ---------- */
-.purpose{display:grid;grid-template-columns:auto 1fr;gap:14px;margin:0 0 8px;padding:15px 18px;background:linear-gradient(120deg,var(--brand-soft) 0%,#f2f9f7 100%);border:1px solid #b6d2ce;border-left:4px solid var(--brand);border-radius:8px}
-.purpose-icon{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-style:italic}
-.purpose-tag{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:4px}
-.purpose-text{margin:0;color:var(--ink-2);font-size:13.5px;line-height:1.55}
-.purpose-text strong{color:var(--ink)}
+/* timeline */
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:96px 20px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--rule-soft)}
+.tl li:last-child{border-bottom:none}
+.tl-date{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink2);text-align:right;padding-top:2px}
+.tl-date small{display:block;font-size:9px;color:var(--faint);font-weight:500}
+.tl-dot{position:relative}
+.tl-dot::before{content:"";display:block;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--brand);margin:5px auto 0}
+.tl-dot.ok::before{border-color:var(--ok);background:var(--ok)}.tl-dot.acute::before{border-color:var(--danger);background:var(--danger)}.tl-dot.warn::before{border-color:var(--warn);background:var(--warn)}
+.tl-dot::after{content:"";position:absolute;top:19px;bottom:-11px;left:50%;width:1.5px;background:var(--rule);transform:translateX(-50%)}
+.tl li:last-child .tl-dot::after{display:none}
+.tl-t{font-family:var(--serif);font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;margin:0 0 2px}
+.tl-d{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0}
 
-/* ---------- Cards & grids ---------- */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.card{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:18px 20px;box-shadow:var(--shadow);position:relative}
-.card.ok{background:var(--ok-bg);border-color:var(--ok-rule)}
-.card.warn{background:var(--warn-bg);border-color:var(--warn-rule)}
-.card.danger{background:var(--danger-bg);border-color:var(--danger-rule)}
-.card.info{background:var(--info-bg);border-color:var(--info-rule)}
-.card-label{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;color:var(--brand)}
-.card.ok .card-label{color:var(--ok)}.card.warn .card-label{color:var(--warn)}.card.danger .card-label{color:var(--danger)}.card.info .card-label{color:var(--info)}
-.kv{display:grid;grid-template-columns:120px 1fr;gap:10px;margin-bottom:9px}
-.kv:last-child{margin-bottom:0}
-.kv-k{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-top:3px}
-.kv-v{font-size:13.5px;line-height:1.5;color:var(--ink-2)}
-.kv-v strong{color:var(--ink)}
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;background:var(--card);box-shadow:var(--shadow);-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+thead{background:linear-gradient(180deg,#f2efe6 0%,#ece7d8 100%);border-bottom:2px solid var(--rule-strong)}
+th{text-align:left;padding:9px 12px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2);white-space:nowrap}
+td{padding:8px 12px;border-bottom:1px solid var(--rule-soft);vertical-align:top;line-height:1.45}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--paper)}
+td b,th b{color:var(--ink)}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;padding:1px 6px;border-radius:3px;background:var(--paper);border:1px solid var(--rule-soft);color:var(--ink2);white-space:nowrap}
+.res{color:var(--danger);font-weight:600}.sen{color:var(--ok);font-weight:600}.intt{color:var(--warn);font-weight:600}
 
-/* ---------- Metric strip ---------- */
-.metrics{display:grid;grid-template-columns:repeat(6,1fr);background:#fff;border:1px solid var(--rule);border-radius:8px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
-.metric{padding:14px 15px;border-right:1px solid var(--rule-soft);position:relative}
-.metric:last-child{border-right:none}
-.metric.warn{background:linear-gradient(180deg,#fdf9ef 0%,#fff 65%)}
-.metric.danger{background:linear-gradient(180deg,#fdf2f4 0%,#fff 65%)}
-.metric.ok{background:linear-gradient(180deg,#f2faf4 0%,#fff 65%)}
-.metric.info{background:linear-gradient(180deg,#eef4fa 0%,#fff 65%)}
-.metric-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:5px}
-.metric-value{font-family:var(--serif);font-size:25px;font-weight:700;line-height:1;letter-spacing:-.02em;display:flex;align-items:baseline;gap:5px}
-.metric-value-dual{font-family:var(--serif);font-size:21px;font-weight:700;line-height:1;letter-spacing:-.02em;display:flex;align-items:baseline;gap:3px;flex-wrap:nowrap}
-.metric-unit{font-size:11px;font-weight:500;color:var(--muted);font-family:var(--sans)}
-.metric-value-dual .sep{font-size:15px;font-weight:400;color:var(--faint);margin:0 1px}
-.metric-flag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-left:3px}
-.metric-flag.L,.metric-flag.H,.metric-flag.HH,.metric-flag.LL{background:var(--danger);color:#fff}
-.metric-flag.L{background:var(--warn)}
-.metric-flag.OK{background:var(--ok);color:#fff}
-.metric-delta{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:5px;line-height:1.35}
-.metric-delta b{color:var(--ink-2);font-weight:600}
-.metric-note{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.35}
+/* two-col grid */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:15px 18px;box-shadow:var(--shadow)}
+.card h3{margin-top:0}
+.kv{display:grid;grid-template-columns:118px 1fr;gap:8px 12px;font-size:13px;margin:0}
+.kv dt{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.kv dd{margin:0;color:var(--ink2);line-height:1.5}
+.kv dd b{color:var(--ink)}
+.safety{list-style:none;margin:0;padding:0}
+.safety li{position:relative;padding:6px 0 6px 20px;font-size:12.5px;line-height:1.5;color:var(--ink2);border-bottom:1px solid var(--rule-soft)}
+.safety li:last-child{border-bottom:none}
+.safety li::before{content:"";position:absolute;left:2px;top:12px;width:7px;height:7px;border-radius:50%;background:var(--danger)}
+.safety li.w::before{background:var(--warn)}.safety li.i::before{background:var(--info)}
+.safety b{color:var(--ink)}
 
-/* ---------- Trend cards (charts) ---------- */
-.trend-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.trend-card{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:14px 15px 11px;box-shadow:var(--shadow);overflow:hidden;border-top:3px solid var(--rule-strong)}
-.trend-card.up-good,.trend-card.down-good{border-top-color:var(--ok)}
-.trend-card.up-bad,.trend-card.down-bad{border-top-color:var(--danger)}
-.trend-card.flat-watch{border-top-color:var(--warn)}
-.trend-card.new-watch{border-top-color:var(--info)}
-.tc-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:3px}
-.tc-name{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-.tc-delta{font-family:var(--mono);font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:999px}
-.trend-card.up-good .tc-delta,.trend-card.down-good .tc-delta{background:var(--ok-bg);color:var(--ok)}
-.trend-card.up-bad .tc-delta,.trend-card.down-bad .tc-delta{background:var(--danger-bg);color:var(--danger)}
-.trend-card.flat-watch .tc-delta{background:var(--warn-bg);color:var(--warn)}
-.trend-card.new-watch .tc-delta{background:var(--info-bg);color:var(--info)}
-.tc-value{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1;letter-spacing:-.02em;display:flex;align-items:baseline;gap:5px;margin:5px 0 3px}
-.tc-unit{font-size:10.5px;font-weight:500;color:var(--muted);font-family:var(--sans)}
-.tc-sub{font-size:11px;color:var(--muted);line-height:1.4;margin:0 0 7px}
-.spark{width:100%;height:48px;display:block}
-.spark .spark-area{fill:currentColor;opacity:.09}
-.spark .spark-line{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round}
-.spark .spark-dot{fill:currentColor;stroke:#fff;stroke-width:1.3}
-.spark .spark-dot-last{stroke-width:1.6}
-.spark .spark-ref{stroke:var(--rule-strong);stroke-width:.8;stroke-dasharray:2 2;opacity:.7}
-.spark .spark-band{fill:var(--ok);opacity:.06}
-.trend-card.up-good .spark,.trend-card.down-good .spark{color:var(--ok)}
-.trend-card.up-bad .spark,.trend-card.down-bad .spark{color:var(--danger)}
-.trend-card.flat-watch .spark{color:var(--warn)}
-.trend-card.new-watch .spark{color:var(--info)}
-.spark-axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:8.5px;color:var(--faint);margin-top:3px}
-.spark-axis span{flex:1;text-align:center}
-.spark-axis span:first-child{text-align:left}.spark-axis span:last-child{text-align:right}
+/* footer */
+.note{margin-top:8px;font-size:12px;color:var(--muted);line-height:1.55}
+footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--faint);line-height:1.6}
+footer b{color:var(--muted)}
 
-/* ---------- Tables ---------- */
-.tbl-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;background:#fff;box-shadow:var(--shadow);-webkit-overflow-scrolling:touch}
-.tbl{width:100%;border-collapse:collapse;min-width:720px;font-size:13px}
-.tbl thead{background:linear-gradient(180deg,#f3f0e7 0%,#ece8d9 100%);border-bottom:2px solid var(--rule-strong)}
-.tbl th{text-align:left;padding:10px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-2);white-space:nowrap}
-.tbl th.num,.tbl td.num{text-align:right}
-.tbl th.spk,.tbl td.spk{text-align:center;min-width:100px;padding-left:8px;padding-right:8px}
-.tbl td{padding:9px 12px;border-bottom:1px solid var(--rule-soft);vertical-align:middle}
-.tbl tr:last-child td{border-bottom:none}
-.tbl tbody tr:hover{background:var(--paper-2)}
-.lab-name{font-weight:600;color:var(--ink)}
-.lab-name small{display:block;font-size:10.5px;color:var(--faint);font-weight:400;margin-top:1px}
-.lab-value{text-align:right;font-family:var(--mono);font-weight:600;font-size:13px;white-space:nowrap}
-.lab-value.H,.lab-value.L{color:var(--danger)}
-.lab-value.L{color:var(--warn)}
-.lab-value.HH,.lab-value.LL{color:var(--danger);background:#fbe6ea;border-radius:3px}
-.lab-ref{text-align:right;font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
-.lab-flag{display:inline-block;text-align:center;font-family:var(--mono);font-size:10px;font-weight:700;border-radius:2px;margin-left:3px;padding:0 3px}
-.lab-flag.H,.lab-flag.HH,.lab-flag.LL{background:var(--danger);color:#fff}
-.lab-flag.L{background:var(--warn);color:#fff}
-.row-spark{display:block;width:92px;height:26px;margin:0 auto;color:var(--muted)}
-.row-spark .rs-line{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}
-.row-spark .rs-dot-last{fill:currentColor;stroke:#fff;stroke-width:1.2}
-.row-spark.up-good,.row-spark.down-good{color:var(--ok)}
-.row-spark.up-bad,.row-spark.down-bad{color:var(--danger)}
-.row-spark.flat{color:var(--faint)}
-.row-spark.info{color:var(--info)}
-.spark-na{font-family:var(--mono);font-size:10.5px;color:var(--faint)}
-.med-route{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:1px 6px;background:var(--paper-2);border-radius:3px;border:1px solid var(--rule-soft)}
-
-/* ---------- Action board ---------- */
-.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
-.action{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:14px 16px;box-shadow:var(--shadow);border-left:4px solid var(--rule-strong);display:flex;flex-direction:column}
-.action.p1{border-left-color:var(--danger)}
-.action.p2{border-left-color:var(--warn)}
-.action.p3{border-left-color:var(--info)}
-.action-top{display:flex;align-items:center;gap:8px;margin-bottom:7px}
-.action-code{font-family:var(--mono);font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:var(--paper-2);color:var(--ink-2);border:1px solid var(--rule-soft)}
-.action.p1 .action-code{background:var(--danger-bg);color:var(--danger);border-color:var(--danger-rule)}
-.action.p2 .action-code{background:var(--warn-bg);color:var(--warn);border-color:var(--warn-rule)}
-.action.p3 .action-code{background:var(--info-bg);color:var(--info);border-color:var(--info-rule)}
-.action-tag{font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-left:auto}
-.concerns{display:flex;flex-direction:column;gap:8px}
-.concern{display:flex;gap:12px;background:#fff;border:1px solid var(--rule);border-left:4px solid var(--rule-strong);border-radius:8px;padding:12px 15px;box-shadow:var(--shadow)}
-.concern.danger{border-left-color:var(--danger)}.concern.warn{border-left-color:var(--warn)}.concern.info{border-left-color:var(--info)}
-.concern-dot{width:9px;height:9px;border-radius:50%;background:var(--rule-strong);margin-top:6px;flex:0 0 auto}
-.concern.danger .concern-dot{background:var(--danger)}.concern.warn .concern-dot{background:var(--warn)}.concern.info .concern-dot{background:var(--info)}
-.concern-body{min-width:0;flex:1}
-.concern-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.concern-title{font-family:var(--serif);font-weight:600;font-size:15.5px;color:var(--ink)}
-.concern-flag{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-left:auto;white-space:nowrap}
-.concern.danger .concern-flag{background:var(--danger-bg);color:var(--danger)}.concern.warn .concern-flag{background:var(--warn-bg);color:var(--warn)}.concern.info .concern-flag{background:var(--info-bg);color:var(--info)}
-.concern-why{margin:3px 0 0;font-size:13.5px;line-height:1.5;color:var(--muted)}
-.action-title{font-family:var(--serif);font-size:15px;font-weight:600;margin:0 0 5px;line-height:1.3}
-.action-detail{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0;font-variant-numeric:tabular-nums}
-.action-detail .em{color:var(--ink);font-weight:600;font-family:var(--mono)}
-
-/* ---------- Status pills ---------- */
-.pill{display:inline-flex;align-items:center;gap:4px;padding:2px 9px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.pill.acute{background:var(--danger);color:#fff}
-.pill.watch{background:var(--warn);color:#fff}
-.pill.stable{background:var(--ok);color:#fff}
-.pill.info{background:var(--info);color:#fff}
-.pill.brand{background:var(--brand);color:#fff}
-
-/* ---------- Event cards ---------- */
-.event{background:#fff;border:1px solid var(--rule);border-radius:8px;box-shadow:var(--shadow);margin-bottom:13px;overflow:hidden;border-left:4px solid var(--rule-strong)}
-.event.milestone{border-left-color:var(--ok)}
-.event.acute{border-left-color:var(--danger)}
-.event.fact{border-left-color:var(--brand)}
-.event-head{padding:12px 18px;background:linear-gradient(180deg,#faf9f4 0%,#fff 100%);border-bottom:1px solid var(--rule-soft);display:flex;align-items:center;gap:11px;flex-wrap:wrap}
-.event-time{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-2);padding:2px 9px;background:var(--paper-2);border-radius:4px;border:1px solid var(--rule-soft);white-space:nowrap}
-.event-title{font-family:var(--serif);font-size:15px;font-weight:600;margin:0;flex:1;min-width:180px;line-height:1.3;text-transform:none;color:var(--ink);letter-spacing:0}
-.event-body{padding:13px 18px 15px;font-size:13.5px;line-height:1.55;color:var(--ink-2)}
-.event-body p{margin:0 0 8px}.event-body p:last-child{margin-bottom:0}
-.event-body strong{color:var(--ink)}
-.event-kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));background:var(--paper-2);border:1px solid var(--rule-soft);border-radius:6px;overflow:hidden;margin:10px 0 2px}
-.ekv{padding:8px 12px;border-right:1px solid var(--rule-soft)}
-.ekv:last-child{border-right:none}
-.ekv-l{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
-.ekv-v{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-2)}
-
-/* ---------- Timeline ---------- */
-.timeline{position:relative;padding-left:0;margin:0;list-style:none}
-.tl-item{display:grid;grid-template-columns:104px 26px 1fr;gap:13px;padding:13px 0;border-bottom:1px solid var(--rule-soft);align-items:start}
-.tl-item:last-child{border-bottom:none}
-.tl-date{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-2);text-align:right;padding-top:3px}
-.tl-date small{display:block;font-size:9.5px;color:var(--faint);font-weight:500}
-.tl-dot{position:relative;padding-top:6px}
-.tl-dot::before{content:"";display:block;width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--brand);margin:0 auto;position:relative;z-index:1}
-.tl-dot.acute::before{border-color:var(--danger);background:var(--danger)}
-.tl-dot.watch::before{border-color:var(--warn);background:var(--warn)}
-.tl-dot.ok::before{border-color:var(--ok);background:var(--ok)}
-.tl-dot::after{content:"";position:absolute;top:22px;bottom:-13px;left:50%;width:1.5px;background:var(--rule);transform:translateX(-50%)}
-.tl-item:last-child .tl-dot::after{display:none}
-.tl-title{font-family:var(--serif);font-size:14.5px;font-weight:600;margin:0 0 3px;line-height:1.3;text-transform:none;color:var(--ink);letter-spacing:0}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.tl-detail{font-size:13px;color:var(--muted);line-height:1.5;margin:0}
-.tl-tag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-left:6px;vertical-align:middle}
-.tl-tag.proc{background:var(--info-bg);color:var(--info);border:1px solid var(--info-rule)}
-.tl-tag.adv{background:var(--danger-bg);color:var(--danger);border:1px solid var(--danger-rule)}
-.tl-tag.dx{background:var(--brand-soft);color:var(--brand);border:1px solid #b6d2ce}
-.tl-tag.lab{background:var(--paper-2);color:var(--ink-2);border:1px solid var(--rule)}
-.tl-tag.ms{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-rule)}
-
-/* ---------- Sidenote, footer ---------- */
-.sidenote{font-size:12px;color:var(--muted);padding:9px 13px;background:var(--paper-2);border-left:3px solid var(--rule-strong);border-radius:0 6px 6px 0;margin:12px 0;line-height:1.5}
-.sidenote strong{color:var(--ink-2)}
-.footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.footer p{margin:4px 0}
-.footer-disc{font-style:italic;font-size:11.5px;line-height:1.5;max-width:58ch}
-
-
-/* ---------- Executive polish additions ---------- */
-body{background:
-  radial-gradient(circle at top left, rgba(58,100,120,.10), transparent 34rem),
-  radial-gradient(circle at 90% 12%, rgba(164,38,58,.06), transparent 28rem),
-  var(--paper);}
-.banner{backdrop-filter:saturate(1.08)}
-.card,.action,.event,.trend-card,.tbl-wrap,.metrics,.concern{border-radius:14px;box-shadow:0 10px 30px rgba(24,27,33,.055),0 1px 2px rgba(24,27,33,.04)}
-.nav{border-bottom:0;box-shadow:0 8px 20px rgba(24,27,33,.06)}
-.nav-inner{gap:6px;padding:8px 0}
-.nav a{border:1px solid transparent;border-radius:999px;padding:8px 13px;background:rgba(255,255,255,.48)}
-.nav a:hover,.nav a.active{background:#fff;border-color:#b7c9d1;box-shadow:0 1px 7px rgba(24,27,33,.05)}
-.exec-grid{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:14px;margin:20px 0 18px}
-.exec-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--rule);border-radius:18px;padding:18px 18px 16px;box-shadow:0 14px 36px rgba(24,27,33,.07)}
-.exec-card::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--brand)}
-.exec-card.danger::before{background:var(--danger)}.exec-card.warn::before{background:var(--warn)}.exec-card.ok::before{background:var(--ok)}
-.exec-kicker{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.exec-title{font-family:var(--serif);font-size:20px;line-height:1.12;font-weight:700;margin:0 0 7px;color:var(--ink)}
-.exec-text{font-size:13px;line-height:1.48;margin:0;color:var(--muted)}
-.exec-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.exec-badge{font-family:var(--mono);font-size:10px;font-weight:600;border-radius:999px;padding:3px 8px;background:var(--paper-2);border:1px solid var(--rule-soft);color:var(--ink-2)}
-.doc-title{max-width:960px}.doc-sub{max-width:92ch}
-.concern{transition:transform .18s ease, box-shadow .18s ease}.concern:hover{transform:translateY(-1px);box-shadow:0 16px 38px rgba(24,27,33,.08)}
-.metric-value-dual{min-height:27px}
-.mobile-quickbar{display:none}
-@media (max-width:900px){.exec-grid{grid-template-columns:1fr}.exec-card{padding:16px}.nav{top:0}.mobile-quickbar{display:flex;position:fixed;left:10px;right:10px;bottom:10px;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border:1px solid var(--rule);border-radius:18px;box-shadow:0 14px 42px rgba(24,27,33,.16);overflow:hidden}.mobile-quickbar a{flex:1;text-align:center;text-decoration:none;color:var(--ink-2);font-size:11px;font-weight:800;padding:9px 6px;border-right:1px solid var(--rule-soft)}.mobile-quickbar a:last-child{border-right:0}.page{padding-bottom:96px}}
-@media (max-width:760px){.exec-title{font-size:18px}.exec-text{font-size:12.8px}.card,.action,.event,.trend-card,.tbl-wrap,.metrics,.concern{border-radius:13px}.concern{padding:11px 12px}.concern-flag{margin-left:0}.metric-value{font-size:22px}.metric-value-dual{font-size:18px}.b-sub{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical}}
-
-/* ---------- Responsive ---------- */
-@media (max-width:1100px) and (min-width:901px){.metrics{grid-template-columns:repeat(3,1fr)}.metric:nth-child(3n){border-right:none}.metric:nth-child(-n+3){border-bottom:1px solid var(--rule-soft)}}
-@media (max-width:900px){
- .banner-inner{grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:7px 10px;padding:9px 14px;align-items:start}
- .b-id{grid-column:1/2}.b-meta{grid-column:2/3;justify-self:end;flex-direction:column;align-items:flex-end;gap:7px}
- .b-chips{grid-column:1/-1;grid-row:2;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
- .b-chip{flex:0 0 auto}.b-avatar{width:36px;height:36px;font-size:15px}.b-name{font-size:15px}.b-name .b-demo-inline{display:none}
- .b-cycle-meta{display:none}.b-cycle{padding:4px 9px}
- .grid-2,.grid-3{grid-template-columns:1fr}
- .metrics{grid-template-columns:repeat(2,1fr)}.metric{border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}.metric:nth-child(2n){border-right:none}
- .trend-grid{grid-template-columns:repeat(2,1fr)}.actions{grid-template-columns:1fr}.nav{top:0}
+@media(max-width:820px){
+  .metrics{grid-template-columns:repeat(3,1fr)}
+  .issues,.g2{grid-template-columns:1fr}
+  .s-by{display:none}
+  .hdr-asof{text-align:left}
 }
-@media (max-width:760px){
- body{font-size:14px}.page{padding:18px 14px 60px}.doc-title{font-size:26px}.doc-sub{font-size:14px}
- .nav{margin:0 -14px 20px;padding:0 14px}.s-head{flex-wrap:wrap;gap:7px 12px}.s-title{font-size:20px}.s-by{margin-left:0;flex-basis:100%}
- .kv{grid-template-columns:1fr;gap:2px}.trend-grid{grid-template-columns:1fr}.tl-item{grid-template-columns:64px 20px 1fr;gap:8px}
- .footer{flex-direction:column}.hero,.purpose{grid-template-columns:1fr}
+@media(max-width:520px){
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .tl li{grid-template-columns:74px 18px 1fr;gap:9px}
 }
-@media print{
- @page{size:A4;margin:13mm 11mm 15mm}
- body{background:#fff;font-size:10pt;line-height:1.4}
- .banner{position:static;background:#fff;color:#000;border-bottom:2px solid #000}
- .banner *{color:#000!important}.b-avatar,.b-cycle{background:#eee!important;border:1px solid #000}
- .nav{display:none}.doc-title{font-size:18pt}section{margin:14pt 0}
- .card,.trend-card,.tbl-wrap,.action,.event,.metrics{page-break-inside:avoid;box-shadow:none;border:1px solid #999}
- .hero{background:#fff!important;border:1px solid #000;border-left:3px solid #000}
- .s-head{border-bottom:1.5pt solid #000}a{color:#000;text-decoration:none}
- .b-chip.danger .dot::after{display:none}
-}
-
-/* ---------- Option A refinement: no duplicate top concern strip ---------- */
-.title-block{background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(245,243,236,.72));border:1px solid var(--rule);border-radius:22px;padding:24px 26px;margin:12px 0 20px;box-shadow:0 18px 48px rgba(24,27,33,.075),0 1px 2px rgba(24,27,33,.04);position:relative;overflow:hidden}
-.title-block::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:linear-gradient(180deg,var(--brand),var(--danger));opacity:.92}
-.doc-meta{margin-left:2px}.doc-title{letter-spacing:-.035em}.doc-sub strong{color:var(--ink)}
-.purpose{border-radius:16px;margin-top:18px;margin-bottom:24px;background:rgba(232,239,242,.72);box-shadow:0 8px 24px rgba(24,27,33,.045)}
-.s-head{border-bottom:0;position:relative;padding-bottom:13px;margin-bottom:20px}
-.s-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--ink),rgba(24,27,33,.08));border-radius:999px}
-.s-num{background:var(--paper-2);border:1px solid var(--rule-soft);padding:3px 8px;border-radius:999px;color:var(--muted)}
-.concerns{counter-reset:concern;gap:10px}
-.concern{position:relative;padding:14px 16px 14px 54px;background:rgba(255,255,255,.92);border-left-width:0;overflow:hidden}
-.concern::before{counter-increment:concern;content:counter(concern);position:absolute;left:16px;top:16px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:800;background:var(--paper-2);color:var(--ink-2);border:1px solid var(--rule-soft)}
-.concern.danger::before{background:var(--danger-bg);color:var(--danger);border-color:var(--danger-rule)}.concern.warn::before{background:var(--warn-bg);color:var(--warn);border-color:var(--warn-rule)}.concern.info::before{background:var(--info-bg);color:var(--info);border-color:var(--info-rule)}
-.concern::after{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--rule-strong)}.concern.danger::after{background:var(--danger)}.concern.warn::after{background:var(--warn)}.concern.info::after{background:var(--info)}
-.concern-dot{display:none}.concern-title{font-size:16px}.concern-why{font-size:13.6px}
-.metric{background:#fff}.metric::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--rule-soft)}.metric.danger::before{background:var(--danger)}.metric.warn::before{background:var(--warn)}.metric.ok::before{background:var(--ok)}.metric.info::before{background:var(--info)}
-.tbl th:first-child,.tbl td:first-child{position:sticky;left:0;z-index:1;background:#fff}.tbl th:first-child{z-index:3;background:linear-gradient(180deg,#f3f0e7 0%,#ece8d9 100%)}.tbl tbody tr:hover td:first-child{background:var(--paper-2)}
-.action,.trend-card,.event,.card{transition:transform .18s ease,box-shadow .18s ease}.action:hover,.trend-card:hover,.event:hover,.card:hover{transform:translateY(-1px);box-shadow:0 18px 42px rgba(24,27,33,.085)}
-.nav a:focus-visible,.mobile-quickbar a:focus-visible{outline:3px solid rgba(58,100,120,.26);outline-offset:2px}
-@media (max-width:900px){.title-block{padding:20px 18px;margin-top:10px}.purpose{margin-bottom:18px}.metrics{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:16px}.metric{min-width:190px;scroll-snap-align:start;border-bottom:0}.metric:nth-child(2n){border-right:1px solid var(--rule-soft)}}
-@media (max-width:760px){.title-block{border-radius:18px;padding:18px 16px 18px 18px}.doc-meta{letter-spacing:.07em}.concern{padding:13px 13px 13px 48px}.concern::before{left:13px;top:14px}.concern-title{font-size:15px}.concern-why{font-size:13px}.s-head::after{height:1.5px}.tbl{font-size:12.5px}.tbl td,.tbl th{padding:8px 10px}.mobile-quickbar{bottom:calc(8px + env(safe-area-inset-bottom));left:8px;right:8px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.concern,.action,.trend-card,.event,.card{transition:none}.concern:hover,.action:hover,.trend-card:hover,.event:hover,.card:hover{transform:none}.b-chip.danger .dot::after{animation:none}}
-
 </style>
 </head>
 <body>
-<header class="banner" role="banner">
-  <div class="banner-inner">
-    <div class="b-id">
-      <div class="b-avatar" aria-hidden="true">DH</div>
-      <div style="min-width:0">
-        <div class="b-name">Dr. Hingmani <span class="b-demo-inline">&middot; 68 F</span></div>
-        <div class="b-sub">68 F &middot; UHID ILBS.0000418029 &middot; INPATIENT (5th admission, day 4 / C3D6) &middot; acute cholangitis &mdash; LFTs resolving but recurrent rigors; undrained RPSD found; 1u PRBC transfused &middot; maintained by <span class="b-maint">Rajeev Shekhar</span></div>
-      </div>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="avatar">DH</div>
+    <div class="hdr-id">
+      <div class="hdr-name">Dr. Hingmani <span>· 68 F · UHID ILBS.0000418029 · A Rh+</span></div>
+      <div class="hdr-dx">Hilar cholangiocarcinoma · Bismuth IV · unresectable, N1 M0 · gem + cis + durvalumab (C3)</div>
     </div>
-    <div class="b-chips" role="region" aria-label="Coordination highlights">
-      <span class="b-chip danger" title="11-Jul liver IR screening: both existing PTBD drains working (left + right-anterior decompressed, no collection) but a dilated, UNDRAINED right posterior sectoral duct (RPSD) — a separate Bismuth IV-isolated territory neither catheter reaches; the likeliest source of the recurrent rigors (trapped colonised bile → can seed bacteraemia). Open decision: whether/when to drain + trigger (pager conversation)."><span class="dot"></span>Undrained RPSD &middot; likely fever source</span>
-      <span class="b-chip danger" title="Another rigor + 102°F this evening despite IV pip-tazo + Dorimate S → saline + paracetamol + lignocaine, settled. Amikacin added as a 3rd antibiotic (sensitive-list broadening) while the bile/blood culture is awaited. Still spiking on 3 antibiotics → points to the undrained RPSD or a coverage gap; the culture is the tiebreaker."><span class="dot"></span>Recurrent rigors &middot; 3 antibiotics</span>
-      <span class="b-chip ok" title="Hb 6.9 (below the ~7 threshold) → 1 unit leucodepleted A+ve packed red cells transfused; crossmatch 'Reserved'; ran uneventfully, stable >70 min, no reaction. Recheck Hb post-transfusion + exclude a bleeding source (hemobilia after the left-lobe externalization). Blood group A Rh-positive."><span class="dot"></span>Transfused &middot; Hb 6.9 &rarr; 1u PRBC</span>
-      <span class="b-chip ok" title="Day-4 labs confirm the cholangitis resolving: T.Bili 1.14→0.99 (back in range), AST 46→41, ALT 20→18; ALP/GGT a small uptick (minor). The LFTs are fine — it is the fevers that aren't settling."><span class="dot"></span>Cholangitis LFTs resolving</span>
-      <span class="b-chip warn" title="Na 128.3→129.3 correcting (within ≤10 mEq/24h); K 3.07 L replacement underway. Post-C3 nadir deepening — Plt 178, TLC 3.56, ANC ~2.63 (not neutropenic). New muffled-hearing symptom (cisplatin ototoxicity? — audiogram before next cisplatin). On TAF (HBV)."><span class="dot"></span>K replacing &middot; nadir &middot; on TAF</span>
-    </div>
-    <div class="b-meta">
-      <div class="b-cycle" title="On Cycle 3, day 6 — C3D1 (gem + cis) given 06-Jul; admitted 08-Jul (C3D3) with acute cholangitis. C3D8 durvalumab #3 + marker panel + interim PET confirmed pushed to ~18–20 Jul, gated on infection clearing. On TAF antiviral since 22-Jun.">
-        <span class="b-cycle-badge">C3 · D6</span>
-        <span class="b-cycle-meta"><span class="b-cycle-label">Inpatient</span><span class="b-cycle-detail">5th admission &middot; day 4 PM</span></span>
-      </div>
-      <div class="b-fresh"><div class="b-fresh-label">Updated</div><div class="b-fresh-time">11 Jul &middot; 21:30</div></div>
+    <div class="hdr-right">
+      <span class="hdr-stat"><span class="dot"></span>Improving · afebrile ~24–36h</span>
+      <div class="hdr-asof">As of<b>13 Jul 2026</b></div>
     </div>
   </div>
 </header>
 
 <div class="page">
-  <div class="title-block">
-    <div class="doc-meta"><span>Comprehensive Clinical Summary</span><span class="doc-id">DOC-HCC-2026-07-11-T2130 &middot; v25.0</span></div>
-    <h1 class="doc-title">Perihilar Adenocarcinoma <span>/ Hilar Cholangiocarcinoma</span></h1>
-    <p class="doc-sub">Updated 11-Jul evening (fifth admission, day 4 / C3D6) &mdash; a <strong>mixed but net-okay day</strong>. The day-4 labs confirm the <strong>cholangitis resolving</strong> (T.Bili 0.99, AST 41, ALT 18), but she had <strong>another rigor + fever 102&deg;F</strong> despite IV piperacillin-tazobactam + Dorimate S &rarr; saline + paracetamol + lignocaine, settled; <strong>Amikacin added</strong> as a 3rd antibiotic. The <strong>liver IR screening produced the substantive result: both existing drains are working, but there is a dilated, UNDRAINED right posterior sectoral duct (RPSD)</strong> &mdash; a separate Bismuth IV-isolated territory that is the <strong>likeliest source of the recurrent rigors</strong> and a potentially fixable mechanical cause (open decision: whether/when to drain + trigger). For the anaemia, <strong>Hb 6.9 was corrected with 1 unit of leucodepleted A+ve packed red cells</strong>, which ran uneventfully (>70 min, no reaction). <strong>Sodium correcting (128.3&rarr;129.3); potassium 3.07 being replaced.</strong> She is <strong>still spiking on 3 antibiotics</strong>, so the <strong>bile/blood culture (still awaited) is the tiebreaker</strong> between the undrained segment and a coverage gap. She remains on the <strong>HBV antiviral (TAF)</strong>. <strong>C3D8 stays ~18&ndash;20 Jul</strong>, gated on the infection clearing.</p>
-  </div>
 
-
-
-  <div class="purpose" role="note">
-    <div class="purpose-icon" aria-hidden="true">i</div>
-    <div>
-      <div class="purpose-tag">Purpose of this page</div>
-      <p class="purpose-text"><strong>Family-prepared coordination summary for the ILBS team and caregivers.</strong> All values and trends are stated as data only; every clinical decision remains with the treating physicians at ILBS. <strong>This page is a point-in-time publish snapshot (as of 11&nbsp;Jul&nbsp;2026, 21:30&nbsp;IST), refreshed at milestones</strong> &mdash; the canonical, continuously-maintained record is the markdown tracker (all lab values live in <code>DrHingmani_Labs.md</code>).</p>
-    </div>
-  </div>
-
-  <nav class="nav" aria-label="Document sections">
-    <div class="nav-inner" id="nav">
-      <a href="#now" data-target="now">Now</a>
-      <a href="#concerns" data-target="concerns">Concerns</a>
-      <a href="#snapshot" data-target="snapshot">Snapshot</a>
-      <a href="#trends" data-target="trends">Trends</a>
-      <a href="#labs" data-target="labs">Lab tables</a>
-      <a href="#newresults" data-target="newresults">New labs</a>
-      <a href="#actions" data-target="actions">Action board</a>
-      <a href="#events" data-target="events">Discharge &rarr; C3</a>
-      <a href="#timeline" data-target="timeline">Timeline</a>
-      <a href="#meds" data-target="meds">Meds</a>
-      <a href="#dx" data-target="dx">Diagnosis</a>
-      <a href="#ref" data-target="ref">Reference</a>
-    </div>
-  </nav>
-
+  <!-- 1 · SITUATION -->
   <section id="now">
-    <div class="s-head"><span class="s-num">&sect; 01</span><h2 class="s-title">Current state</h2><span class="s-by">11 Jul 2026, evening &middot; 5th admission, day 4 / C3D6 &middot; LFTs resolving but recurrent rigors; undrained RPSD found; 1u PRBC transfused</span></div>
-    <div class="card info">
-      <div class="card-label">Where things stand tonight</div>
-      <p style="font-family:var(--serif);font-size:16px;line-height:1.55;margin:0;color:var(--ink)">68F with unresectable Bismuth-IV hilar cholangiocarcinoma, <strong>inpatient since 08-Jul (C3D3)</strong> on her <strong>fifth admission for acute cholangitis</strong> &mdash; a <strong>mixed but net-okay day</strong>. She was well through the morning, and the day-4 labs confirm the <strong>cholangitis is resolving on the numbers</strong> (T.Bili 1.14&rarr;0.99 back in range, AST 46&rarr;41, ALT 20&rarr;18). But the <strong>fevers are not settling: another rigor + 102&deg;F this evening</strong> despite IV piperacillin-tazobactam + Dorimate S &rarr; she was given <strong>saline, paracetamol and a lignocaine injection</strong>, settled (wiped out/lethargic afterward &mdash; the usual post-rigor crash), and <strong>Amikacin was added</strong> as a 3rd antibiotic (an aminoglycoside her known organisms are sensitive to &mdash; broadening toward the likely bug while the culture is awaited). <strong>The liver IR screening produced the substantive result:</strong> both existing PTBD drains are in place and working (left external draining + right-anterior decompressed, no abscess or collection) but there is a <strong>dilated, UNDRAINED right posterior sectoral duct (RPSD)</strong> &mdash; a separate territory the tumour has isolated at the confluence, which <strong>neither catheter reaches</strong>. That trapped, colonised bile with no outlet is the <strong>likeliest source of the recurrent rigors</strong> (it can seed the bloodstream) and, importantly, a <strong>potentially fixable mechanical cause</strong> &mdash; it fits the recurrent fevers better than chemotherapy alone. The open decision is <strong>whether and when to drain the RPSD, and on what clinical trigger</strong> (the subject of the pager conversation). The treating doctor was not persuaded there was an obvious drainage problem and wondered whether chemotherapy could be driving the fevers, but he acknowledged an undrained segment can leak infection and that 102&deg;F is high. <strong>For the anaemia (Hb 6.9, below threshold), the team transfused 1 unit of leucodepleted A+ve packed red cells</strong> &mdash; crossmatch &ldquo;Reserved&rdquo; (compatible), blood group <strong>A Rh-positive</strong> &mdash; which ran <strong>uneventfully, stable &gt;70 minutes in, with no reaction</strong> (recheck the Hb + still exclude a bleeding source). <strong>Sodium is correcting (128.3&rarr;129.3)</strong> and the <strong>new low potassium (3.07) is being replaced</strong>; <strong>intermittent groaning</strong> (not new) is worth a gentle pain/comfort check. She remains on the <strong>HBV antiviral (TAF)</strong> since 22-Jun (ALT 18 normal). <strong>The bile/blood culture is still awaited &mdash; the tiebreaker</strong> between the undrained RPSD and a coverage gap; push for a preliminary. <strong>C3D8 durvalumab #3 + the pre-C3D8 markers + the interim PET stay pushed to ~18&ndash;20 July</strong>, gated on the infection clearing.</p>
-    </div>
-    </section>
-
-  <section id="concerns">
-    <div class="s-head"><span class="s-num">&sect; 02</span><h2 class="s-title">Top current concerns</h2><span class="s-by">At-a-glance &middot; what to watch and why</span></div>
-    <div class="concerns">
-      <div class="concern danger"><span class="concern-dot"></span><div class="concern-body"><div class="concern-row"><span class="concern-title">Undrained right posterior sectoral duct (RPSD) &mdash; likely fever source</span><span class="concern-flag danger">Drain decision</span></div><p class="concern-why">The 11-Jul <strong>liver IR screening</strong> found both existing PTBD drains working (left + right-anterior decompressed, no abscess/collection) but a <strong>dilated, UNDRAINED right posterior sectoral duct</strong> &mdash; a separate Bismuth IV-isolated territory <strong>neither catheter reaches</strong>. Trapped, colonised bile with no outlet is the <strong>likeliest source of the recurrent rigors</strong> (it can seed the bloodstream) and a <strong>potentially fixable mechanical cause</strong> that fits the fevers better than chemo alone. <strong>Open decision: whether/when to place a drain into the RPSD and on what clinical trigger</strong> (recurrent rigors / positive culture / rising bilirubin) &mdash; the subject of the pager conversation. The treating doctor was cautious (queried chemo as a driver) but agreed an undrained segment can leak infection and 102&deg;F is high.</p></div></div>
-      <div class="concern danger"><span class="concern-dot"></span><div class="concern-body"><div class="concern-row"><span class="concern-title">Recurrent rigors despite 3 antibiotics &mdash; push the culture</span><span class="concern-flag danger">Tiebreaker</span></div><p class="concern-why">Another <strong>rigor + 102&deg;F this evening</strong> despite IV piperacillin-tazobactam + Dorimate S &rarr; saline + paracetamol + lignocaine, settled. <strong>Amikacin was added</strong> as a 3rd antibiotic (an aminoglycoside her documented organisms are sensitive to &mdash; broadening toward the likely bug). But she is <strong>still spiking on 3 antibiotics</strong>, which argues the problem is <strong>mechanical (the undrained RPSD)</strong> rather than a drug-spectrum miss &mdash; you don't usually out-run an undrained infected duct with more antibiotics. <strong>The bile/blood culture (sent 08-Jul, still awaited) is the tiebreaker</strong> between an undrained segment and a coverage gap &mdash; <strong>push for a preliminary result</strong>. <strong>Not levofloxacin</strong> (resistant). ANC ~2.63 = not neutropenic (not febrile neutropenia).</p></div></div>
-      <div class="concern ok"><span class="concern-dot"></span><div class="concern-body"><div class="concern-row"><span class="concern-title">Anaemia &mdash; 1 unit PRBC transfused (uneventful)</span><span class="concern-flag info">Recheck Hb</span></div><p class="concern-why"><strong>Hb 6.9</strong> (below the ~7 threshold, still falling) &mdash; the post-C3 nadir deepening &plusmn; dilution (albumin 2.31) &plusmn; occult loss &mdash; so the team <strong>transfused 1 unit of leucodepleted A+ve packed red cells</strong> (crossmatch &ldquo;Reserved&rdquo;; blood group A Rh-positive). It ran <strong>uneventfully, stable &gt;70 minutes in, with no reaction</strong>. Follow-ups: get a <strong>post-transfusion Hb</strong> (expect ~+1&nbsp;g/dL per unit &mdash; a smaller rise would reopen the occult-loss question) and <strong>exclude a bleeding source / hemobilia</strong> after the fresh externalization (drain/stool), though the falling bilirubin (0.99) argues the biliary tree is draining, not bleeding.</p></div></div>
-      <div class="concern ok"><span class="concern-dot"></span><div class="concern-body"><div class="concern-row"><span class="concern-title">Cholangitis &mdash; LFTs resolving (it's the fevers that aren't)</span><span class="concern-flag info">On labs</span></div><p class="concern-why">The day-4 labs confirm the cholangitis settling: <strong>T.Bili 1.14&rarr;0.99 (back in range), AST 46&rarr;41, ALT 20&rarr;18</strong> (ALP/GGT a small uptick 315&rarr;329 / 179&rarr;198 against the falling bilirubin &mdash; minor). So the liver chemistry is fine; the discordance &mdash; <strong>improving LFTs but persistent rigors</strong> &mdash; is exactly what points to an infected compartment the drains and drugs aren't reaching (the undrained RPSD). Contained, not septic from the outset (PCT 0.28).</p></div></div>
-      <div class="concern warn"><span class="concern-dot"></span><div class="concern-body"><div class="concern-row"><span class="concern-title">Post-C3 marrow nadir deepening</span><span class="concern-flag warn">Watch ~D5&ndash;D14</span></div><p class="concern-why"><strong>Platelets 223&rarr;178, Hb 7.4&rarr;6.9, TLC 4.4&rarr;3.56, ANC ~3.26&rarr;~2.63</strong> are falling together at C3D6 = the gemcitabine nadir deepening (~D5&ndash;D14, ~11&ndash;20 Jul), overlapping the resolving cholangitis. <strong>ANC ~2.63 is not neutropenic yet</strong>; platelets are dropping but <strong>still well above the ~20&ndash;30k bleeding zone</strong>, so no platelet-driven precautions yet &mdash; the anaemia is the pressing thread. Serial counts inpatient; watch for febrile-neutropenia; this will <strong>inform the C3D8 gemcitabine dose</strong> when chemo resumes.</p></div></div>
-      <div class="concern warn"><span class="concern-dot"></span><div class="concern-body"><div class="concern-row"><span class="concern-title">Sodium correcting; new low potassium (3.07)</span><span class="concern-flag warn">Replace K</span></div><p class="concern-why"><strong>Sodium 128.3&rarr;129.3</strong> &mdash; continuing to correct comfortably under the <strong>&le;10&nbsp;mEq/24h osmotic-demyelination cap</strong> (mechanism = cisplatin SIADH + acute illness + external left-drain loss, easing as the cholangitis settles). But <strong>potassium fell 3.66&rarr;3.07 (below range)</strong> &mdash; most consistent with <strong>cisplatin renal potassium-wasting</strong> &plusmn; dilution; mild/asymptomatic but warrants <strong>replacement + a recheck</strong> (also relevant to QT on ondansetron &plusmn; olanzapine). Creatinine 0.4/eGFR 158 is clean.</p></div></div>
-      <div class="concern warn"><span class="concern-dot"></span><div class="concern-body"><div class="concern-row"><span class="concern-title">New muffled hearing &mdash; cisplatin ototoxicity?</span><span class="concern-flag warn">Audiogram before next cisplatin</span></div><p class="concern-why">She reports hearing <strong>&ldquo;as if from far away&rdquo;</strong> (unsure one ear or both). The timing fits the <strong>6-Jul cisplatin</strong> &mdash; cisplatin is <strong>cochleotoxic</strong> (dose-cumulative, classically irreversible high-frequency loss), so this must be taken seriously rather than dismissed; a <strong>low-sodium / acute-illness overlay</strong> could also blunt hearing and might lift as the Na corrects. <strong>Raise it with Oncology and get a baseline audiogram before the next cisplatin</strong> (C3D8 ~18&ndash;20 Jul) &mdash; confirmed ototoxicity can change cisplatin dosing or prompt substitution.</p></div></div>
-      <div class="concern warn"><span class="concern-dot"></span><div class="concern-body"><div class="concern-row"><span class="concern-title">C3D8 durvalumab #3 + markers + interim PET &mdash; pushed to ~18&ndash;20 Jul</span><span class="concern-flag warn">Confirmed reschedule</span></div><p class="concern-why">Chemo/immunotherapy is not layered onto an acute cholangitis, so the <strong>C3D8 durvalumab #3 + the pre-C3D8 marker panel (CA&nbsp;19-9 + HBV DNA + CEA + CRP + Na/INR) + the interim PET-CT are confirmed pushed to ~18&ndash;20 Jul</strong> (per Dr. Manisha), gated on the infection clearing. When durvalumab resumes, secure the <strong>IV-steroid premed</strong> (hydrocortisone 100&nbsp;mg / dexamethasone 8&nbsp;mg + paracetamol) &mdash; now permissible with the antiviral (TAF) on board &mdash; and get the <strong>baseline audiogram before the next cisplatin</strong>. The long-overdue CA&nbsp;19-9 (last 469) + HBV DNA (last 605) still need capturing.</p></div></div>
+    <div class="s-head"><span class="s-num">§ 01</span><h2 class="s-title">Situation</h2><span class="s-by">5th admission · day 6 / C3D8 · acute cholangitis</span></div>
+    <div class="hero">
+      <div class="hero-tag">✓ Turning the corner — the bile culture explains the fevers</div>
+      <p><strong>Afebrile ~24–36 hours</strong> — no fever, chills, or rigors. She was admitted 08 Jul (5th admission) with acute cholangitis on a re-obstructed left bile duct; IR externalized the left lobe to drain it.</p>
+      <p>The pivotal new result is the <strong>bile culture</strong> (taken 08 Jul, resulted 12 Jul): it grew <strong>two organisms — <em>Pseudomonas aeruginosa</em> + <em>E. coli</em> — and both are resistant to piperacillin-tazobactam</strong>, the antibiotic she was started on empirically. So the first drug covered <em>neither</em> bug — which is why she kept spiking. The <strong>carbapenem</strong> (added 10 Jul) covers the <em>Pseudomonas</em>; <strong>Amikacin</strong> (added 11 Jul) is what finally covered the <em>E. coli</em>, and she settled within a day of it. The recurrent rigors were substantially a <strong>coverage gap</strong>, now closed. Antibiotics are <strong>sensitivity-guided</strong> (the ineffective pip-tazo dropped); the team is keeping her <strong>inpatient ~4–5 more days</strong> for the IV course.</p>
+      <p>IR (Dr. Amar Mukund) <strong>declined draining the one undrained bile segment (RPSD)</strong> for now — a known trade-off of indwelling drains; it is watched, not drained. The <strong>transfusion worked</strong> (Hb 6.9 → 8.1). Platelets 96 (chemo nadir, not neutropenic); sodium corrected; potassium 2.94 being replaced. On <strong>TAF</strong> for HBV. C3D8 chemo + interim PET-CT remain <strong>~18–20 Jul</strong>, gated on the infection clearing and discharge.</p>
+      <div class="chips">
+        <span class="chip ok">Afebrile ~24–36h</span>
+        <span class="chip warn">Culture-guided antibiotics</span>
+        <span class="chip warn">Inpatient ~4–5 more days</span>
+        <span class="chip warn">RPSD drainage declined — watched</span>
+        <span class="chip ok">Transfusion effective (Hb 8.1)</span>
+        <span class="chip warn">Plt 96 · K 2.94</span>
+        <span class="chip danger">⚠ Never Levofloxacin · pip-tazo now ineffective</span>
+        <span class="chip info">On TAF (HBV)</span>
+      </div>
     </div>
   </section>
 
-  <section id="snapshot">
-    <div class="s-head"><span class="s-num">&sect; 03</span><h2 class="s-title">Latest lab snapshot</h2><span class="s-by">11-Jul day-4 draw (ILBS) &middot; C3D6 &middot; no new evening draw &mdash; post-transfusion Hb pending</span></div>
-    <div class="metrics">
-      <div class="metric warn"><div class="metric-label">Haemoglobin</div><div class="metric-value">6.9<span class="metric-unit">g/dL</span><span class="metric-flag L">L</span></div><div class="metric-delta"><b>6.9</b> &rarr; 1u PRBC <b>transfused</b></div><div class="metric-note">Below ~7 &rarr; 1 unit A+ve PRBC given (uneventful); recheck Hb + exclude bleeding</div></div>
-      <div class="metric warn"><div class="metric-label">Platelets</div><div class="metric-value">178<span class="metric-unit">k/&micro;L</span><span class="metric-flag OK">OK</span></div><div class="metric-delta"><b>223</b> &rarr; <b>178</b> falling</div><div class="metric-note">Post-C3 nadir deepening; still well above the bleeding zone</div></div>
-      <div class="metric ok"><div class="metric-label">ANC / TLC</div><div class="metric-value-dual">2.63<span class="sep">·</span>3.56<span class="metric-unit">k/&micro;L</span></div><div class="metric-delta">falling (nadir); ANC not neutropenic</div><div class="metric-note">ANC ~2.63 &mdash; the 10-Jul 103&deg;F spike is not febrile neutropenia</div></div>
-      <div class="metric ok"><div class="metric-label">AST &middot; ALT &middot; T.Bili</div><div class="metric-value-dual">41<span class="sep">·</span>18<span class="sep">·</span>0.99</div><div class="metric-delta">still settling &mdash; T.Bili in range</div><div class="metric-note">The obstruction/cholangitis leak resolving with drainage</div></div>
-      <div class="metric warn"><div class="metric-label">ALP / GGT</div><div class="metric-value-dual">329<span class="sep">·</span>198<span class="metric-unit">U/L</span></div><div class="metric-delta">small uptick (was 315 / 179)</div><div class="metric-note">Minor rise vs falling bilirubin &mdash; drainage keeping up; watch next draw</div></div>
-      <div class="metric warn"><div class="metric-label">Sodium / K</div><div class="metric-value-dual">129.3<span class="sep">·</span>3.07<span class="metric-unit">mmol/L</span></div><div class="metric-delta">Na correcting; <b>K 3.07 L</b> new</div><div class="metric-note">Na within &le;10/24h; new hypokalaemia &mdash; replace + recheck</div></div>
-    </div>
-    <p class="sidenote"><strong>Lab note:</strong> these remain the <strong>11-Jul day-4 morning values (ILBS; collected 01:24)</strong> &mdash; <strong>no new draw this evening</strong> (the post-transfusion Hb is pending). The labs say the <strong>cholangitis is resolving</strong> &mdash; <strong>T.Bili 1.14&rarr;0.99 (back in range), AST 46&rarr;41, ALT 20&rarr;18</strong>, with only a small <strong>ALP/GGT uptick (315&rarr;329 / 179&rarr;198)</strong>, minor &mdash; but the clinical events moved this evening: another <strong>rigor + 102&deg;F</strong> despite pip-tazo + Dorimate &rarr; <strong>Amikacin added</strong> (3rd antibiotic); the <strong>liver IR screening found an undrained right posterior sectoral duct (RPSD)</strong> as the likely fever source; and <strong>Hb 6.9 was corrected with 1 unit of A+ve PRBC</strong> (uneventful) &mdash; recheck the Hb + exclude a bleeding source. Counts (Plt 178, TLC 3.56 L, ANC ~2.63 not neutropenic) = the post-C3 nadir deepening. <strong>Sodium correcting (128.3&rarr;129.3)</strong>; <strong>potassium 3.07 being replaced</strong>; creatinine clean (0.4/eGFR 158.74). <strong>Still awaited / not on this panel:</strong> the <strong>bile/blood culture (the tiebreaker)</strong>, INR (last 1.22), CRP, CA&nbsp;19-9 (last 469) and HBV DNA (last 605, on TAF).</p>
-  </section>
-
-  <section id="trends">
-    <div class="s-head"><span class="s-num">&sect; 04</span><h2 class="s-title">Trend visualisations</h2><span class="s-by">Decision-driving analytes through the 11-Jul day-4 draw</span></div>
-    <p class="text-small text-muted" style="margin:0 0 14px;max-width:80ch">Each sparkline is auto-scaled to its own series; the last (highlighted) point is the <strong>11-Jul day-4 draw</strong> (the 08-Jul point is the cholangitis admission). Axis ticks are the recent draw dates (26&nbsp;Jun, 3&nbsp;Jul, then the 8&nbsp;&middot;&nbsp;10&nbsp;&middot;&nbsp;11&nbsp;Jul inpatient draws). The <strong>obstruction quartet (ALP, GGT, AST, T.Bili) spiked on 08-Jul and has resolved by 11-Jul</strong> (T.Bili back in range; a small ALP/GGT uptick, minor) &mdash; the cholangitis draining. The <strong>marrow pair (Hb, platelets) is still falling</strong> &mdash; the post-C3 nadir deepening (Hb below the transfusion threshold).</p>
-    <div class="trend-grid">
-      <div class="trend-card down-bad"><div class="tc-head"><span class="tc-name">Haemoglobin</span><span class="tc-delta">&minus;0.5</span></div><div class="tc-value">6.9<span class="tc-unit">g/dL &middot; 11-Jul</span></div><p class="tc-sub">Fell further from 7.4 &mdash; below the ~7 threshold; transfusion decision</p><svg class="spark down-bad" viewBox="0 0 220 56" preserveAspectRatio="none" data-series="8.0,9.3,9.4,7.4,6.9" aria-hidden="true"></svg><div class="spark-axis"><span>26</span><span>3Jul</span><span>8Jul</span><span>10Jul</span><span>11Jul</span></div></div>
-      <div class="trend-card down-bad"><div class="tc-head"><span class="tc-name">Platelets</span><span class="tc-delta">&minus;45</span></div><div class="tc-value">178<span class="tc-unit">k/&micro;L &middot; 11-Jul</span></div><p class="tc-sub">Falling from 223 &mdash; nadir deepening; still above the bleeding zone</p><svg class="spark down-bad" viewBox="0 0 220 56" preserveAspectRatio="none" data-series="50,472,407,223,178" aria-hidden="true"></svg><div class="spark-axis"><span>26</span><span>3Jul</span><span>8Jul</span><span>10Jul</span><span>11Jul</span></div></div>
-      <div class="trend-card down-good"><div class="tc-head"><span class="tc-name">ALP</span><span class="tc-delta">+14</span></div><div class="tc-value">329<span class="tc-unit">U/L &middot; 11-Jul</span></div><p class="tc-sub">Off the 08-Jul spike; small uptick vs falling bilirubin &mdash; minor</p><svg class="spark down-good" viewBox="0 0 220 56" preserveAspectRatio="none" data-series="448,549,630.8,315,329" aria-hidden="true"></svg><div class="spark-axis"><span>26</span><span>3Jul</span><span>8Jul</span><span>10Jul</span><span>11Jul</span></div></div>
-      <div class="trend-card down-good"><div class="tc-head"><span class="tc-name">GGT</span><span class="tc-delta">+19</span></div><div class="tc-value">198<span class="tc-unit">U/L &middot; 11-Jul</span></div><p class="tc-sub">Off the peak; small uptick with ALP &mdash; minor</p><svg class="spark down-good" viewBox="0 0 220 56" preserveAspectRatio="none" data-series="328,317,290.6,179,198" aria-hidden="true"></svg><div class="spark-axis"><span>26</span><span>3Jul</span><span>8Jul</span><span>10Jul</span><span>11Jul</span></div></div>
-      <div class="trend-card down-good"><div class="tc-head"><span class="tc-name">AST</span><span class="tc-delta">&minus;5</span></div><div class="tc-value">41<span class="tc-unit">U/L &middot; 11-Jul</span></div><p class="tc-sub">Still settling off the 08-Jul 90 &mdash; the obstruction leak, not gemcitabine</p><svg class="spark down-good" viewBox="0 0 220 56" preserveAspectRatio="none" data-series="68,45,90.1,46,41" aria-hidden="true"></svg><div class="spark-axis"><span>26</span><span>3Jul</span><span>8Jul</span><span>10Jul</span><span>11Jul</span></div></div>
-      <div class="trend-card down-good"><div class="tc-head"><span class="tc-name">T. Bilirubin</span><span class="tc-delta">&minus;0.15</span></div><div class="tc-value">0.99<span class="tc-unit">mg/dL &middot; 11-Jul</span></div><p class="tc-sub">Back in range (was 1.61) as the left lobe drains &mdash; drainage keeping up</p><svg class="spark down-good" viewBox="0 0 220 56" preserveAspectRatio="none" data-series="0.99,0.90,1.61,1.14,0.99" aria-hidden="true"></svg><div class="spark-axis"><span>26</span><span>3Jul</span><span>8Jul</span><span>10Jul</span><span>11Jul</span></div></div>
-      <div class="trend-card up-good"><div class="tc-head"><span class="tc-name">Sodium</span><span class="tc-delta">+1.0</span></div><div class="tc-value">129.3<span class="tc-unit">mmol/L &middot; 11-Jul</span></div><p class="tc-sub">Correcting safely from 126.6 (&le;10/24h); still mildly low</p><svg class="spark up-good" viewBox="0 0 220 56" preserveAspectRatio="none" data-series="131.5,126.6,128.3,129.3" aria-hidden="true"></svg><div class="spark-axis"><span>3Jul</span><span>8Jul</span><span>10Jul</span><span>11Jul</span></div></div>
-      <div class="trend-card down-bad"><div class="tc-head"><span class="tc-name">Potassium</span><span class="tc-delta">&minus;0.59</span></div><div class="tc-value">3.07<span class="tc-unit">mmol/L &middot; 11-Jul</span></div><p class="tc-sub">New low (was 3.66) &mdash; cisplatin K-wasting &plusmn; dilution; replace + recheck</p><svg class="spark down-bad" viewBox="0 0 220 56" preserveAspectRatio="none" data-series="3.49,3.67,4.26,3.66,3.07" aria-hidden="true"></svg><div class="spark-axis"><span>26</span><span>3Jul</span><span>8Jul</span><span>10Jul</span><span>11Jul</span></div></div>
-    </div>
-  </section>
-
+  <!-- 2 · KEY NUMBERS -->
   <section id="labs">
-    <div class="s-head"><span class="s-num">&sect; 05</span><h2 class="s-title">Lab tables</h2><span class="s-by">11-Jul day-4 draw at left &middot; recent window for context</span></div>
-    <p class="text-small text-muted" style="margin:0 0 14px;max-width:82ch">The newest columns are the <strong>11-Jul, 10-Jul and 08-Jul inpatient draws (ILBS; fifth admission)</strong>, then <strong>03-Jul</strong> (Pathkind home &mdash; different reference ranges, so its ALP/GGT/albumin flags are assay-artefacts) and the <strong>26-Jun</strong> Dr&nbsp;Lal home draw. The story across the three inpatient columns: the <strong>obstruction quartet (ALP, GGT, AST, T.Bili) spiked on 08-Jul (the cholangitis) and has resolved by 11-Jul</strong> (T.Bili back in range; a small ALP/GGT uptick, minor) as the left lobe drains, while the <strong>marrow pair (Hb, platelets) is still falling</strong> (post-C3 nadir deepening; Hb below the transfusion threshold) and <strong>potassium has dropped to 3.07</strong>. Reference ranges shown are the Dr&nbsp;Lal ranges unless noted; ILBS flags are shown as reported.</p>
-
-    <h3 class="mt0">Liver function tests</h3>
-    <div class="tbl-wrap"><table class="tbl"><caption class="sr-only">Liver function tests — recent draws, 26 June to 11 July 2026</caption><thead><tr><th scope="col">Analyte</th><th scope="col" class="spk">Trend</th><th scope="col" class="num">11-Jul</th><th scope="col" class="num">10-Jul</th><th scope="col" class="num">08-Jul</th><th scope="col" class="num">03-Jul</th><th scope="col" class="num">26-Jun</th><th scope="col" class="num">Reference</th><th scope="col">Observation</th></tr></thead><tbody>
-      <tr><td class="lab-name">T. Bilirubin</td><td class="spk"><svg class="row-spark down-good" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="0.99,0.90,1.61,1.14,0.99"></svg></td><td class="lab-value">0.99</td><td class="lab-value H">1.14 <span class="lab-flag H">H</span></td><td class="lab-value H">1.61 <span class="lab-flag H">H</span></td><td class="lab-value">0.90</td><td class="lab-value">0.99</td><td class="lab-ref">0.2&ndash;1.1</td><td><strong>Back in range</strong> 1.14&rarr;0.99 as the left lobe drains.</td></tr>
-      <tr><td class="lab-name">D. Bilirubin</td><td class="spk"><svg class="row-spark down-good" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="0.63,0.59,0.88,0.5,0.5"></svg></td><td class="lab-value H">0.5 <span class="lab-flag H">H</span></td><td class="lab-value H">0.5 <span class="lab-flag H">H</span></td><td class="lab-value H">0.88 <span class="lab-flag H">H</span></td><td class="lab-value H">0.59 <span class="lab-flag H">H</span></td><td class="lab-value H">0.63 <span class="lab-flag H">H</span></td><td class="lab-ref">&lt;0.3</td><td>Easing with total bilirubin.</td></tr>
-      <tr><td class="lab-name">AST</td><td class="spk"><svg class="row-spark down-good" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="68,45,90.1,46,41"></svg></td><td class="lab-value HH">41 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">46 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">90.1 <span class="lab-flag HH">HH</span></td><td class="lab-value H">45 <span class="lab-flag H">H</span></td><td class="lab-value HH">68 <span class="lab-flag HH">HH</span></td><td class="lab-ref">5&ndash;40 <small>(ILBS)</small></td><td>Still settling off the 90 spike &mdash; the obstruction leak, not gemcitabine.</td></tr>
-      <tr><td class="lab-name">ALT</td><td class="spk"><svg class="row-spark down-good" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="39,26.3,29.7,20,18"></svg></td><td class="lab-value">18</td><td class="lab-value HH">20 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">29.7 <span class="lab-flag HH">HH</span></td><td class="lab-value">26.3</td><td class="lab-value">39</td><td class="lab-ref">10&ndash;49 <small>(ILBS 0&ndash;19)</small></td><td>Back in the ILBS range &mdash; reassures against an HBV flare.</td></tr>
-      <tr><td class="lab-name">ALP</td><td class="spk"><svg class="row-spark down-good" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="448,549,630.8,315,329"></svg></td><td class="lab-value HH">329 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">315 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">630.8 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">549 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">448 <span class="lab-flag HH">HH</span></td><td class="lab-ref">46&ndash;112 <small>(ILBS)</small></td><td>Off the 08-Jul spike; <strong>small +14 uptick</strong> vs falling bilirubin &mdash; minor.</td></tr>
-      <tr><td class="lab-name">GGT</td><td class="spk"><svg class="row-spark down-good" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="328,317,290.6,179,198"></svg></td><td class="lab-value HH">198 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">179 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">290.6 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">317 <span class="lab-flag HH">HH</span></td><td class="lab-value HH">328 <span class="lab-flag HH">HH</span></td><td class="lab-ref">0&ndash;55 <small>(ILBS)</small></td><td>Small +19 uptick with ALP &mdash; minor.</td></tr>
-      <tr><td class="lab-name">Albumin</td><td class="spk"><svg class="row-spark down-bad" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="3.40,3.50,2.9,2.47,2.31"></svg></td><td class="lab-value L">2.31 <span class="lab-flag L">L</span></td><td class="lab-value L">2.47 <span class="lab-flag L">L</span></td><td class="lab-value L">2.9 <span class="lab-flag L">L</span></td><td class="lab-value L">3.50 <span class="lab-flag L">L</span></td><td class="lab-value">3.40</td><td class="lab-ref">3.2&ndash;4.6</td><td>Fell to 2.31 (acute-phase + intake + dilution &mdash; Hb fell in step).</td></tr>
-    </tbody></table></div>
-
-    <h3>Complete blood count &amp; inflammation</h3>
-    <div class="tbl-wrap"><table class="tbl"><caption class="sr-only">Complete blood count, procalcitonin and CRP — recent draws, 26 June to 11 July 2026</caption><thead><tr><th scope="col">Analyte</th><th scope="col" class="spk">Trend</th><th scope="col" class="num">11-Jul</th><th scope="col" class="num">10-Jul</th><th scope="col" class="num">08-Jul</th><th scope="col" class="num">03-Jul</th><th scope="col" class="num">26-Jun</th><th scope="col" class="num">Reference</th><th scope="col">Observation</th></tr></thead><tbody>
-      <tr style="background:#fdf2f4"><td class="lab-name">Hb</td><td class="spk"><svg class="row-spark down-bad" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="8.0,9.3,9.4,7.4,6.9"></svg></td><td class="lab-value L">6.9 <span class="lab-flag L">L</span></td><td class="lab-value L">7.4 <span class="lab-flag L">L</span></td><td class="lab-value L">9.4 <span class="lab-flag L">L</span></td><td class="lab-value L">9.30 <span class="lab-flag L">L</span></td><td class="lab-value L">8.00 <span class="lab-flag L">L</span></td><td class="lab-ref">12&ndash;15</td><td><strong>Fell 7.4&rarr;6.9</strong> (PCV 21) &mdash; below the ~7 threshold, still falling; transfusion decision + exclude hemobilia.</td></tr>
-      <tr><td class="lab-name">Platelets</td><td class="spk"><svg class="row-spark down-bad" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="50,472,407,223,178"></svg></td><td class="lab-value">178</td><td class="lab-value">223</td><td class="lab-value">407</td><td class="lab-value H">472 <span class="lab-flag H">H</span></td><td class="lab-value L">50 <span class="lab-flag L">L</span></td><td class="lab-ref">150&ndash;450 <small>(ILBS)</small></td><td>Falling from 223 &mdash; nadir deepening; still well above the bleeding zone.</td></tr>
-      <tr><td class="lab-name">TLC</td><td class="spk"><svg class="row-spark down-good" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="4.70,10.05,12.8,4.4,3.56"></svg></td><td class="lab-value L">3.56 <span class="lab-flag L">L</span></td><td class="lab-value">4.4</td><td class="lab-value H">12.8 <span class="lab-flag H">H</span></td><td class="lab-value H">10.05 <span class="lab-flag H">H</span></td><td class="lab-value">4.70</td><td class="lab-ref">4&ndash;11</td><td>Leukocytosis long resolved; now dipping below range into the post-C3 nadir.</td></tr>
-      <tr><td class="lab-name">ANC abs</td><td class="spk"><svg class="row-spark down-good" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="7.34,11.8,3.26,2.63"></svg></td><td class="lab-value">~2.63</td><td class="lab-value">~3.26</td><td class="lab-value H">~11.8 <span class="lab-flag H">H</span></td><td class="lab-value H">7.34 <span class="lab-flag H">H</span></td><td class="lab-value">2.43</td><td class="lab-ref">2.0&ndash;7.0</td><td>Falling with the nadir but <strong>not neutropenic</strong> &mdash; the 10-Jul 103&deg;F spike is not febrile neutropenia.</td></tr>
-      <tr><td class="lab-name">PCT / CRP</td><td class="spk"><span class="spark-na">&mdash;</span></td><td class="lab-value">&mdash;</td><td class="lab-value">&mdash;</td><td class="lab-value">0.28<small> PCT</small></td><td class="lab-value">&mdash;</td><td class="lab-value HH">74.60<small> CRP</small> <span class="lab-flag HH">HH</span></td><td class="lab-ref">PCT&lt;0.5 &middot; CRP&lt;3.3</td><td><strong>PCT 0.28 (08-Jul) = contained, not septic</strong> (the May 0.33 signature). CRP not repeated (last 74.6, 26-Jun); bile/blood culture still awaited (the tiebreaker).</td></tr>
-      <tr><td class="lab-name">Lymphocytes abs</td><td class="spk"><span class="spark-na">&mdash;</span></td><td class="lab-value L">0.75 <span class="lab-flag L">L</span></td><td class="lab-value L">0.93 <span class="lab-flag L">L</span></td><td class="lab-value L">0.82 <span class="lab-flag L">L</span></td><td class="lab-value">1.61</td><td class="lab-value">1.72</td><td class="lab-ref">1.0&ndash;3.0</td><td>Mild lymphopenia (acute-illness stress + nadir).</td></tr>
-      <tr><td class="lab-name">RDW</td><td class="spk"><span class="spark-na">&mdash;</span></td><td class="lab-value">&mdash;</td><td class="lab-value">&mdash;</td><td class="lab-value">&mdash;</td><td class="lab-value H">19.60 <span class="lab-flag H">H</span></td><td class="lab-value H">17.40 <span class="lab-flag H">H</span></td><td class="lab-ref">11.6&ndash;14</td><td>IDA signature (last 3-Jul; not on the ILBS inpatient CBCs).</td></tr>
-    </tbody></table></div>
-
-    <h3>Kidney function, electrolytes &amp; coagulation</h3>
-    <div class="tbl-wrap"><table class="tbl"><caption class="sr-only">Kidney function, electrolytes and coagulation — recent draws, 26 June to 11 July 2026</caption><thead><tr><th scope="col">Analyte</th><th scope="col" class="spk">Trend</th><th scope="col" class="num">11-Jul</th><th scope="col" class="num">10-Jul</th><th scope="col" class="num">08-Jul</th><th scope="col" class="num">03-Jul</th><th scope="col" class="num">26-Jun</th><th scope="col" class="num">Reference</th><th scope="col">Observation</th></tr></thead><tbody>
-      <tr><td class="lab-name">Creatinine</td><td class="spk"><span class="spark-na">clean</span></td><td class="lab-value">0.4</td><td class="lab-value">0.49</td><td class="lab-value">0.54</td><td class="lab-value">0.56</td><td class="lab-value">0.51</td><td class="lab-ref">0.2&ndash;1 <small>(ILBS)</small></td><td>Clean &mdash; no AKI (eGFR 158.74).</td></tr>
-      <tr><td class="lab-name">Sodium</td><td class="spk"><svg class="row-spark up-good" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="133.5,131.5,126.6,128.3,129.3"></svg></td><td class="lab-value L">129.3 <span class="lab-flag L">L</span></td><td class="lab-value L">128.3 <span class="lab-flag L">L</span></td><td class="lab-value L">126.6 <span class="lab-flag L">L</span></td><td class="lab-value L">131.5 <span class="lab-flag L">L</span></td><td class="lab-value L">133.5 <span class="lab-flag L">L</span></td><td class="lab-ref">136&ndash;145</td><td><strong>Correcting</strong> 128.3&rarr;129.3 (within &le;10/24h); still mildly low.</td></tr>
-      <tr style="background:#fdf2f4"><td class="lab-name">Potassium</td><td class="spk"><svg class="row-spark down-bad" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="3.49,3.67,4.26,3.66,3.07"></svg></td><td class="lab-value L">3.07 <span class="lab-flag L">L</span></td><td class="lab-value">3.66</td><td class="lab-value">4.26</td><td class="lab-value">3.67</td><td class="lab-value L">3.49 <span class="lab-flag L">L</span></td><td class="lab-ref">3.5&ndash;5.1</td><td><strong>New low 3.07</strong> &mdash; cisplatin renal K-wasting &plusmn; dilution; replace + recheck.</td></tr>
-      <tr><td class="lab-name">Chloride</td><td class="spk"><svg class="row-spark flat" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="98,95.2,95.4,99.9,98.6"></svg></td><td class="lab-value">98.6</td><td class="lab-value">99.9</td><td class="lab-value L">95.4 <span class="lab-flag L">L</span></td><td class="lab-value L">95.2 <span class="lab-flag L">L</span></td><td class="lab-value">98</td><td class="lab-ref">98&ndash;107</td><td>In range as sodium corrects.</td></tr>
-      <tr><td class="lab-name">Calcium / Phos</td><td class="spk"><span class="spark-na">ok</span></td><td class="lab-value">&mdash;</td><td class="lab-value">&mdash;</td><td class="lab-value">8.3 / 2.6*</td><td class="lab-value">8.75 / 3.4</td><td class="lab-value">9.05 / 3.5</td><td class="lab-ref">Ca 8.6&ndash;10.3</td><td>Effectively normal (Ca 8.3 albumin-corrected ~fine; Mg 1.7). *Phosphorus 2.6 from 09-Jul.</td></tr>
-      <tr><td class="lab-name">INR</td><td class="spk"><svg class="row-spark down-good" viewBox="0 0 92 26" preserveAspectRatio="none" data-series="1.21,1.32,1.22"></svg></td><td class="lab-value">&mdash;</td><td class="lab-value">&mdash;</td><td class="lab-value H">1.22 <span class="lab-flag H">H</span></td><td class="lab-value H">1.32 <span class="lab-flag H">H</span></td><td class="lab-value H">1.21 <span class="lab-flag H">H</span></td><td class="lab-ref">0.9&ndash;1.10</td><td>Mildly high (1.22, 08-Jul); not on the 10/11-Jul panels; no vitamin K needed.</td></tr>
-    </tbody></table></div>
+    <div class="s-head"><span class="s-num">§ 02</span><h2 class="s-title">Key numbers</h2><span class="s-by">13-Jul draw (ILBS, C3D8) · full history in the tracker</span></div>
+    <div class="metrics">
+      <div class="m warn"><div class="m-label">Haemoglobin</div><div class="m-val">8.1<span class="m-unit">g/dL</span><span class="m-flag L">L</span></div><div class="m-note">post-transfusion <b>6.9&rarr;8.1</b> · worked; IDA underlying</div></div>
+      <div class="m danger"><div class="m-label">Platelets</div><div class="m-val">96<span class="m-unit">&times;10&sup3;</span><span class="m-flag LL">LL</span></div><div class="m-note">chemo nadir <b>178&rarr;96</b> · above bleeding zone</div></div>
+      <div class="m ok"><div class="m-label">ANC</div><div class="m-val">2.20<span class="m-unit">&times;10&sup3;</span></div><div class="m-note"><b>not neutropenic</b> · no febrile-neutropenia</div></div>
+      <div class="m ok"><div class="m-label">Total bilirubin</div><div class="m-val">0.88<span class="m-unit">mg/dL</span></div><div class="m-note">normal · <b>1.61&rarr;0.88</b> · drainage holding</div></div>
+      <div class="m warn"><div class="m-label">ALP / GGT</div><div class="m-val">379/249<span class="m-flag HH">HH</span></div><div class="m-note">tick <b>329&rarr;379 / 198&rarr;249</b> · minor (?RPSD)</div></div>
+      <div class="m ok"><div class="m-label">AST / ALT</div><div class="m-val">46/21<span class="m-unit">U/L</span></div><div class="m-note">settling · ALT <b>21.2</b> · cholangitis leak, not chemo</div></div>
+      <div class="m warn"><div class="m-label">Sodium</div><div class="m-val">135<span class="m-unit">mmol/L</span><span class="m-flag warnflag">L</span></div><div class="m-note"><b>corrected</b> · 126.6&rarr;135.2 (safe rate)</div></div>
+      <div class="m danger"><div class="m-label">Potassium</div><div class="m-val">2.94<span class="m-unit">mmol/L</span><span class="m-flag L">L</span></div><div class="m-note">worsening <b>3.07&rarr;2.94</b> · replacing</div></div>
+      <div class="m warn"><div class="m-label">Albumin</div><div class="m-val">2.38<span class="m-unit">g/dL</span><span class="m-flag warnflag">L</span></div><div class="m-note">low · acute-phase + intake · nutrition</div></div>
+      <div class="m ok"><div class="m-label">Creatinine</div><div class="m-val">0.37<span class="m-unit">mg/dL</span></div><div class="m-note">renal clean · eGFR 174</div></div>
+    </div>
+    <p class="note"><b>Overdue markers (not on this panel):</b> CA 19-9 <b>469</b> U/mL (11-Jun; &minus;31% after C1, target &asymp;340) · HBV DNA <b>605</b> IU/mL (18-Jun, on TAF) · CRP <b>74.6</b> mg/L (26-Jun) · INR <b>1.22</b> (08-Jul). To be captured with the ~18&ndash;20 Jul pre-C3D8 panel.</p>
   </section>
 
-  <section id="newresults">
-    <div class="s-head"><span class="s-num">&sect; 06</span><h2 class="s-title">New &amp; pending results</h2><span class="s-by">11-Jul evening &middot; liver IR screening (RPSD) &middot; transfusion &middot; culture still awaited</span></div>
-    <div class="grid-3">
-      <div class="card danger"><div class="card-label">Liver IR screening &mdash; undrained RPSD (11-Jul)</div>
-        <div class="kv"><div class="kv-k">Existing drains</div><div class="kv-v"><strong>Both working</strong> &middot; no abscess/collection</div></div>
-        <div class="kv"><div class="kv-k">New finding</div><div class="kv-v"><strong>Dilated, UNDRAINED RPSD</strong></div></div>
-        <div class="sidenote" style="margin-bottom:0">The right posterior sectoral duct is a separate Bismuth IV-isolated territory neither catheter reaches &mdash; trapped colonised bile = the <strong>likeliest source of the recurrent rigors</strong>, a potentially <strong>fixable</strong> mechanical cause. <strong>Open decision: whether/when to drain + trigger</strong> (pager).</div>
-      </div>
-      <div class="card danger"><div class="card-label">Recurrent rigor &rarr; Amikacin added (11-Jul PM)</div>
-        <div class="kv"><div class="kv-k">Event</div><div class="kv-v"><strong>Rigor + 102&deg;F</strong> &middot; saline/PCM/lignocaine</div></div>
-        <div class="kv"><div class="kv-k">Added</div><div class="kv-v"><strong>Amikacin</strong> &mdash; 3rd antibiotic</div></div>
-        <div class="sidenote" style="margin-bottom:0">Another rigor despite pip-tazo + Dorimate &rarr; Amikacin (sensitive-list) broadens toward the likely bug. Still spiking on <strong>3 antibiotics</strong> &rarr; points to the undrained RPSD or a coverage gap. <strong>Bile/blood culture (still awaited) is the tiebreaker &mdash; push for a preliminary.</strong></div>
-      </div>
-      <div class="card ok"><div class="card-label">Transfusion &mdash; 1 unit PRBC (11-Jul PM)</div>
-        <div class="kv"><div class="kv-k">For</div><div class="kv-v">Hb <strong>6.9</strong> (below ~7 threshold)</div></div>
-        <div class="kv"><div class="kv-k">Given</div><div class="kv-v"><strong>1u leucodepleted A+ve PRBC</strong></div></div>
-        <div class="sidenote" style="margin-bottom:0">Crossmatch &ldquo;Reserved&rdquo; (compatible); blood group <strong>A Rh-positive</strong>. Ran <strong>uneventfully, stable &gt;70 min, no reaction</strong>. Recheck the Hb (expect ~+1&nbsp;g/dL) + <strong>exclude a bleeding source</strong> (falling bilirubin argues against hemobilia).</div>
-      </div>
-      <div class="card ok"><div class="card-label">Cholangitis &mdash; LFTs resolving (11-Jul draw)</div>
-        <div class="kv"><div class="kv-k">Bilirubin</div><div class="kv-v"><strong>T.Bili 1.14&rarr;0.99</strong> (in range)</div></div>
-        <div class="kv"><div class="kv-k">Liver leak</div><div class="kv-v">AST 46&rarr;41 &middot; ALT 20&rarr;18</div></div>
-        <div class="kv"><div class="kv-k">Obstruction</div><div class="kv-v">ALP 315&rarr;329 &middot; GGT 179&rarr;198 (minor uptick)</div></div>
-        <p class="text-small mb0" style="margin-top:8px">The <strong>LFTs are settling</strong> &mdash; it's the fevers that aren't. That discordance (improving liver chemistry, persistent rigors) is what points to the undrained RPSD.</p>
-      </div>
-      <div class="card warn"><div class="card-label">New hearing symptom &mdash; cisplatin ototoxicity? (10-Jul)</div>
-        <div class="kv"><div class="kv-k">Symptom</div><div class="kv-v"><strong>Muffled hearing</strong> (&ldquo;as if from far away&rdquo;)</div></div>
-        <div class="kv"><div class="kv-k">Likely cause</div><div class="kv-v">6-Jul <strong>cisplatin</strong> (cochleotoxic) &plusmn; low-Na</div></div>
-        <div class="sidenote" style="margin-bottom:0">Raise with Oncology; get a <strong>baseline audiogram before the next cisplatin</strong> (C3D8 ~18&ndash;20 Jul). Confirmed ototoxicity can change cisplatin dosing/substitution; a low-Na overlay may lift as sodium corrects.</div>
-      </div>
-      <div class="card warn"><div class="card-label">Electrolytes &mdash; Na correcting, new low K (11-Jul)</div>
-        <div class="kv"><div class="kv-k">Na</div><div class="kv-v"><strong>128.3 &rarr; 129.3</strong> (correcting)</div></div>
-        <div class="kv"><div class="kv-k">K</div><div class="kv-v"><strong style="color:var(--danger)">3.07 L</strong> (was 3.66) &mdash; replace</div></div>
-        <p class="text-small mb0" style="margin-top:8px">Na correcting at a safe rate (within &le;10&nbsp;mEq/24h). <strong>New hypokalaemia 3.07</strong> &mdash; cisplatin renal K-wasting &plusmn; dilution; replace + recheck. Cl 98.6, Cr 0.4/eGFR 158.74 clean.</p>
-      </div>
-      <div class="card ok"><div class="card-label">Existing drains &mdash; working (IR screening 11-Jul)</div>
-        <div class="kv"><div class="kv-k">Left + right-anterior</div><div class="kv-v"><strong>Decompressed, draining</strong></div></div>
-        <div class="kv"><div class="kv-k">Collection</div><div class="kv-v">None (no abscess/biloma)</div></div>
-        <div class="sidenote" style="margin-bottom:0">The IR screening answers the catheter-status question: both indwelling drains are working. The residual drainage gap is the separate <strong>undrained RPSD</strong> (above). Durable SEMS-vs-catheters still open; formal IR note pending.</div>
-      </div>
-      <div class="card warn"><div class="card-label">Pending &mdash; markers + pre-C3D8 panel + PET (~18&ndash;20 Jul)</div>
-        <div class="kv"><div class="kv-k">CA 19-9</div><div class="kv-v"><strong>469</strong> (11-Jun) &mdash; still not re-run</div></div>
-        <div class="kv"><div class="kv-k">HBV DNA</div><div class="kv-v"><strong>605</strong> (18-Jun) &mdash; recheck pending</div></div>
-        <div class="kv"><div class="kv-k">Imaging</div><div class="kv-v">Interim PET-CT &mdash; ~18&ndash;20 Jul</div></div>
-        <div class="sidenote" style="margin-bottom:0">The pre-C3D8 marker panel (CA&nbsp;19-9 + HBV DNA + CEA + CRP) + interim PET are <strong>confirmed pushed to ~18&ndash;20 Jul</strong>, gated on infection clearing &mdash; capture the markers when bloods allow. CEA also to be drawn.</div>
-      </div>
-      <div class="card ok"><div class="card-label">HBV &mdash; on antiviral (recheck pending)</div>
-        <div class="kv"><div class="kv-k">Last DNA</div><div class="kv-v"><strong style="font-size:18px">605</strong> IU/mL <span class="text-small text-muted">(reactivation)</span></div></div>
-        <div class="kv"><div class="kv-k">Treatment</div><div class="kv-v"><strong>TAF 25 mg OD</strong> since 22-Jun</div></div>
-        <div class="sidenote" style="margin-bottom:0"><strong>ALT 18 (normal, 11-Jul)</strong> is reassuring against a flare; recheck DNA when bloods allow; confirm the script is renewed (continues long-term). Satisfies the no-steroids-without-antiviral interlock.</div>
-      </div>
-      <div class="card ok"><div class="card-label">Contained infection &mdash; PCT 0.28 (08-Jul)</div>
-        <div class="kv"><div class="kv-k">PCT</div><div class="kv-v"><strong>0.28</strong> ng/mL <span class="text-small text-muted">(&lt;0.5)</span></div></div>
-        <div class="kv"><div class="kv-k">Read</div><div class="kv-v">sub-sepsis &mdash; the May 0.33 signature</div></div>
-        <p class="text-small mb0" style="margin-top:8px">A contained biliary infection, not septic shock. The fever spikes (10-Jul 103&deg;F, 11-Jul 102&deg;F rigor) land on a non-neutropenic ANC (~2.63) &mdash; not febrile neutropenia. Bile/blood cultures remain the organism/sensitivity test &mdash; still awaited (the tiebreaker).</p>
-      </div>
+  <!-- 3 · ACTIVE PROBLEMS -->
+  <section id="issues">
+    <div class="s-head"><span class="s-num">§ 03</span><h2 class="s-title">Active problems</h2><span class="s-by">priority items · full registry in the tracker</span></div>
+    <div class="issues">
+      <div class="issue warn"><div class="issue-top"><span class="issue-code">OUT-036</span><span class="issue-title">Acute cholangitis</span><span class="issue-badge">Improving</span></div><p><em>Pseudomonas</em> + <em>E. coli</em>, both pip-tazo-resistant; afebrile ~24&ndash;36h on carbapenem + Amikacin. <span class="nx">Next:</span> complete IV antibiotics ~4&ndash;5 days; chase the blood culture; watch for any relapse.</p></div>
+      <div class="issue warn"><div class="issue-top"><span class="issue-code">OUT-047</span><span class="issue-title">Undrained RPSD segment</span><span class="issue-badge">Watched</span></div><p>One bile segment (right-posterior) has no drain. <span class="nx">Next:</span> IR declined draining it for now (known PTBD trade-off); revisit only on a clear trigger &mdash; recurrent rigors on adequate cover, a positive culture from it, or rising bilirubin.</p></div>
+      <div class="issue warn"><div class="issue-top"><span class="issue-code">OUT-007</span><span class="issue-title">Anaemia</span><span class="issue-badge">Transfused</span></div><p>Hb 6.9&rarr;8.1 after 1 unit PRBC &mdash; appropriate rise, no brisk bleeding. <span class="nx">Next:</span> confirm it holds; underlying iron-deficiency anaemia stands (oral iron only).</p></div>
+      <div class="issue warn"><div class="issue-top"><span class="issue-code">OUT-045</span><span class="issue-title">Marrow nadir</span><span class="issue-badge">Deepening</span></div><p>Post-C3 gemcitabine nadir &mdash; Plt 178&rarr;96, not neutropenic, above the bleeding zone. <span class="nx">Next:</span> watch counts ~D5&ndash;D14; a factor in any drainage decision.</p></div>
+      <div class="issue warn"><div class="issue-top"><span class="issue-code">OUT-042</span><span class="issue-title">Electrolytes</span><span class="issue-badge">K low</span></div><p>Sodium corrected (135.2). <span class="nx">Next:</span> replace potassium (2.94) + recheck; mind QT with anti-emetics.</p></div>
+      <div class="issue danger"><div class="issue-top"><span class="issue-code">OUT-040</span><span class="issue-title">Levofloxacin conflict</span><span class="issue-badge">Do not start</span></div><p>Urgent-care plans keep listing Levofloxacin &mdash; the E. coli is resistant. <span class="nx">Next:</span> get the written correction; <strong>never</strong> self-start it; pip-tazo is now ineffective too.</p></div>
+      <div class="issue warn"><div class="issue-top"><span class="issue-code">OUT-032</span><span class="issue-title">Durable biliary plan (SEMS)</span><span class="issue-badge">OPD</span></div><p>3rd drainage crisis strengthens the case for a definitive stent over repeated catheters. <span class="nx">Next:</span> decide after the post-C3 reassessment.</p></div>
+      <div class="issue warn"><div class="issue-top"><span class="issue-code">OUT-037</span><span class="issue-title">Chemo timing</span><span class="issue-badge">~18&ndash;20 Jul</span></div><p>C3D8 (durvalumab #3) + pre-C3D8 markers + interim PET-CT deferred by the admission. <span class="nx">Next:</span> resume once clear; IV-steroid premed + audiogram before next cisplatin.</p></div>
     </div>
+    <p class="more"><b>Also tracked:</b> HBV reactivation on TAF (OUT-006, stable) · transaminases + obstruction resolving (OUT-044/030) · labile thyroiditis, hold dose (OUT-010) · new muffled hearing &rarr; audiogram before next cisplatin (OUT-046) · external Chemoport, deferred (OUT-011) · nausea/comfort (OUT-002) · nutrition/albumin (OUT-004).</p>
   </section>
 
-  <section id="actions">
-    <div class="s-head"><span class="s-num">&sect; 07</span><h2 class="s-title">Action board</h2><span class="s-by">In-hospital &middot; RPSD drainage decision, push the culture, post-transfusion Hb, replace K</span></div>
-    <div class="actions">
-      <div class="action p1"><div class="action-top"><span class="action-code">RPSD</span><span class="action-tag">Drain?</span></div><h4 class="action-title">RPSD drainage decision + trigger</h4><p class="action-detail">The 11-Jul liver IR screening found a <strong>dilated, undrained right posterior sectoral duct</strong> &mdash; likely the recurrent-rigor source (existing drains working, no collection). Decide <strong>whether/when to place a drain and on what clinical trigger</strong> (recurrent rigors / positive culture / rising bilirubin) &mdash; the pager conversation. A potentially <span class="em">fixable mechanical cause</span>.</p></div>
-      <div class="action p1"><div class="action-top"><span class="action-code">Culture</span><span class="action-tag">Push</span></div><h4 class="action-title">Push for a preliminary bile/blood culture &mdash; the tiebreaker</h4><p class="action-detail">Sent 08-Jul, <strong>still awaited</strong>; she is still spiking (102&deg;F rigor this evening) on <strong>3 antibiotics</strong> (pip-tazo + Dorimate + Amikacin). The culture separates an <strong>undrained-segment source</strong> from a <strong>coverage gap</strong>. <span class="em">Not levofloxacin</span> (resistant).</p></div>
-      <div class="action p1"><div class="action-top"><span class="action-code">Post-Tx Hb</span><span class="action-tag">Recheck</span></div><h4 class="action-title">Post-transfusion Hb + exclude a bleeding source</h4><p class="action-detail"><strong>1 unit A+ve PRBC transfused</strong> for Hb 6.9 (uneventful). Get the <span class="em">post-transfusion Hb</span> (expect ~+1&nbsp;g/dL &mdash; a smaller rise reopens the occult-loss question) and <strong>exclude hemobilia/occult loss</strong> (drain/stool). Falling bilirubin (0.99) argues the biliary tree is draining, not bleeding.</p></div>
-      <div class="action p1"><div class="action-top"><span class="action-code">Electrolytes</span><span class="action-tag">Replace K</span></div><h4 class="action-title">Replace potassium + continue serial sodium</h4><p class="action-detail"><strong>K 3.07 L replacement underway</strong> + recheck (cisplatin renal K-wasting &plusmn; dilution; mind QT on ondansetron). Na <span class="em">128.3&rarr;129.3</span> (within &le;10&nbsp;mEq/24h) &mdash; continue serial Na. Cr 0.4/eGFR 158.74 clean.</p></div>
-      <div class="action p2"><div class="action-top"><span class="action-code">Comfort</span><span class="action-tag">Pain check</span></div><h4 class="action-title">Gently check for pain / discomfort</h4><p class="action-detail"><strong>Intermittent groaning</strong> (not new) + post-rigor lethargy &mdash; check whether she has any pain (biliary/RUQ from the undrained RPSD, or general) and treat symptomatically (<span class="em">no NSAIDs</span>; Ultracet only if Paracip insufficient).</p></div>
-      <div class="action p2"><div class="action-top"><span class="action-code">Hearing</span><span class="action-tag">Audiogram</span></div><h4 class="action-title">Raise the hearing symptom + baseline audiogram</h4><p class="action-detail">Muffled hearing (10-Jul) fits the 6-Jul <strong>cisplatin</strong> (cochleotoxic) &plusmn; low-Na overlay &mdash; and Amikacin is also oto-toxic. Raise with Oncology; get a <strong>baseline audiogram before the next cisplatin</strong> (C3D8 ~18&ndash;20 Jul).</p></div>
-      <div class="action p2"><div class="action-top"><span class="action-code">Counts</span><span class="action-tag">~D5&ndash;D14</span></div><h4 class="action-title">Watch the post-C3 nadir</h4><p class="action-detail">Plt <span class="em">223&rarr;178</span>, TLC/ANC falling &mdash; the gemcitabine nadir deepening, overlapping the cholangitis. Serial counts + febrile-neutropenia watch; will inform the C3D8 gemcitabine dose. ANC ~2.63 not neutropenic; platelets still above the bleeding zone.</p></div>
-      <div class="action p2"><div class="action-top"><span class="action-code">Chemo</span><span class="action-tag">~18&ndash;20 Jul</span></div><h4 class="action-title">C3D8 + markers + interim PET &mdash; pushed to ~18&ndash;20 Jul</h4><p class="action-detail">C3D8 durvalumab #3 + the pre-C3D8 marker panel (<span class="em">CA&nbsp;19-9 + HBV DNA + CEA + CRP + Na/INR</span>) + the interim PET are <strong>confirmed rescheduled to ~18&ndash;20 Jul</strong>, gated on the infection clearing. When durvalumab resumes, secure the <span class="em">IV-steroid premed</span> (permissible on TAF).</p></div>
-      <div class="action p2"><div class="action-top"><span class="action-code">HBV</span><span class="action-tag">Daily</span></div><h4 class="action-title">Continue TAF; recheck DNA + ALT</h4><p class="action-detail">Keep <span class="em">tenofovir alafenamide 25&nbsp;mg daily</span> (started 22-Jun); confirm the script is <strong>renewed</strong> (continues long-term). ALT 18 normal (11-Jul); recheck <span class="em">HBV DNA</span> when bloods allow.</p></div>
-      <div class="action p3"><div class="action-top"><span class="action-code">Levofloxacin</span><span class="action-tag">Correction</span></div><h4 class="action-title">Get the written correction</h4><p class="action-detail">Still listed on 3 urgent-care plans despite documented resistance. Get the written correction; carry it to any external site (Chemoport). The current cholangitis is correctly on pip-tazobactam / carbapenem (sensitive), <strong>not levofloxacin</strong>.</p></div>
-    </div>
+  <!-- 4 · COURSE -->
+  <section id="course">
+    <div class="s-head"><span class="s-num">§ 04</span><h2 class="s-title">Recent course</h2><span class="s-by">newest first · 4th-admission discharge &rarr; now</span></div>
+    <ul class="tl">
+      <li><div class="tl-date">13 Jul<small>C3D8 · d6</small></div><div class="tl-dot ok"></div><div><p class="tl-t">Bile culture back &rarr; coverage gap identified; improving</p><p class="tl-d"><em>Pseudomonas</em> + <em>E. coli</em>, both pip-tazo-resistant. Afebrile ~24&ndash;36h on carbapenem + Amikacin; antibiotics rationalised; IR declined RPSD drainage. Hb 8.1 (post-transfusion), Plt 96, Na corrected, K 2.94 replacing.</p></div></li>
+      <li><div class="tl-date">11 Jul<small>C3D6</small></div><div class="tl-dot acute"></div><div><p class="tl-t">Recurrent rigor 102&deg;F &rarr; Amikacin added; transfused; RPSD found</p><p class="tl-d">Another rigor despite 2 antibiotics &rarr; Amikacin added (3rd). 1 unit A+ve PRBC for Hb 6.9. Liver IR screening: both drains working but a dilated, undrained right-posterior segment (RPSD).</p></div></li>
+      <li><div class="tl-date">10 Jul<small>C3D5</small></div><div class="tl-dot warn"></div><div><p class="tl-t">Fever spike 103&deg;F &rarr; carbapenem added; new hearing symptom</p><p class="tl-d">Dorimate S (doripenem-sulbactam) added for MDR cover. Muffled hearing noted &mdash; possible cisplatin ototoxicity &rarr; audiogram before next dose.</p></div></li>
+      <li><div class="tl-date">08 Jul<small>C3D3</small></div><div class="tl-dot acute"></div><div><p class="tl-t">5th admission &mdash; acute cholangitis; left lobe re-externalized</p><p class="tl-d">Home rigor &rarr; ER; Charcot's triad on an obstructed left segment. IR externalized the left lobe to drain it; empirical pip-tazo; bile + blood cultures sent. Contained, not septic (PCT 0.28).</p></div></li>
+      <li><div class="tl-date">06 Jul<small>C3D1</small></div><div class="tl-dot"></div><div><p class="tl-t">Cycle 3 Day 1 chemotherapy given</p><p class="tl-d">Gemcitabine + cisplatin (durvalumab is D8-only). Intra-day fever 99&ndash;102&deg;F; USG reassuring (minimal IHBRD, catheter well-positioned).</p></div></li>
+      <li><div class="tl-date">29 Jun</div><div class="tl-dot"></div><div><p class="tl-t">Routine PTBD catheter exchange</p><p class="tl-d">Bilateral catheters swapped to fresh 8F Cook; uneventful, same-day discharge.</p></div></li>
+      <li><div class="tl-date">22 Jun</div><div class="tl-dot ok"></div><div><p class="tl-t">HBV antiviral started (TAF); iron declined</p><p class="tl-d">Tenofovir alafenamide 25 mg for confirmed HBV reactivation (DNA 605). 20-Jun fever judged a durvalumab effect. Iron studies/IV iron declined.</p></div></li>
+      <li><div class="tl-date">19 Jun<small>C2D8</small></div><div class="tl-dot"></div><div><p class="tl-t">Cycle 2 completed &mdash; durvalumab #2</p><p class="tl-d">gem + cis + durvalumab; tolerated. HBV reactivation confirmed the next day (DNA undetected &rarr; 605).</p></div></li>
+      <li><div class="tl-date">12 Jun<small>C2D1</small></div><div class="tl-dot ok"></div><div><p class="tl-t">Cycle 2 started</p><p class="tl-d">Home labs cleared her (INR normalised, bilirubin normal). CA 19-9 677&rarr;469 (&minus;31% after C1).</p></div></li>
+      <li><div class="tl-date">04 Jun</div><div class="tl-dot ok"></div><div><p class="tl-t">Discharged (4th admission) &mdash; bilateral drains capped</p><p class="tl-d">Cholangitis resolved (E. coli + Klebsiella, sensitivity-guided). Both catheters capped and tolerated at discharge. <em>Capping later failed on the left (08 Jul).</em></p></div></li>
+    </ul>
   </section>
 
-  <section id="events">
-    <div class="s-head"><span class="s-num">&sect; 08</span><h2 class="s-title">Discharge &rarr; Cycle 3</h2><span class="s-by">04-Jun discharge through the 5th admission (08&ndash;11 Jul)</span></div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">11-Jul PM</span><h4 class="event-title">Evening &mdash; recurrent rigor + Amikacin; 1u PRBC transfused; liver IR screening finds undrained RPSD</h4><span class="pill acute">Key update</span></div>
-      <div class="event-body">
-        <p>A <strong>mixed but net-okay evening</strong>. The day-4 labs confirm the cholangitis resolving, but she had <strong>another rigor + fever 102&deg;F</strong> despite IV piperacillin-tazobactam + Dorimate S &rarr; given <strong>saline, paracetamol and a lignocaine injection</strong>, settled (lethargic after &mdash; the usual post-rigor crash), and <strong>Amikacin was added</strong> as a 3rd antibiotic (an aminoglycoside her organisms are sensitive to). <strong>The liver IR screening is the substantive result:</strong> both existing PTBD drains are working (left + right-anterior decompressed, no abscess/collection) but there is a <strong>dilated, UNDRAINED right posterior sectoral duct (RPSD)</strong> &mdash; a separate Bismuth IV-isolated territory neither catheter reaches, the <strong>likeliest source of the recurrent rigors</strong> and a potentially fixable mechanical cause that fits the fevers better than chemo alone (open decision: whether/when to drain + trigger). For the anaemia (Hb 6.9), the team <strong>transfused 1 unit of leucodepleted A+ve packed red cells</strong> (crossmatch &ldquo;Reserved&rdquo;; blood group A Rh-positive) &mdash; ran <strong>uneventfully, stable &gt;70 min, no reaction</strong>. <strong>Still spiking on 3 antibiotics</strong> &rarr; the bile/blood culture (awaited) is the tiebreaker between the undrained segment and a coverage gap. K 3.07 being replaced; intermittent groaning &rarr; pain check.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">IR screening</div><div class="ekv-v">undrained RPSD &middot; drains working</div></div>
-          <div class="ekv"><div class="ekv-l">Fever</div><div class="ekv-v">rigor + 102&deg;F &rarr; Amikacin added</div></div>
-          <div class="ekv"><div class="ekv-l">Transfusion</div><div class="ekv-v">1u A+ve PRBC &middot; uneventful</div></div>
-          <div class="ekv"><div class="ekv-l">Culture</div><div class="ekv-v">awaited &mdash; the tiebreaker</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">11-Jul</span><h4 class="event-title">Day-4 draw &mdash; cholangitis still resolving; Hb 6.9 below threshold; new K 3.07</h4><span class="pill watch">Key update</span></div>
-      <div class="event-body">
-        <p><strong>The cholangitis keeps resolving.</strong> The obstruction/leak is still settling &mdash; <strong>T.Bili 1.14&rarr;0.99 (back in range), AST 46&rarr;41, ALT 20&rarr;18 (in range)</strong> &mdash; with only a <strong>small ALP/GGT uptick (315&rarr;329 / 179&rarr;198)</strong> against the falling bilirubin (minor; bilirubin is the drainage marker and it is normalising). <strong>The pressing problem is the haemoglobin: Hb 7.4&rarr;6.9</strong> (PCV 21), <strong>now below the ~7 transfusion threshold and still falling</strong>, with <strong>platelets 223&rarr;178, TLC 3.56, ANC ~2.63</strong> &mdash; the <strong>post-C3 marrow nadir deepening</strong> (ANC not neutropenic, so the 10-Jul 103&deg;F spike is not febrile neutropenia). <strong>Transfusion decision + repeat Hb + exclude hemobilia</strong> are the day's priority. <strong>Sodium correcting (128.3&rarr;129.3)</strong> but a <strong>new low potassium (3.07)</strong> to replace. Creatinine clean (0.4/eGFR 158.74); albumin 2.31.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">Liver</div><div class="ekv-v">T.Bili 0.99 &middot; AST 41 &middot; ALT 18 &middot; settling</div></div>
-          <div class="ekv"><div class="ekv-l">Hb / Plt</div><div class="ekv-v">6.9 / 178 &middot; nadir deepening</div></div>
-          <div class="ekv"><div class="ekv-l">ANC</div><div class="ekv-v">~2.63 &middot; not neutropenic</div></div>
-          <div class="ekv"><div class="ekv-l">Na / K</div><div class="ekv-v">129.3 correcting / <strong>3.07 low</strong></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">10-Jul PM</span><h4 class="event-title">One 103&deg;F fever spike &rarr; carbapenem added; new hearing symptom; C3D8 rescheduled</h4><span class="pill acute">Escalation</span></div>
-      <div class="event-body">
-        <p><strong>One temperature spike to 103&deg;F</strong> (no chills, not subjectively felt &mdash; the only fever in ~28h) landed on falling counts, and the team escalated antibiotics rather than wait: <strong>Dorimate S (doripenem + sulbactam, a carbapenem) was added</strong> &mdash; a genuine class step-up appropriate for her documented MDR history (June needed meropenem-class cover). <strong>Two things to confirm:</strong> whether the carbapenem <strong>replaces</strong> rather than <strong>stacks</strong> the piperacillin-tazobactam (redundant together), and today's ANC (~2.63 on 11-Jul = <strong>not neutropenic</strong>, so not febrile neutropenia). Separately, she reports a <strong>new muffled-hearing symptom</strong> (&ldquo;as if from far away&rdquo;) &mdash; timing fits the 6-Jul <strong>cisplatin</strong> (cochleotoxic) &plusmn; a low-sodium overlay; raise with Oncology and get a baseline audiogram before the next cisplatin. <strong>C3D8 durvalumab #3 + the pre-C3D8 marker panel + the interim PET are confirmed pushed to ~18&ndash;20 July</strong> (per Dr. Manisha), gated on the infection clearing.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">Fever</div><div class="ekv-v">103&deg;F once &middot; no chills</div></div>
-          <div class="ekv"><div class="ekv-l">Antibiotic</div><div class="ekv-v">Dorimate S (carbapenem) added</div></div>
-          <div class="ekv"><div class="ekv-l">New symptom</div><div class="ekv-v">muffled hearing &middot; cisplatin?</div></div>
-          <div class="ekv"><div class="ekv-l">C3D8</div><div class="ekv-v">pushed to ~18&ndash;20 Jul</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">10-Jul</span><h4 class="event-title">Day-3 draw &mdash; cholangitis responding; Hb dropped to 7.4</h4><span class="pill watch">Key update</span></div>
-      <div class="event-body">
-        <p><strong>The fifth-admission course is going well on the infection side.</strong> Two days after left-lobe drainage + IV piperacillin-tazobactam, the markers have normalised &mdash; <strong>TLC 12.8&rarr;4.4, ANC ~11.8&rarr;~3.26</strong> &mdash; and the obstruction pattern has <strong>~halved (ALP 630.8&rarr;315, GGT 290.6&rarr;179, AST 90.1&rarr;46, T.Bili 1.61&rarr;1.14)</strong>: the left lobe is draining and the antibiotic is working. <strong>Sodium is correcting safely (126.6&rarr;128.3</strong>, +1.7 in 2 days, within the &le;10&nbsp;mEq/24h cap; Cl normalised 99.9, K 3.66). <strong>The one new problem is the haemoglobin: Hb 9.4&rarr;7.4</strong> (PCV 22.6, a ~2&nbsp;g/dL fall) with <strong>platelets 407&rarr;223</strong> and TLC falling in parallel &mdash; the <strong>post-C3 gemcitabine marrow nadir arriving</strong>, likely with a dilutional overlay (albumin 2.47, well-hydrated) and the baseline IDA &mdash; near the ~7 transfusion threshold. <strong>Next steps: a transfusion-threshold decision, a repeat Hb, and excluding hemobilia</strong> after the fresh externalization. Platelets are falling but still well above the bleeding zone. CA&nbsp;19-9 + HBV DNA still not captured.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">Infection</div><div class="ekv-v">TLC 12.8&rarr;4.4 &middot; ANC normalised</div></div>
-          <div class="ekv"><div class="ekv-l">Obstruction</div><div class="ekv-v">ALP/GGT/AST/T.Bili ~halved</div></div>
-          <div class="ekv"><div class="ekv-l">Hb / Plt</div><div class="ekv-v">7.4 / 223 &middot; nadir arriving</div></div>
-          <div class="ekv"><div class="ekv-l">Sodium</div><div class="ekv-v">126.6 &rarr; 128.3 &middot; correcting</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">08-Jul</span><h4 class="event-title">Fifth admission &mdash; acute cholangitis; left lobe externalized</h4><span class="pill acute">Admission</span></div>
-      <div class="event-body">
-        <p>A <strong>sudden rigor at home (C3D3)</strong> took her to the ILBS ER with <strong>Charcot's triad (fever + RUQ pain + jaundice)</strong> on an <strong>obstructed, dilated left biliary segment</strong> (IR-confirmed). <strong>IR externalized the left lobe</strong> &mdash; the definitive step, since an obstructed, infected duct needs decompression, not antibiotics alone &mdash; and started <strong>empirical IV piperacillin-tazobactam</strong> (a sensitivity-confirmed agent), with <strong>bile + blood cultures sent</strong> (escalation reserved for the sensitivities given her MDR history; <strong>not levofloxacin</strong>). It was <strong>contained, not septic: PCT 0.28</strong> (&lt;0.5) with ANC ~11.8 (not neutropenic) &mdash; the same signature as the May cholangitis she cleared; the <strong>danger set was intact</strong> (Plt 407, INR 1.22, Cr 0.54, Hb 9.4). Two rigors (home + a transient post-drainage release), then <strong>4+ hours afebrile</strong>. Admitted to a semi-private room (HDU wanted, no bed). <strong>The capped left lobe had re-obstructed &mdash; capping is not durable on the left</strong> (3rd biliary drainage crisis). The 3&ndash;6 Jul low-grade fevers now read as this cholangitis's prodrome.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">Diagnosis</div><div class="ekv-v">acute cholangitis &middot; obstructed left segment</div></div>
-          <div class="ekv"><div class="ekv-l">Source control</div><div class="ekv-v">left lobe externalized (IR)</div></div>
-          <div class="ekv"><div class="ekv-l">Antibiotic</div><div class="ekv-v">IV pip-tazobactam + cultures</div></div>
-          <div class="ekv"><div class="ekv-l">Severity</div><div class="ekv-v">PCT 0.28 &middot; contained, not septic</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">06-Jul</span><h4 class="event-title">C3D1 given &mdash; intra-day fever, reassuring USG</h4><span class="pill watch">Key update</span></div>
-      <div class="event-body">
-        <p><strong>Cycle 3 Day 1 chemotherapy given</strong> &mdash; gemcitabine 1200&nbsp;mg + cisplatin 35&nbsp;mg (durvalumab is D8-only) + Mannitol renal protection. <strong>No fever at the start, so chemo proceeded;</strong> through the day her temperature fluctuated <strong>99&ndash;102&deg;F, crossing 100.4&deg;F</strong> &mdash; a precautionary <strong>IV paracetamol (Neomol)</strong> and an <strong>urgent USG</strong>. <strong>The USG is reassuring &mdash; minimal bilobar IHBRD, no peri-catheter collections, catheter correctly positioned (not migrated)</strong> &mdash; which <strong>refutes the mechanical causes</strong> (blockage, displacement, collection). With ANC 7.34 (not neutropenic), the best-fit source is <strong>low-grade cholangitis on colonised MDR bile + biofilm</strong>; a benign gemcitabine flu-like component may add to today's temp, but chemo can't explain the 3&ndash;4 Jul fevers that predate C3. <strong>No CRP or cultures were confirmed drawn today</strong> &mdash; folded into the pre-C3D8 panel. Post-C3 nadir now beginning. <strong>Decisions (per Dr. Manisha):</strong> interim PET-CT after C3D8 (~D10&ndash;12); one comprehensive pre-C3D8 marker panel (CA&nbsp;19-9 + HBV DNA + CEA + CRP + Na/INR); course planned through ~C6. Electral (ORS) ~1&nbsp;L/day around chemo days for the sodium drift.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">C3D1</div><div class="ekv-v">gem 1200 + cis 35 &middot; given</div></div>
-          <div class="ekv"><div class="ekv-l">Fever</div><div class="ekv-v">99&ndash;102&deg;F &middot; IV Neomol</div></div>
-          <div class="ekv"><div class="ekv-l">USG</div><div class="ekv-v">minimal IHBRD &middot; no collection &middot; catheter OK</div></div>
-          <div class="ekv"><div class="ekv-l">Next</div><div class="ekv-v">C3D8 ~13-Jul &middot; durvalumab #3</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">03-Jul</span><h4 class="event-title">Pre-C3 home panel &mdash; marrow recovered, thyroid normalised; C3 delayed to 06-Jul</h4><span class="pill stable">Recovery</span></div>
-      <div class="event-body">
-        <p>The pre-C3 home draw (Pathkind &mdash; a new lab, ranges differ) was <strong>reassuring: the deep nadir fully reversed.</strong> <strong>Platelets 50&rarr;472</strong> (reactive rebound), <strong>Hb 8.0&rarr;9.3</strong>, ANC 2.43&rarr;7.34, TLC 4.7&rarr;10.05 &mdash; tri-lineage recovery, so the bleeding precautions and procedure-hold were lifted. The <strong>thyroid self-normalised (TSH 9.02&rarr;3.48)</strong> on the unchanged dose &mdash; labile durvalumab thyroiditis, so the 26-Jun "raise the dose" plan was dropped (hold at 50&nbsp;mcg). The <strong>liver stayed settled (bilirubin 0.90, ALT 26)</strong>. Mild: sodium drifting to 131.5, INR creeping to 1.32. <strong>C3D1 was due 03-Jul but was delayed to 06-Jul for a low-grade ~100&deg;F fever.</strong> CA&nbsp;19-9 + HBV DNA were not on this panel.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">Platelets / Hb</div><div class="ekv-v">472 / 9.3 &middot; recovered</div></div>
-          <div class="ekv"><div class="ekv-l">TSH</div><div class="ekv-v">9.02 &rarr; 3.48 &middot; normalised</div></div>
-          <div class="ekv"><div class="ekv-l">Liver</div><div class="ekv-v">T.Bili 0.90 &middot; ALT 26 &middot; settled</div></div>
-          <div class="ekv"><div class="ekv-l">C3</div><div class="ekv-v">delayed 03-Jul &rarr; 06-Jul (fever)</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event fact">
-      <div class="event-head"><span class="event-time">29-Jun</span><h4 class="event-title">PTBD catheter exchange &mdash; routine, uneventful</h4><span class="pill brand">Procedure</span></div>
-      <div class="event-body">
-        <p>Routine IR daycare: the indwelling bilateral PTBD catheters were <strong>exchanged for fresh 8F Cook internal-external catheters</strong> &mdash; uneventful, hemodynamically stable, same-day discharge (Dr. Amar Mukund + Dr. Anoushka Gupta). Roughly monthly maintenance; fresh catheters also lower biofilm burden. Done 3 days after the 26-Jun Plt&nbsp;50 nadir with no bleeding (no fresh count on the report). Peri-procedural IV antibiotic not documented (confirm); drainage mode not stated (confirm).</p>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">26-Jun</span><h4 class="event-title">Full home panel (C2 Day 14) &mdash; deep nadir, high CRP, thyroid swing; liver settled</h4><span class="pill watch">Since recovered</span></div>
-      <div class="event-body">
-        <p><strong>Deep marrow nadir.</strong> Platelets <strong>105&rarr;50</strong> (Grade-2/3, manual-confirmed "markedly reduced") and Hb <strong>9.5&rarr;8.0</strong> &mdash; the gemcitabine ~day-14 trough, deeper than comfortable: firm bleeding precautions, an urgent recheck, a transfusion-threshold conversation, and a hold on the Chemoport/any procedure. <strong>First-ever CRP is 74.6</strong> (ref &lt;3.3) &mdash; high inflammation <strong>despite afebrile</strong> (ANC 2.43, urine clean): re-opens the smouldering-cholangitis question vs a lagging post-durvalumab CRP &mdash; flag ILBS. <strong>Thyroid swung hypothyroid</strong> &mdash; TSH 0.69&rarr;9.02 with a low Free T3 (durvalumab thyroiditis): raise the Thyronorm dose. <strong>The liver has settled</strong> &mdash; bilirubin 0.99 (normal), ALT 39 (in range), AST 68 (small bump), GGT/ALP easing &mdash; transient gemcitabine, on the antiviral (TAF). Mild: sodium 133.5, new potassium 3.49, INR 1.21.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">Platelets / Hb</div><div class="ekv-v">50 / 8.0 &middot; deep nadir</div></div>
-          <div class="ekv"><div class="ekv-l">CRP</div><div class="ekv-v">74.6 &middot; high, afebrile</div></div>
-          <div class="ekv"><div class="ekv-l">TSH / Free T3</div><div class="ekv-v">9.02 / 1.89 &middot; hypothyroid</div></div>
-          <div class="ekv"><div class="ekv-l">Liver</div><div class="ekv-v">T.Bili 0.99 &middot; ALT 39 &middot; settled</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">22-Jun</span><h4 class="event-title">OPD &mdash; HBV antiviral started; fever = durvalumab; iron declined</h4><span class="pill stable">OPD</span></div>
-      <div class="event-body">
-        <p>The team was glad the family proactively sent the HBV test and <strong>started tenofovir alafenamide (TAF) 25&nbsp;mg daily &times;1 month</strong> for the reactivation (continues long-term; monitor DNA + ALT each cycle). The 20-Jun <strong>fever was judged a durvalumab effect</strong> (prior CBC not neutropenic + USG minimal IHBRD) &mdash; no antibiotic. <strong>New iron was declined</strong> (heavy drug load + gastritis); oral Iroxy continues, anaemia monitor-only. Plan: continue monitoring + standard best practices. With TAF on board, the IV-steroid premed for C3 durvalumab is now permissible.</p>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">21-Jun</span><h4 class="event-title">Home CBC+LFT (C2 Day 10) &mdash; fever resolved, liver settling, platelet nadir</h4><span class="pill stable">Reassuring</span></div>
-      <div class="event-body">
-        <p><strong>Fever resolved</strong> &mdash; it broke on a single paracetamol on 20-Jun, afebrile since, feeling well; <strong>Augmentin was never started</strong>. The count confirms <strong>ANC 3.21 (NOT neutropenic)</strong>, so febrile neutropenia is excluded and this was the benign post-durvalumab fever. <strong>The liver is settling on its own</strong> &mdash; AST 116&rarr;52, ALT 92&rarr;40 (in range), GGT/ALP/bilirubin all down &mdash; and because this happened <strong>without antiviral</strong>, the spike reads as <strong>transient gemcitabine</strong>, not an HBV flare. <strong>New: platelets 232&rarr;105</strong> (gemcitabine nadir, mild) &mdash; bleeding precautions, defer the port, recheck; Hb also dipped to 9.5. <strong>The HBV antiviral is still indicated</strong> (DNA still 605) &mdash; start at the Monday 22-Jun contact.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">ANC</div><div class="ekv-v">3.21 &middot; not neutropenic</div></div>
-          <div class="ekv"><div class="ekv-l">AST / ALT</div><div class="ekv-v">52 / 40 &middot; settling</div></div>
-          <div class="ekv"><div class="ekv-l">Platelets</div><div class="ekv-v">105 &middot; nadir (recheck)</div></div>
-          <div class="ekv"><div class="ekv-l">HBV antiviral</div><div class="ekv-v">start Mon 22-Jun</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">20-Jun</span><h4 class="event-title">HBV reactivation confirmed + low-grade fever</h4><span class="pill watch">Key update</span></div>
-      <div class="event-body">
-        <p><strong>HBV DNA (sent 18-Jun) is back positive at 605 IU/mL</strong> &mdash; it was undetected before. In an anti-HBc-positive patient on chemo + durvalumab, this is <strong>hepatitis-B reactivation</strong>. <strong>An antiviral (entecavir/tenofovir) is to be started at Monday's (22-Jun) doctor contact</strong>, with HBV DNA + ALT monitored each cycle. This also reframes the rising AST/ALT as a likely reactivation-hepatitis co-driver (not gemcitabine alone), and means <strong>no systemic steroids without the antiviral on board</strong>.</p>
-        <p>Separately, a <strong>low-grade fever (100.8&deg;F, no chills)</strong> began this evening, ~24h after durvalumab &mdash; like last cycle's post-infusion fever. Home plan: <strong>paracetamol; both urgent-care antibiotics held</strong> (levofloxacin resistant; oral Augmentin unlikely to cover her resistant organisms &mdash; antibiotic decision deferred to ILBS on-call); <strong>CBC booked Sun/Mon</strong>; ER on red flags; doctor reachable Monday.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">HBV DNA</div><div class="ekv-v">605 IU/mL &middot; reactivation</div></div>
-          <div class="ekv"><div class="ekv-l">Antiviral</div><div class="ekv-v">start Mon 22-Jun</div></div>
-          <div class="ekv"><div class="ekv-l">Fever</div><div class="ekv-v">100.8&deg;F &middot; PCM; antibiotics held</div></div>
-          <div class="ekv"><div class="ekv-l">CBC</div><div class="ekv-v">booked Sun/Mon</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">19-Jun</span><h4 class="event-title">C2D8 given &mdash; 2nd durvalumab dose</h4><span class="pill stable">C2D8 &#10003;</span></div>
-      <div class="event-body">
-        <p><strong>C2D8 administered</strong> at ILBS daycare: <strong>gemcitabine 1200&nbsp;mg + cisplatin 35&nbsp;mg + durvalumab 1500&nbsp;mg (2nd dose)</strong> with the usual premeds and renal protection. C2 chemotherapy is complete; tolerated (discharge temp 99.6&deg;F, BP 164/84). <strong>Premed was Avil-only &mdash; no IV steroid again</strong>, and the dose went in <strong>before the HBV result returned</strong>. Discharge meds = the same C2D1 supportive regimen; the urgent-care plan again lists <strong>levofloxacin</strong> (3rd time). <strong>No bloods drawn.</strong> Scheduled ILBS follow-up: <strong>2-Jul (CBC/KFT/LFT)</strong>.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">C2D8</div><div class="ekv-v">gem 1200 + cis 35 + durva 1500</div></div>
-          <div class="ekv"><div class="ekv-l">Premed</div><div class="ekv-v">Avil only &middot; no steroid</div></div>
-          <div class="ekv"><div class="ekv-l">Tolerance</div><div class="ekv-v">temp 99.6&deg;F (vs 103 at C1D8)</div></div>
-          <div class="ekv"><div class="ekv-l">Next ILBS</div><div class="ekv-v">2-Jul CBC/KFT/LFT</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">17-Jun</span><h4 class="event-title">First post-C2D1 home draw &mdash; two new signals</h4><span class="pill watch">C2 D5-6</span></div>
-      <div class="event-body">
-        <p>First draw since Cycle 2 started (Dr Lal home visit, day 5-6). Two new signals before C2D8: the <strong>liver-cell enzymes rose again (AST 72&rarr;116, ALT 43&rarr;92, same lab)</strong> &mdash; not the old fluconazole problem (long stopped) but most likely <strong>gemcitabine</strong>; the cholestatic enzymes <em>fell</em> and the USG shows minimal duct dilation, so it is irritation, not a blockage. <strong>Repeat LFT + send HBV DNA</strong> (she is anti-HBc positive) and decide durvalumab safety before 19-Jun. <strong>Mild low sodium re-emerged (132.5)</strong> &mdash; likely cisplatin now the bile-loss cause is gone.</p>
-        <p>Reassuring otherwise: <strong>kidneys clean (eGFR 103), ANC 5.16 (not neutropenic), INR 1.00, albumin 3.70, urine clean (no UTI)</strong>; the ALP/GGT fell on the same lab (confirming the 11-Jun high was inter-lab), and the <strong>USG shows minimal bilobar IHBRD</strong> (drains working well). Hb flat 10.4 &mdash; iron studies advised again.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">AST / ALT</div><div class="ekv-v">116 / 92 &middot; risen</div></div>
-          <div class="ekv"><div class="ekv-l">Sodium</div><div class="ekv-v">132.5 &middot; cisplatin?</div></div>
-          <div class="ekv"><div class="ekv-l">HBV DNA</div><div class="ekv-v">sent 18-Jun &rarr; 605 (reactivation)</div></div>
-          <div class="ekv"><div class="ekv-l">USG</div><div class="ekv-v">minimal bilobar IHBRD</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">12-Jun</span><h4 class="event-title">Cycle 2 Day 1 administered</h4><span class="pill stable">C2D1 ✓</span></div>
-      <div class="event-body">
-        <p><strong>C2D1 chemotherapy given</strong> at ILBS Oncology daycare (12:14&rarr;14:49): <strong>gemcitabine 1200&nbsp;mg + cisplatin 35&nbsp;mg</strong>, with the usual premed (fosaprepitant + pantoprazole + palonosetron) and renal protection (mannitol + KCl/MgSO4). Tolerated well, discharged stable. The 11-Jun home draw had cleared her. <strong>Durvalumab is deferred to C2D8 (19-Jun)</strong> &mdash; D8-only this cycle.</p>
-        <p>Two things to carry forward: the C2D8 order set lists <strong>Avil only with no IV steroid</strong> (secure the steroid pre-med before 19-Jun), and the urgent-care plan again lists <strong>levofloxacin</strong> despite the documented resistance. <strong>Oral iron (Iroxy) was restarted</strong>; chemo anti-sickness meds (olanzapine, ondansetron) added; the Elores antibiotic course is finished. Discharge <strong>BP 164/84</strong> &mdash; elevated on the infusion day, as at C1D8.</p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">C2D1</div><div class="ekv-v">gem 1200 + cis 35 &middot; given</div></div>
-          <div class="ekv"><div class="ekv-l">Durvalumab</div><div class="ekv-v">C2D8 19-Jun &middot; steroid premed</div></div>
-          <div class="ekv"><div class="ekv-l">Iron</div><div class="ekv-v">Iroxy 150 restarted</div></div>
-          <div class="ekv"><div class="ekv-l">Next bloods</div><div class="ekv-v">19-Jun CBC/KFT/LFT</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">11-Jun</span><h4 class="event-title">First home lab draw &mdash; reassuring</h4><span class="pill stable">Stable</span></div>
-      <div class="event-body">
-        <p>First home draw since discharge (Dr Lal PathLabs, home visit). The two discharge red flags both turned around: <strong>AST/ALT 129.5/53.8 &rarr; 72/43</strong> (roughly halved off fluconazole; ALT back in range) and <strong>INR 1.53 &rarr; 1.00</strong> without vitamin K. <strong>Bilirubin 1.08</strong> (essentially normal), <strong>albumin 3.20</strong> and <strong>sodium 135.7</strong> have recovered.</p>
-        <p>The chemo-response marker also resulted: <strong>CA&nbsp;19-9 469</strong> vs the 677 baseline (03-May) &mdash; <strong>down ~31% after Cycle&nbsp;1</strong>, an encouraging early response (same lab; reinforced by the improved drainage). Two watch items: the cholestatic enzymes read high (<strong>ALP 581 / GGT 696</strong>) &mdash; largely the home-lab assay, not an obstruction signal while bilirubin is normal &mdash; and <strong>Hb dipped to 10.4</strong> with the lab advising iron studies. <strong>Urine routine is still pending.</strong></p>
-        <div class="event-kv">
-          <div class="ekv"><div class="ekv-l">INR</div><div class="ekv-v">1.53 &rarr; 1.00 (no vit K)</div></div>
-          <div class="ekv"><div class="ekv-l">AST / ALT</div><div class="ekv-v">72 / 43 &middot; halved</div></div>
-          <div class="ekv"><div class="ekv-l">CA 19-9</div><div class="ekv-v">469 &middot; &minus;31% vs 677</div></div>
-          <div class="ekv"><div class="ekv-l">Watch</div><div class="ekv-v">ALP/GGT, Hb 10.4, urine pending</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">04-Jun</span><h4 class="event-title">Discharged home &mdash; cholangitis resolved</h4><span class="pill stable">Discharge</span></div>
-      <div class="event-body">
-        <p>Discharged after a 10-day admission. <strong>Bile culture grew <em>E. coli</em> + <em>Klebsiella pneumoniae</em></strong>; antibiotics were upgraded per sensitivity, cholangitis resolved, and the bilateral catheters were <strong>capped (01-Jun) and tolerated</strong> through discharge. Stepped down to <strong>Elores 1.5g IV BD &times;5d</strong> as the sole antibiotic (meropenem/tigecycline/metronidazole/pip-taz stopped). <strong>Fluconazole stopped</strong> at discharge (the transaminase dechallenge). Discharged on an <strong>uncorrected INR 1.53</strong> with an OPD vitamin-K plan &mdash; now moot, since the INR self-corrected. C2 chemotherapy and the biliary-stenting (SEMS) decision were deferred to OPD.</p>
-      </div>
-    </div>
-    <div class="event fact">
-      <div class="event-head"><span class="event-time">06-Jun</span><h4 class="event-title">Day 2 home &mdash; well</h4><span class="pill brand">Family report</span></div>
-      <div class="event-body">
-        <p>Well at home &mdash; afebrile, no fever, no new problems, no return-precaution signs. Supports a tolerated cap and no early recurrent cholangitis in this window.</p>
-      </div>
-    </div>
-    <div class="event milestone">
-      <div class="event-head"><span class="event-time">01-Jun</span><h4 class="event-title">Left PTBD capped &mdash; bilateral internal drainage</h4><span class="pill stable">Structural step</span></div>
-      <div class="event-body">
-        <p>The left externalized PTBD was <strong>capped</strong>, so left-lobe bile drains internally across the stricture. With the right side (re-internalized 26-May), <strong>both lobes now drain internally</strong>; the capped transhepatic catheters remain in situ and can be re-opened if needed. This closed the bicarbonate/sodium loss channel &mdash; electrolytes recovered on the next draw.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="timeline">
-    <div class="s-head"><span class="s-num">&sect; 09</span><h2 class="s-title">Clinical timeline</h2><span class="s-by">Condensed; trivial closed items removed</span></div>
-    <ol class="timeline" aria-label="Clinical events">
-      <li class="tl-item"><div class="tl-date">27 Mar &ndash; 09 Apr<small>2026</small></div><div class="tl-dot"></div><div><h4 class="tl-title">ILBS first admission &middot; right PTBD <span class="tl-tag proc">Procedure</span></h4><p class="tl-detail">Right PTBD inserted 28-Mar and internalized 31-Mar. Left access not possible due to tumour angulation / thickening. HPB opinion: unresectable.</p></div></li>
-      <li class="tl-item"><div class="tl-date">04 Apr<small>2026</small></div><div class="tl-dot"></div><div><h4 class="tl-title">FDG PET-CT <span class="tl-tag dx">Imaging</span></h4><p class="tl-detail">Hilar lesion with periportal / portocaval nodes, no distant metastasis; portal-hypertension features.</p></div></li>
-      <li class="tl-item"><div class="tl-date">28 Apr<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">FNAC confirmed adenocarcinoma <span class="tl-tag dx">Pathology</span></h4><p class="tl-detail">Perihilar infiltrative thickening positive for adenocarcinoma.</p></div></li>
-      <li class="tl-item"><div class="tl-date">05 May<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">C1D1 chemotherapy started</h4><p class="tl-detail">Gemcitabine 1200&nbsp;mg + cisplatin 35&nbsp;mg.</p></div></li>
-      <li class="tl-item"><div class="tl-date">07&ndash;13 May<small>2026</small></div><div class="tl-dot acute"></div><div><h4 class="tl-title">PTBD exchange + post-procedure cholangitis <span class="tl-tag adv">Adverse</span></h4><p class="tl-detail">No peri-procedural antibiotic documented on 07-May exchange; fever / chills / confusion led to admission. Pip-taz used; PCT 0.33 &rarr; 0.16. Discharged 13-May.</p></div></li>
-      <li class="tl-item"><div class="tl-date">21 May<small>2026</small></div><div class="tl-dot acute"></div><div><h4 class="tl-title">C1D8 + first durvalumab <span class="tl-tag ms">Milestone</span></h4><p class="tl-detail">Gemcitabine + cisplatin + durvalumab 1500&nbsp;mg. No IV steroid premed; fever spike to 103&nbsp;&deg;F; USG showed moderate left IHBRD and no abscess.</p></div></li>
-      <li class="tl-item"><div class="tl-date">23 May<small>2026</small></div><div class="tl-dot acute"></div><div><h4 class="tl-title">USG bilobar moderate IHBRD; PTBD externalized <span class="tl-tag proc">Procedure</span></h4><p class="tl-detail">Bile leak + fever prompted OPD visit. PTBD tip within CBD; uncapped due to undrained bilobar IHBRD and fever.</p></div></li>
-      <li class="tl-item"><div class="tl-date">25 May<small>2026</small></div><div class="tl-dot acute"></div><div><h4 class="tl-title">Fourth ILBS admission <span class="tl-tag ms">Admission</span></h4><p class="tl-detail">IP/ILBS/26/10536, Ward 2117-02. Labs: Na 123 LL, HCO3 15.3 L, ALP/GGT falling, INR 1.14.</p></div></li>
-      <li class="tl-item"><div class="tl-date">26 May<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">Bilateral PTBD intervention completed <span class="tl-tag proc">Procedure</span></h4><p class="tl-detail">Left PTBD placed / externalized; right PTBD fully replaced and re-internalized; peri-procedural IV antibiotics given.</p></div></li>
-      <li class="tl-item"><div class="tl-date">27 May<small>2026</small></div><div class="tl-dot watch"></div><div><h4 class="tl-title">Safe sodium correction + antibiotic escalation <span class="tl-tag lab">Labs</span></h4><p class="tl-detail">Na 129.9, HCO3 20.8, Cl 100.4; IV pip-taz + metronidazole started, faropenem stopped.</p></div></li>
-      <li class="tl-item"><div class="tl-date">28 May<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">Bilirubin bump resolved; fever surveillance reopened <span class="tl-tag lab">Labs</span></h4><p class="tl-detail">T.Bili 2.12; GGT 348; ALP 503. Recurrent fever / chills active under IV pip-taz + metronidazole.</p></div></li>
-      <li class="tl-item"><div class="tl-date">29&ndash;31 May<small>2026</small></div><div class="tl-dot watch"></div><div><h4 class="tl-title">Antibiotics escalated; platelet nadir; afebrile <span class="tl-tag adv">Meds</span></h4><p class="tl-detail">Stepped up to IV meropenem + tigecycline; sucralfate added. Plt nadir 173 (29-May). Afebrile from 30-May; vomiting persists.</p></div></li>
-      <li class="tl-item"><div class="tl-date">01 Jun<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">Left PTBD capped &mdash; bilateral internal drainage <span class="tl-tag proc">Procedure</span></h4><p class="tl-detail">Left capped &rarr; both lobes drain internally. Tolerance trial (24&ndash;72h; un-cap = rescue).</p></div></li>
-      <li class="tl-item"><div class="tl-date">04 Jun<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">Discharged home &mdash; cholangitis resolved <span class="tl-tag ms">Discharge</span></h4><p class="tl-detail">Bile culture <em>E. coli</em> + <em>Klebsiella</em>; antibiotics sensitivity-guided. Catheters capped + tolerated. Stepped down to Elores &times;5d alone; fluconazole stopped (transaminase dechallenge). INR 1.53 uncorrected (OPD vit-K plan). C2 + stenting deferred to OPD.</p></div></li>
-      <li class="tl-item"><div class="tl-date">06 Jun<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">Day 2 home &mdash; well, afebrile</h4><p class="tl-detail">No fever, no new problems, no return-precaution signs. Cap tolerated out of hospital.</p></div></li>
-      <li class="tl-item"><div class="tl-date">11 Jun<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">First home lab draw &mdash; stable <span class="tl-tag lab">Labs</span></h4><p class="tl-detail">Transaminases halved (AST 72, ALT 43), INR normalised to 1.00 (no vit K), bilirubin 1.08, albumin 3.20, Na 135.7. <strong>CA 19-9 469 &mdash; down ~31% vs the 677 baseline (early response).</strong> ALP/GGT high (largely lab-to-lab). Hb 10.4 &mdash; iron studies advised. TSH 0.69. Urine pending.</p></div></li>
-      <li class="tl-item"><div class="tl-date">12 Jun<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">Cycle 2 Day 1 administered <span class="tl-tag ms">Milestone</span></h4><p class="tl-detail">Gemcitabine 1200&nbsp;mg + cisplatin 35&nbsp;mg at daycare, tolerated well. Durvalumab deferred to C2D8 (19-Jun, D8-only); order set lists Avil only (secure IV-steroid premed). Oral iron restarted; Elores course finished. Discharge BP 164/84.</p></div></li>
-      <li class="tl-item"><div class="tl-date">17 Jun<small>2026</small></div><div class="tl-dot watch"></div><div><h4 class="tl-title">First post-C2D1 home draw &mdash; two new signals <span class="tl-tag lab">Labs</span></h4><p class="tl-detail">AST 116 / ALT 92 risen again (same lab; chemo/gemcitabine, not fluconazole) &mdash; repeat LFT + HBV DNA before C2D8. Mild hyponatraemia Na 132.5 (likely cisplatin). Reassuring: Cr 0.49/eGFR 103, ANC 5.16 (not neutropenic), INR 1.00, albumin 3.70, urine clean; ALP/GGT fell same-lab; USG minimal bilobar IHBRD. Hb 10.4 &mdash; iron studies advised.</p></div></li>
-      <li class="tl-item"><div class="tl-date">19 Jun<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">C2D8 administered &mdash; 2nd durvalumab dose <span class="tl-tag ms">Milestone</span></h4><p class="tl-detail">Gemcitabine 1200&nbsp;mg + cisplatin 35&nbsp;mg + durvalumab 1500&nbsp;mg at daycare; C2 chemo complete, tolerated (discharge temp 99.6&deg;F). Premed Avil-only (no IV steroid again); given before the HBV result was back; no bloods drawn. Urgent-care plan again lists levofloxacin (3rd time). Scheduled ILBS follow-up 2-Jul.</p></div></li>
-      <li class="tl-item"><div class="tl-date">20 Jun<small>2026</small></div><div class="tl-dot acute"></div><div><h4 class="tl-title">HBV reactivation confirmed + low-grade fever <span class="tl-tag adv">Key update</span></h4><p class="tl-detail"><strong>HBV DNA 605 IU/mL</strong> (was undetected) &mdash; reactivation on chemo + durvalumab; <strong>antiviral (entecavir/tenofovir) to start at the Mon 22-Jun contact</strong>; reframes the AST/ALT rise as reactivation-hepatitis; no steroids without antiviral. <strong>Fever 100.8&deg;F (no chills)</strong> ~24h post-durvalumab &mdash; home plan: paracetamol; both urgent-care antibiotics held (Augmentin unlikely to cover her resistant organisms; levofloxacin resistant) &mdash; antibiotic decision deferred to ILBS on-call; CBC Sun/Mon; ER on red flags.</p></div></li>
-      <li class="tl-item"><div class="tl-date">21 Jun<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">Home CBC+LFT (C2 Day 10) &mdash; reassuring <span class="tl-tag lab">Labs</span></h4><p class="tl-detail"><strong>Fever resolved</strong> (one PCM, afebrile since; Augmentin never started); <strong>ANC 3.21 = NOT neutropenic</strong> (febrile neutropenia excluded). <strong>AST 116&rarr;52, ALT 92&rarr;40 (in range) without antiviral</strong> &mdash; transient gemcitabine, not an HBV flare; bilirubin + ALP/GGT down. <strong>New: platelets 232&rarr;105</strong> (gemcitabine nadir; bleeding precautions, recheck); Hb 9.5. HBV antiviral still indicated (DNA 605). No electrolytes/INR/CA19-9 on panel.</p></div></li>
-      <li class="tl-item"><div class="tl-date">22 Jun<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">OPD &mdash; HBV antiviral started; fever = durvalumab; iron declined <span class="tl-tag ms">OPD</span></h4><p class="tl-detail"><strong>Tenofovir alafenamide (TAF) 25&nbsp;mg daily started</strong> for the reactivation (continues long-term; monitor DNA + ALT each cycle). 20-Jun fever judged a <strong>durvalumab effect</strong> (no antibiotic). <strong>New iron declined</strong> (drug load + gastritis) &mdash; oral Iroxy continues, anaemia monitor-only. Conservative monitoring; IV-steroid premed for C3 now permissible (antiviral on board). Levofloxacin correction not raised &mdash; still pending.</p></div></li>
-      <li class="tl-item"><div class="tl-date">26 Jun<small>2026</small></div><div class="tl-dot acute"></div><div><h4 class="tl-title">Full home panel (C2 Day 14) &mdash; deep nadir, high CRP, thyroid swing <span class="tl-tag lab">Labs</span></h4><p class="tl-detail"><strong>Platelets 105&rarr;50</strong> (Grade-2/3, manual-confirmed) + <strong>Hb 9.5&rarr;8.0</strong> &mdash; deep gemcitabine nadir: bleeding precautions, urgent recheck, transfusion-threshold + procedure hold. <strong>First-ever CRP 74.6</strong> (high) while afebrile (ANC 2.43, urine clean) &mdash; flag ILBS. <strong>TSH 0.69&rarr;9.02 / Free T3 low</strong> &mdash; durvalumab thyroiditis; raise Thyronorm. <strong>Liver settled</strong> (T.Bili 0.99 normal, ALT 39, GGT/ALP easing &mdash; transient gemcitabine). Mild: Na 133.5, K 3.49, INR 1.21. <strong>Plt 50 + Hb 8 + CRP 74.6 &rarr; contact ILBS near-term.</strong></p></div></li>
-      <li class="tl-item"><div class="tl-date">29 Jun<small>2026</small></div><div class="tl-dot"></div><div><h4 class="tl-title">PTBD catheter exchange &mdash; routine <span class="tl-tag proc">Procedure</span></h4><p class="tl-detail">Bilateral catheters exchanged for fresh 8F Cook internal-external (routine IR daycare, uneventful, same-day discharge; Dr. Amar Mukund + Dr. Anoushka Gupta). Roughly monthly maintenance; no bleeding despite the recent nadir. Peri-procedural antibiotic + drainage mode not documented (confirm).</p></div></li>
-      <li class="tl-item"><div class="tl-date">03 Jul<small>2026</small></div><div class="tl-dot ok"></div><div><h4 class="tl-title">Pre-C3 home panel &mdash; marrow recovered; C3 delayed <span class="tl-tag lab">Labs</span></h4><p class="tl-detail">Pathkind home draw (new lab). <strong>Platelets 50&rarr;472, Hb 8.0&rarr;9.3, ANC/TLC rebounded</strong> &mdash; deep-nadir crisis over; procedure-hold lifted. <strong>TSH 9.02&rarr;3.48 normalised</strong> (labile durvalumab thyroiditis &mdash; hold Thyronorm). Liver settled (T.Bili 0.90, ALT 26). Mild: Na 131.5, INR 1.32. <strong>C3D1 delayed 03-Jul &rarr; 06-Jul for a low-grade ~100&deg;F fever.</strong> CA 19-9 + HBV DNA not on panel.</p></div></li>
-      <li class="tl-item"><div class="tl-date">06 Jul<small>2026</small></div><div class="tl-dot acute"></div><div><h4 class="tl-title">C3D1 given &mdash; intra-day fever, reassuring USG <span class="tl-tag ms">Milestone</span></h4><p class="tl-detail"><strong>Cycle 3 Day 1: gemcitabine 1200 + cisplatin 35</strong> (durvalumab D8-only). No fever at start; intra-day temp <strong>99&ndash;102&deg;F crossed 100.4&deg;F &rarr; IV Neomol + urgent USG</strong>. USG: <strong>minimal bilobar IHBRD, no collections, catheter correctly positioned</strong> &mdash; mechanical causes refuted; best-fit colonised-bile/biofilm cholangitis (ANC 7.34, not neutropenic). No CRP/cultures confirmed drawn. Post-C3 nadir beginning. Decisions: interim PET after C3D8 (~D10&ndash;12); comprehensive pre-C3D8 marker panel; course through ~C6.</p></div></li>
-      <li class="tl-item"><div class="tl-date">08 Jul<small>2026</small></div><div class="tl-dot acute"></div><div><h4 class="tl-title">Fifth admission &mdash; acute cholangitis; left lobe externalized <span class="tl-tag ms">Admission</span></h4><p class="tl-detail">Sudden home rigor (C3D3) &rarr; ILBS ER; <strong>Charcot's triad on an obstructed left segment</strong> (IR-confirmed). <strong>IR externalized the left lobe</strong> (source control) + <strong>empirical IV piperacillin-tazobactam</strong> + bile/blood cultures. <strong>PCT 0.28 = contained, not septic</strong> (ANC ~11.8, not neutropenic); danger set intact (Plt 407, INR 1.22, Cr 0.54, Hb 9.4); obstruction LFTs (ALP 630.8/GGT 290.6/AST 90.1/T.Bili 1.61); Na 126.6 (careful correction). Capping re-obstructed &mdash; not durable on the left (3rd biliary drainage crisis). C3D8 durvalumab/markers/interim-PET likely deferred.</p></div></li>
-      <li class="tl-item"><div class="tl-date">10 Jul<small>2026</small></div><div class="tl-dot watch"></div><div><h4 class="tl-title">Day-3 draw &mdash; cholangitis responding; Hb dropped to 7.4 <span class="tl-tag lab">Labs</span></h4><p class="tl-detail"><strong>Responding on drainage + antibiotics:</strong> TLC 12.8&rarr;4.4, ANC ~11.8&rarr;~3.26 (normalised); obstruction LFTs ~halved (ALP 630.8&rarr;315, GGT 290.6&rarr;179, AST 90.1&rarr;46, T.Bili 1.61&rarr;1.14). <strong>Na correcting safely 126.6&rarr;128.3</strong> (Cl 99.9, K 3.66). <strong>New: Hb 9.4&rarr;7.4 (PCV 22.6) + Plt 407&rarr;223 + TLC falling = post-C3 marrow nadir arriving &plusmn; dilution (Alb 2.47) &plusmn; occult loss</strong> &rarr; transfusion-threshold decision + repeat Hb + exclude hemobilia. Cr 0.49/eGFR 125.6 clean. CA 19-9 / HBV DNA / INR / CRP not on the panel.</p></div></li>
-      <li class="tl-item"><div class="tl-date">10 Jul<small>PM</small></div><div class="tl-dot acute"></div><div><h4 class="tl-title">Fever spike 103&deg;F &rarr; carbapenem added; new hearing symptom; C3D8 rescheduled <span class="tl-tag ms">Escalation</span></h4><p class="tl-detail">One <strong>103&deg;F spike</strong> (no chills, not felt; only fever in ~28h) on falling counts &rarr; <strong>Dorimate S (doripenem + sulbactam, a carbapenem) added</strong> for the MDR history (confirm it replaces vs stacks pip-tazo). <strong>New muffled-hearing symptom</strong> &mdash; cisplatin cochleotoxicity? (audiogram before next cisplatin). <strong>C3D8 durvalumab #3 + markers + interim PET confirmed pushed to ~18&ndash;20 Jul</strong>, gated on infection clearing.</p></div></li>
-      <li class="tl-item"><div class="tl-date">11 Jul<small>2026</small></div><div class="tl-dot watch"></div><div><h4 class="tl-title">Day-4 draw &mdash; cholangitis still resolving; Hb 6.9 below threshold; new K 3.07 <span class="tl-tag lab">Labs</span></h4><p class="tl-detail"><strong>Still resolving:</strong> T.Bili 1.14&rarr;0.99 (back in range), AST 46&rarr;41, ALT 20&rarr;18; ALP 315&rarr;329 / GGT 179&rarr;198 a small uptick (minor). <strong>Hb 7.4&rarr;6.9 (PCV 21) below the ~7 transfusion threshold, still falling; Plt 223&rarr;178, TLC 3.56, ANC ~2.63 = post-C3 nadir deepening</strong> (ANC not neutropenic &rarr; the 103&deg;F spike is not febrile neutropenia) &rarr; transfusion decision + repeat Hb + exclude hemobilia. <strong>Na 128.3&rarr;129.3 correcting; new K 3.07 L</strong> (replace + recheck). Cr 0.4/eGFR 158.74 clean; Alb 2.31. Bile culture expected.</p></div></li>
-      <li class="tl-item"><div class="tl-date">11 Jul<small>PM</small></div><div class="tl-dot acute"></div><div><h4 class="tl-title">Evening &mdash; recurrent rigor + Amikacin; 1u PRBC transfused; liver IR screening finds undrained RPSD <span class="tl-tag proc">Imaging + Meds</span></h4><p class="tl-detail">Another <strong>rigor + 102&deg;F</strong> despite pip-tazo + Dorimate &rarr; saline + PCM + lignocaine, settled; <strong>Amikacin added</strong> (3rd antibiotic). <strong>Liver IR screening:</strong> both existing drains working (no collection) but a <strong>dilated, UNDRAINED right posterior sectoral duct (RPSD)</strong> = likely fever source &rarr; drainage decision pending. <strong>Transfusion:</strong> Hb 6.9 &rarr; <strong>1 unit leucodepleted A+ve PRBC</strong> (crossmatch &ldquo;Reserved&rdquo;) ran uneventfully, no reaction. K 3.07 replacing; groaning &rarr; pain check. <strong>Culture still awaited &mdash; the tiebreaker.</strong></p></div></li>
-    </ol>
-  </section>
-
+  <!-- 5 · MEDS -->
   <section id="meds">
-    <div class="s-head"><span class="s-num">&sect; 10</span><h2 class="s-title">Current medications &amp; safety</h2><span class="s-by">Inpatient: IV pip-tazobactam + Dorimate S (carbapenem) &middot; home orals &middot; TAF antiviral</span></div>
-    <p class="text-small text-muted" style="margin:0 0 12px;max-width:82ch"><strong>Inpatient since 08-Jul (fifth admission, acute cholangitis) &mdash; now on THREE antibiotics: IV piperacillin-tazobactam + Dorimate S (carbapenem, 10-Jul) + Amikacin (added 11-Jul evening)</strong>, still spiking rigors, so rationalisation awaits the bile culture. <strong>1 unit PRBC transfused 11-Jul</strong> for Hb 6.9. Chemotherapy is interrupted by the admission (C3D1 given 06-Jul; C3D8 durvalumab + premeds pushed to ~18&ndash;20 Jul). The home oral list (reconciled 06-Jul to the family's current-medicines list &mdash; brand renames Ursocol/Amlip/Thyrox/Emset/Oleanz; corrections Glutahigh = L-glutamine, Pinaka = CoQ10/omega-3-6-9/B12) is presumed continued inpatient unless the ward chart changes it. TAF (HBV antiviral) continues.</p>
-    <div class="tbl-wrap"><table class="tbl"><caption class="sr-only">Current medications and safety — inpatient (fifth admission) + home orals</caption><thead><tr><th scope="col">Medication</th><th scope="col">Dose</th><th scope="col">Route</th><th scope="col">Schedule</th><th scope="col">Indication / context</th></tr></thead><tbody>
-      <tr style="background:var(--warn-bg)"><td class="lab-name">Piperacillin-tazobactam</td><td>&mdash;</td><td><span class="med-route">IV</span></td><td><strong>Inpatient &middot; since 08-Jul</strong></td><td><strong>Empirical cover for the acute cholangitis</strong> &mdash; a sensitivity-confirmed agent. <strong>&#9888; Confirm whether continued alongside or replaced by Dorimate S</strong> (carbapenem + pip-tazo is redundant). <strong>Not levofloxacin</strong> (resistant).</td></tr>
-      <tr style="background:var(--warn-bg)"><td class="lab-name">Dorimate S <small>doripenem + sulbactam</small></td><td>&mdash;</td><td><span class="med-route">IV</span></td><td><strong>Inpatient &middot; added 10-Jul</strong></td><td><strong>Carbapenem &mdash; added after one 103&deg;F spike</strong> on falling counts; a class step-up for her MDR history. <strong>Confirm it replaces the pip-tazo rather than stacking.</strong> De-escalate/rationalise per the bile culture.</td></tr>
-      <tr style="background:var(--warn-bg)"><td class="lab-name">Amikacin</td><td>&mdash;</td><td><span class="med-route">IV</span></td><td><strong>Inpatient &middot; added 11-Jul PM</strong></td><td><strong>Aminoglycoside &mdash; added before the transfusion</strong> after another rigor + 102&deg;F on pip-tazo + Dorimate; her documented organisms are <strong>sensitive</strong> (March/June c/s), so it broadens toward the likely bug while the culture is awaited. Now the 3rd concurrent antibiotic. <strong>Nephro- and oto-toxic</strong> &mdash; monitor renal function + trough levels; note the concurrent hearing symptom. Rationalise on the culture.</td></tr>
-      <tr style="background:var(--info-bg)"><td class="lab-name">PRBC transfusion <small>1 unit</small></td><td>1 unit</td><td><span class="med-route">IV</span></td><td><strong>Given 11-Jul PM</strong></td><td><strong>Leucodepleted A+ve packed red cells</strong> for Hb 6.9 (below the ~7 threshold). Crossmatch &ldquo;Reserved&rdquo; (compatible); blood group <strong>A Rh-positive</strong>. Fully screened; ran <strong>uneventfully &mdash; stable &gt;70 min, no reaction</strong>. Recheck Hb + exclude a bleeding source.</td></tr>
-      <tr style="background:var(--info-bg)"><td class="lab-name">Tenofovir alafenamide <small>TAF</small></td><td>25 mg</td><td><span class="med-route">PO</span></td><td><strong>OD &middot; since 22-Jun</strong></td><td><strong>HBV reactivation (DNA 605).</strong> TAF chosen over plain tenofovir given cisplatin. 1-month script = review interval &mdash; <strong>continues long-term; confirm renewal.</strong> ALT 18 normal (11-Jul); recheck HBV DNA when bloods allow. Satisfies the no-steroids-without-antiviral interlock.</td></tr>
-      <tr><td class="lab-name">Pantop <small>pantoprazole</small></td><td>40 mg</td><td><span class="med-route">PO</span></td><td>OD, pre-breakfast</td><td>PPI / GI protection. Suppresses oral iron absorption &mdash; separate from Iroxy.</td></tr>
-      <tr><td class="lab-name">Ursocol 300 <small>UDCA</small></td><td>300 mg</td><td><span class="med-route">PO</span></td><td>BD</td><td>Cholestasis support / hepatoprotection. <em>(Brand was Udiliv.)</em></td></tr>
-      <tr><td class="lab-name">Cirrosam 400 <small>ademetionine / SAMe</small></td><td>400 mg</td><td><span class="med-route">PO</span></td><td>BD</td><td>Hepatoprotective, alongside UDCA. (= Hepkart-400.)</td></tr>
-      <tr><td class="lab-name">Iroxy-150 <small>iron polysaccharide</small></td><td>150 mg</td><td><span class="med-route">PO</span></td><td>OD</td><td><strong>Oral iron continues</strong> &mdash; new/IV iron declined 22-Jun (drug load + gastritis). <strong>Hb dropped to 6.9 (11-Jul)</strong> = post-C3 nadir &plusmn; dilution, now below the transfusion threshold &mdash; a transfusion decision is on the table (see the Action board).</td></tr>
-      <tr><td class="lab-name">Amlip-5 <small>amlodipine</small></td><td>5 mg</td><td><span class="med-route">PO</span></td><td>OD (self-med)</td><td>HTN. Infusion-day BP runs high (164/84); watch / review at OPD. <em>(Brand was Amlong.)</em></td></tr>
-      <tr style="background:var(--warn-bg)"><td class="lab-name">Thyrox 50 <small>levothyroxine</small></td><td>50 mcg <span class="text-small">(hold)</span></td><td><span class="med-route">PO</span></td><td>OD, pre-breakfast (self-med)</td><td>Hypothyroidism. <strong>TSH normalised 9.02 &rarr; 3.48 (03-Jul)</strong> on the same dose &mdash; labile durvalumab thyroiditis. Earlier "raise the dose" reversed: <strong>hold at 50&nbsp;mcg, don't chase each swing</strong>; recheck TSH next cycle. <em>(Brand was Thyronorm.)</em></td></tr>
-      <tr><td class="lab-name">Pinaka</td><td>1 tab</td><td><span class="med-route">PO</span></td><td>OD</td><td><strong>Corrected formula:</strong> nano-curcumin + ubidecarenone (CoQ10) + piperine + omega 3-6-9 + cyanocobalamin (B12). Supportive nutraceutical only.</td></tr>
-      <tr><td class="lab-name">Glutahigh</td><td>1 sachet</td><td><span class="med-route">PO</span></td><td>BD</td><td><strong>L-glutamine oral powder</strong> &mdash; corrected (this is L-glutamine, not glutathione). Nutritional / mucosal support.</td></tr>
-      <tr><td class="lab-name">Laxopeg <small>PEG 3350</small></td><td>&mdash;</td><td><span class="med-route">PO</span></td><td>PRN constipation</td><td><strong>Now the current laxative</strong> (replaces Cremaffin-plus).</td></tr>
-      <tr><td class="lab-name">Insta Raft <small>alginate</small></td><td>syrup</td><td><span class="med-route">PO</span></td><td>for reflux</td><td><strong>New</strong> &mdash; raft-forming antacid for reflux/GERD; complements pantoprazole.</td></tr>
-      <tr><td class="lab-name">Oleanz 5 <small>olanzapine</small></td><td>5 mg</td><td><span class="med-route">PO</span></td><td>HS (chemo window)</td><td><strong>Chemo anti-sickness (CINV)</strong> for the gem/cis window (also nausea/appetite). QT-prolonging.</td></tr>
-      <tr><td class="lab-name">Emset 8 <small>ondansetron</small></td><td>8 mg</td><td><span class="med-route">PO</span></td><td>chemo window &rarr; PRN</td><td><strong>Chemo anti-sickness.</strong> Scheduled over the chemo window then as-needed before food. QT-prolonging. <em>(Brand was Emeset.)</em></td></tr>
-      <tr><td class="lab-name">Paracip-650 <small>paracetamol</small></td><td>650 mg</td><td><span class="med-route">PO</span></td><td>PRN &mdash; fever / pain</td><td><strong>The home oral PCM</strong> for the fever plan (fever &gt;100.4&deg;F &rarr; PCM + CBC + call ILBS on-call, <strong>not levofloxacin</strong>). Distinct from the daycare IV Neomol.</td></tr>
-      <tr><td class="lab-name">Ultracet <small>paracetamol + tramadol</small></td><td>1 tab</td><td><span class="med-route">PO</span></td><td>PRN (pain)</td><td>Stronger analgesic. <strong>No NSAIDs.</strong> Contains tramadol (serotonergic &mdash; mind with ondansetron) &mdash; use only when Paracip is insufficient.</td></tr>
-      <tr><td class="lab-name">Montair-LC <small>montelukast + levocetirizine</small></td><td>1 tab</td><td><span class="med-route">PO</span></td><td><strong>PRN &mdash; only when told</strong></td><td><strong>Does NOT take unless instructed</strong> (allergy / respiratory / cholestatic-itch cover). Standing conditional PRN.</td></tr>
-      <tr style="background:var(--info-bg)"><td class="lab-name">Electral <small>ORS (WHO formula)</small></td><td>1 sachet / 1 L</td><td><span class="med-route">PO</span></td><td>~1 L/day around C3D1 &amp; C3D8</td><td>Hydration / sodium support against the cisplatin <strong>Na drift (131.5)</strong> and forced-diuresis losses on chemo days. <strong>Not for daily long-term use.</strong></td></tr>
-      <tr style="background:var(--info-bg)"><td class="lab-name">Durvalumab <small>Imfinzi</small></td><td>1500 mg</td><td><span class="med-route">IV</span></td><td><strong>C3D8 &middot; ~18&ndash;20 Jul</strong></td><td><strong>Doses #1 (C1D8) + #2 (C2D8) given (D8-only)</strong>; not given at C3D1. <strong>Dose #3 (C3D8) confirmed pushed to ~18&ndash;20 Jul by the acute cholangitis</strong>, gated on infection clearing &mdash; secure IV steroid (hydrocortisone 100&nbsp;mg / dexamethasone 8&nbsp;mg) + paracetamol alongside Avil (permissible with the antiviral on board); baseline audiogram before the next cisplatin.</td></tr>
-      <tr><td class="lab-name">Neomol <small>paracetamol IV</small></td><td>1 g</td><td><span class="med-route">IV</span></td><td>PRN antipyretic (in-hospital)</td><td>Given for fever at the 08-Jul ER presentation, C3D1 (06-Jul), the 10-Jul 103&deg;F spike, and the 11-Jul evening 102&deg;F rigor (the last also with IV saline + a lignocaine injection). Home fever plan stays PCM (Paracip-650) + CBC + call ILBS on-call (<strong>not levofloxacin</strong>).</td></tr>
-      <tr style="background:#fdf2f4"><td class="lab-name" style="color:var(--danger)">Levofloxacin</td><td>500 mg</td><td><span class="med-route">PO</span></td><td><strong style="color:var(--danger)">DO NOT START</strong></td><td>Documented resistant (March bile c/s) &mdash; <strong>recurs on 3 consecutive urgent-care plans (C1D8/C2D1/C2D8); not raised at the 22-Jun OPD &mdash; correction still pending.</strong> If fever: PCM + CBC + call ILBS on-call (antibiotic per clinician &mdash; oral Augmentin won't reliably cover her organisms; <strong>not levofloxacin</strong>); ER on red flags. Get the written correction; carry it to any external site. Sensitive options: amikacin, pip-taz, tigecycline, ceftazidime &plusmn; avibactam, gentamicin.</td></tr>
-      <tr style="background:var(--paper-2)"><td class="lab-name">Not on the 06-Jul list / not needed</td><td colspan="3" style="font-size:12px"><strong>Cremaffin-plus</strong> replaced by Laxopeg. <strong>Confirm if continued:</strong> domperidone (SOS antiemetic), chlorhexidine mouthwash (chemo-window), Arydite protein (nutrition). Vitamin K not needed; fluconazole stopped 04-Jun; Elores course complete (no routine antibiotic).</td><td>Fever cover is return-precaution only: PCM + CBC + call ILBS, <strong>not levofloxacin</strong>.</td></tr>
-    </tbody></table></div>
+    <div class="s-head"><span class="s-num">§ 05</span><h2 class="s-title">Medications</h2><span class="s-by">inpatient antibiotics sensitivity-guided · home orals continue</span></div>
+    <h3>Inpatient &mdash; fifth admission</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Drug</th><th>Route</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><b>Amikacin</b></td><td><span class="tag">IV</span></td><td>Covers the <em>E. coli</em> (sensitive) &mdash; the agent that closed the coverage gap. Monitor renal function + trough (oto-/nephro-toxic).</td></tr>
+        <tr><td><b>Dorimate S</b> (doripenem-sulbactam)</td><td><span class="tag">IV</span></td><td>Carbapenem &mdash; covers the <em>Pseudomonas</em> (sensitive).</td></tr>
+        <tr><td>Piperacillin-tazobactam</td><td><span class="tag">IV</span></td><td class="res">&#9888; Resistant on both organisms &mdash; ineffective; to be dropped.</td></tr>
+        <tr><td>Potassium chloride</td><td><span class="tag">IV / PO</span></td><td>Replacement for K 2.94.</td></tr>
+        <tr><td>Paracetamol (Neomol / Paracip)</td><td><span class="tag">IV / PO</span></td><td>Antipyretic &mdash; not needed since afebrile.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Home orals (continued)</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Drug</th><th>For</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td><b>Tenofovir alafenamide (TAF)</b> 25 mg</td><td>HBV antiviral</td><td>Continues long-term; satisfies the no-steroid-without-antiviral rule.</td></tr>
+        <tr><td>Thyrox (levothyroxine) 50 mcg</td><td>Hypothyroidism</td><td><b>Hold at 50 &mdash; don't uptitrate</b> (labile durvalumab thyroiditis).</td></tr>
+        <tr><td>Ursocol (UDCA) · Cirrosam (SAMe)</td><td>Cholestasis / liver support</td><td>&mdash;</td></tr>
+        <tr><td>Iroxy 150 mg</td><td>Iron / anaemia</td><td>Oral iron only (IV iron declined).</td></tr>
+        <tr><td>Amlip (amlodipine) 5 mg · Pantop 40 mg</td><td>BP / GI protection</td><td>Infusion-day BP runs high.</td></tr>
+        <tr><td>Oleanz · Emset</td><td>Anti-emetics (chemo window)</td><td>QT-prolonging &mdash; mind with low K.</td></tr>
+        <tr><td>Pinaka · Glutahigh · Insta Raft · Laxopeg</td><td>Supportive / reflux / laxative</td><td>Montair-LC PRN "only when told".</td></tr>
+      </tbody>
+    </table></div>
   </section>
 
-  <section id="dx">
-    <div class="s-head"><span class="s-num">&sect; 11</span><h2 class="s-title">Diagnosis &amp; staging</h2></div>
-    <div class="grid-2">
-      <div class="card"><div class="card-label">Confirmed diagnosis</div><p style="margin-top:4px;font-family:var(--serif);font-size:16px;line-height:1.5"><strong>Adenocarcinoma</strong>, perihilar infiltrative pattern / hilar cholangiocarcinoma, <strong>Bismuth Type IV</strong>, unresectable, <strong>N1 M0</strong>.</p><div class="sidenote" style="margin-bottom:0"><strong>Resectability:</strong> unresectable by AIIMS Patna, ILBS and HPB Surgery; portal vein invasion is the primary basis. Current systemic therapy is palliative-intent with possible conversion reassessment after response.</div></div>
-      <div class="card info"><div class="card-label">Current treatment frame</div>
-        <h4 class="mt0">Regimen</h4><p class="text-small mb0">Gemcitabine + cisplatin + durvalumab, 21-day cycle (durvalumab D8-only). <strong>C3D1 given 06-Jul (gem 1200 + cis 35); C3D3 (08-Jul) &rarr; fifth admission for acute cholangitis, chemo interrupted.</strong> <strong>C3D8 durvalumab #3 + the pre-C3D8 marker panel + the interim PET are confirmed pushed to ~18&ndash;20 Jul</strong>, gated on the infection clearing (secure the IV-steroid premed when durvalumab resumes; baseline audiogram before the next cisplatin for the new hearing symptom). <strong>Course planned through ~C6</strong> (fewer with good response). Biliary stenting (SEMS vs capped catheters) is best revisited after the post-C3 reassessment &mdash; the 08-Jul left re-obstruction (3rd crisis) strengthens the case.</p>
-        <h4>Response markers</h4><p class="text-small mb0">CA 19-9 <strong>677.47 (03-May) &rarr; 469.09 (11-Jun) &mdash; &minus;31% after C1</strong> (same lab). Encouraging early response; <strong>recheck in the pre-C3D8 panel</strong> against the ~50% target (&asymp;340), pairing with the interim PET. CEA also to be drawn.</p>
-        <h4>HBV reactivation &amp; durvalumab safety</h4><p class="text-small mb0"><strong>HBV reactivation confirmed (DNA undetected &rarr; 605, 18-Jun)</strong> on chemo + durvalumab &mdash; <strong>on tenofovir alafenamide (TAF) 25&nbsp;mg daily since 22-Jun</strong> (DNA recheck pending; ALT 20 normal on 10-Jul is reassuring against a flare). The transaminase rise has settled; the 08-Jul AST bump was the obstruction/cholangitis leak, settling with drainage (AST 41, ALT 18 on 11-Jul). <strong>Steroid interlock: no systemic steroids without the antiviral on board &mdash; now satisfied.</strong> Both durvalumab doses (C1D8 103&deg;F; C2D8 99.6&deg;F) were given Avil-only &mdash; for C3D8, add an IV steroid + paracetamol premed (now permissible). <strong>irAE confirmed:</strong> durvalumab thyroiditis &mdash; now shown to be <strong>labile</strong> (TSH 0.69&rarr;9.02&rarr;3.48, self-normalised); hold Thyrox (levothyroxine), monitor rather than uptitrate. <strong>New drug-toxicity watch:</strong> a muffled-hearing symptom (11-Jul) raises possible <strong>cisplatin ototoxicity</strong> &mdash; baseline audiogram before the next cisplatin.</p>
+  <!-- 6 · SAFETY & RESISTANCE -->
+  <section id="safety">
+    <div class="s-head"><span class="s-num">§ 06</span><h2 class="s-title">Safety &amp; antibiotic resistance</h2><span class="s-by">consult before any prescribing or procedure</span></div>
+    <div class="g2">
+      <div class="card">
+        <h3>Bile culture &mdash; 08 Jul 2026</h3>
+        <div class="tw"><table>
+          <thead><tr><th>Antibiotic</th><th><em>Pseudomonas</em></th><th><em>E. coli</em></th></tr></thead>
+          <tbody>
+            <tr><td>Piperacillin-tazobactam</td><td class="res">R</td><td class="res">R</td></tr>
+            <tr><td>Meropenem / carbapenem</td><td class="sen">S</td><td class="res">R</td></tr>
+            <tr><td>Amikacin</td><td class="tag">&mdash;</td><td class="sen">S</td></tr>
+            <tr><td>Gentamicin</td><td class="tag">&mdash;</td><td class="sen">S</td></tr>
+            <tr><td>Tigecycline</td><td class="tag">&mdash;</td><td class="sen">S</td></tr>
+            <tr><td>Elores (ceftriaxone-EDTA-sulbactam)</td><td class="tag">&mdash;</td><td class="sen">S</td></tr>
+            <tr><td>Ceftazidime-avibactam</td><td class="tag">&mdash;</td><td class="res">R</td></tr>
+            <tr><td>Ciprofloxacin / Levofloxacin</td><td class="sen">S</td><td class="res">R</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note"><b>Resistance is broadening</b> &mdash; the March E. coli was pip-tazo- and carbapenem-sensitive; both are now lost. No single agent covers both organisms &rarr; a combination is required. Blood culture still awaited.</p>
+      </div>
+      <div class="card">
+        <h3>Standing safety rules</h3>
+        <ul class="safety">
+          <li><b>Never Levofloxacin</b> (E. coli resistant, both cultures) &mdash; and <b>pip-tazo is no longer a fallback</b> (now resistant).</li>
+          <li>Home fever plan: paracetamol + CBC + call ILBS &mdash; <b>not</b> Levofloxacin, and oral Augmentin won't cover her MDR bugs.</li>
+          <li class="i"><b>No systemic steroids without antiviral cover</b> on board (steroids accelerate HBV reactivation) &mdash; satisfied while on TAF.</li>
+          <li class="w"><b>Albumin transfusions inpatient / supervised only.</b></li>
+          <li class="w"><b>Peri-procedural IV antibiotics</b> required for any PTBD intervention (a prior gap caused cholangitis).</li>
+          <li class="w"><b>Correct sodium &le;10 mmol/L per 24h.</b></li>
+          <li class="w"><b>No NSAIDs.</b> No known drug allergies.</li>
+        </ul>
       </div>
     </div>
   </section>
 
+  <!-- 7 · REFERENCE -->
   <section id="ref">
-    <div class="s-head"><span class="s-num">&sect; 12</span><h2 class="s-title">Reference &middot; pathology, microbiology, virology</h2></div>
-    <div class="grid-2">
-      <div class="card ok"><div class="card-label">Confirmed malignant sample</div><p class="mb0">USG-guided FNAC from perihilar infiltrative thickening; collected 27-Apr and verified 28-Apr-2026.<br><strong>Sample:</strong> CY 6222105 &middot; Gross C-740/26<br><strong>Impression:</strong> Positive for malignancy &mdash; adenocarcinoma.</p></div>
-      <div class="card warn"><div class="card-label">Historical microbiology reference</div><p class="mb0"><strong>PTBD bile culture 28-Mar:</strong> <em>E. coli</em> heavy growth.<br><strong>Resistant:</strong> ciprofloxacin, levofloxacin, cefepime, cefoperazone-sulbactam.<br><strong>Sensitive:</strong> pip-tazobactam, amikacin, ceftazidime, ceftazidime-avibactam, gentamicin, tigecycline.</p></div>
-      <div class="card ok"><div class="card-label">Bile culture &mdash; resulted</div><p class="mb0"><strong>Bile culture (04-Jun discharge):</strong> grew <em>Escherichia coli</em> + <em>Klebsiella pneumoniae</em>; antibiotics were upgraded per sensitivity and stepped down to <strong>Elores</strong>. Recurrence risk persists with indwelling hardware &mdash; bile cannot be sterilised, so drainage is the protective factor. <strong>Fresh bile + blood cultures were sent at the 08-Jul cholangitis admission &mdash; results STILL AWAITED (the tiebreaker)</strong> for the recurrent rigors on 3 antibiotics (IV piperacillin-tazobactam + Dorimate S carbapenem + Amikacin, added 11-Jul; <strong>not levofloxacin</strong>). Push for a preliminary.</p></div>
-      <div class="card danger"><div class="card-label">HBV &mdash; reactivation</div><p style="font-family:var(--mono);font-size:12.5px;line-height:1.7;margin:0">HBsAg&nbsp;&nbsp;&nbsp;Non-Reactive<br>anti-HBc&nbsp;&nbsp;Reactive<br>HBV DNA&nbsp;&nbsp;Mar: Not Detected<br>HBV DNA&nbsp;&nbsp;<strong>18-Jun: 605 IU/mL</strong></p><p class="text-small" style="margin:9px 0 0">Baseline was an anti-HBc-only past-infection pattern with undetected DNA. <strong>On chemo + durvalumab the DNA is now detectable (605) = reactivation</strong> &mdash; this supersedes the earlier "monitoring optional" stance. <strong>On tenofovir alafenamide (TAF) 25&nbsp;mg daily since 22-Jun; monitor HBV DNA + ALT each cycle; no steroids without antiviral cover (now satisfied).</strong></p></div>
+    <div class="s-head"><span class="s-num">§ 07</span><h2 class="s-title">Diagnosis &amp; reference</h2></div>
+    <div class="g2">
+      <div class="card">
+        <h3>Diagnosis &amp; treatment</h3>
+        <dl class="kv">
+          <dt>Diagnosis</dt><dd><b>Hilar cholangiocarcinoma</b>, Bismuth Type IV (adenocarcinoma, FNAC-confirmed 28 Apr 2026)</dd>
+          <dt>Stage</dt><dd>Unresectable · N1 · M0 · portal vein invasion (basis for unresectability)</dd>
+          <dt>Regimen</dt><dd>Gemcitabine + cisplatin + durvalumab (TOPAZ-1), 21-day cycles · <b>Cycle 3</b></dd>
+          <dt>Intent</dt><dd>Palliative, with conversion-therapy reassessment at ~4 cycles</dd>
+          <dt>Response</dt><dd>CA 19-9 677 &rarr; 469 (<b>&minus;31% after C1</b>); interim PET-CT due ~mid-Jul</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <h3>Care &amp; drainage</h3>
+        <dl class="kv">
+          <dt>Hospital</dt><dd>Institute of Liver &amp; Biliary Sciences (ILBS), Vasant Kunj, New Delhi</dd>
+          <dt>Hepatology</dt><dd>Dr. Harsh Vardhan Tevethia</dd>
+          <dt>Oncology</dt><dd>Dr. Nikhil Himthani</dd>
+          <dt>Interventional radiology</dt><dd>Dr. Amar Mukund</dd>
+          <dt>Biliary drainage</dt><dd>Bilateral transhepatic PTBD catheters &mdash; <b>left external</b> (draining), <b>right-anterior internal</b>; right-posterior segment undrained (RPSD)</dd>
+          <dt>Comorbid</dt><dd>Hypothyroidism (durvalumab thyroiditis) · HTN · chronic liver disease · past HBV exposure (reactivated, on TAF)</dd>
+        </dl>
+      </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div><p><strong>Document:</strong> DOC-HCC-2026-07-11-T2130 &middot; v25.0</p><p><strong>Prepared by:</strong> Rajeev Shekhar (family coordinator)</p><p><strong>Last updated:</strong> 11 Jul 2026 &middot; 21:30 IST &middot; Fifth admission (day 4 / C3D6), evening. A mixed but net-okay day: the day-4 labs confirm the cholangitis resolving (T.Bili 0.99, AST 41, ALT 18), but she had another rigor + 102&deg;F despite pip-tazo + Dorimate S &rarr; saline + paracetamol + lignocaine, and Amikacin was added (3rd antibiotic). The liver IR screening found both existing drains working but a dilated, UNDRAINED right posterior sectoral duct (RPSD) &mdash; the likely recurrent-rigor source and a potentially fixable mechanical cause (open decision: whether/when to drain + trigger). Hb 6.9 was corrected with 1 unit of leucodepleted A+ve PRBC (uneventful, no reaction; blood group A Rh-positive). Na correcting 128.3&rarr;129.3; K 3.07 being replaced; intermittent groaning &rarr; pain check. Still spiking on 3 antibiotics &mdash; the bile/blood culture (still awaited) is the tiebreaker. On TAF (ALT 18 normal). C3D8 stays ~18&ndash;20 Jul, gated on infection clearing. CA 19-9 (469) + HBV DNA (605) still not re-run.</p></div>
-    <div class="footer-disc"><p><strong>Clinical-use note.</strong> This page is a coordination summary for treating teams and family. It highlights family-side questions and tracker-derived reasoning, but it is not a prescription or treatment order. All clinical decisions remain with the treating physicians at ILBS. <strong>Published snapshot &mdash; as of 11 Jul 2026 (evening); refreshed at milestones.</strong> Canonical record: the markdown tracker (lab values in <code>DrHingmani_Labs.md</code>).</p></div>
+  <footer>
+    <b>Publish snapshot as of 13 Jul 2026.</b> Restated from the family-maintained four-file tracker (Static · Live · Labs · Archive); numbers are canonical in the Labs file. Prepared by family (Rajeev) for coordination with the ILBS treating team. <b>All clinical decisions rest with the treating physicians.</b> Not a medical record.
   </footer>
+
 </div>
-
-<nav class="mobile-quickbar" aria-label="Mobile quick navigation">
-  <a href="#concerns">Concerns</a>
-  <a href="#snapshot">Labs</a>
-  <a href="#actions">Actions</a>
-  <a href="#meds">Meds</a>
-</nav>
-
-<script>
-(function(){
-  var links=document.querySelectorAll('.nav a');
-  var secs=Array.prototype.map.call(links,function(a){return {link:a,el:document.getElementById(a.getAttribute('data-target'))};}).filter(function(x){return x.el;});
-  function off(){var b=document.querySelector('.banner');var n=document.querySelector('.nav');return (b?b.offsetHeight:0)+(n?n.offsetHeight:0)+12;}
-  function go(el){window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-off()-4,behavior:'smooth'});}
-  function active(){var pos=window.scrollY+off()+20,cur=secs[0];secs.forEach(function(s){if(s.el.offsetTop<=pos)cur=s;});links.forEach(function(a){a.classList.remove('active');});if(cur)cur.link.classList.add('active');}
-  links.forEach(function(a){a.addEventListener('click',function(e){var t=document.getElementById(a.getAttribute('data-target'));if(t){e.preventDefault();go(t);history.replaceState(null,'','#'+a.getAttribute('data-target'));}});});
-  window.addEventListener('scroll',active,{passive:true});window.addEventListener('resize',active);active();
-  document.addEventListener('keydown',function(e){if(e.target.matches('input,textarea'))return;var pos=window.scrollY+off()+20,idx=0;secs.forEach(function(s,i){if(s.el.offsetTop<=pos)idx=i;});if(e.key==='j'||e.key==='J'){e.preventDefault();go(secs[Math.min(idx+1,secs.length-1)].el);}else if(e.key==='k'||e.key==='K'){e.preventDefault();go(secs[Math.max(idx-1,0)].el);}else if(e.key==='t'||e.key==='T'){window.scrollTo({top:0,behavior:'smooth'});}else if((e.key==='p'||e.key==='P')&&!e.metaKey&&!e.ctrlKey){e.preventDefault();window.print();}});
-})();
-
-/* ---- Sparkline renderer: draws .spark (trend cards) and .row-spark (table rows) from data-series ---- */
-(function(){
-  var NS='http://www.w3.org/2000/svg';
-  function coords(el,w,h,top,bot,padX){
-    var raw=(el.getAttribute('data-series')||'').split(',').map(function(s){return parseFloat(s);}).filter(function(v){return !isNaN(v);});
-    if(raw.length<1) return null;
-    var mn=Math.min.apply(null,raw),mx=Math.max.apply(null,raw),rng=(mx-mn)||1,n=raw.length;
-    return raw.map(function(v,i){
-      var x=n===1?padX:padX+(w-2*padX)*i/(n-1);
-      var y=bot-(v-mn)/rng*(bot-top);
-      return [Math.round(x*10)/10,Math.round(y*10)/10];
-    });
-  }
-  function mk(tag,attrs){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);return e;}
-  Array.prototype.forEach.call(document.querySelectorAll('svg.spark[data-series]'),function(el){
-    var p=coords(el,220,56,12,38,6); if(!p) return;
-    var d='M'+p.map(function(q){return q[0]+','+q[1];}).join(' L');
-    el.appendChild(mk('path',{'class':'spark-area','d':d+' L'+p[p.length-1][0]+',56 L'+p[0][0]+',56 Z'}));
-    el.appendChild(mk('path',{'class':'spark-line','d':d}));
-    p.forEach(function(q,i){var last=i===p.length-1;el.appendChild(mk('circle',{'class':'spark-dot'+(last?' spark-dot-last':''),'cx':q[0],'cy':q[1],'r':last?2.6:1.9}));});
-  });
-  Array.prototype.forEach.call(document.querySelectorAll('svg.row-spark[data-series]'),function(el){
-    var p=coords(el,92,26,6,20,4); if(!p) return;
-    el.appendChild(mk('path',{'class':'rs-line','d':'M'+p.map(function(q){return q[0]+','+q[1];}).join(' L')}));
-    var last=p[p.length-1];
-    el.appendChild(mk('circle',{'class':'rs-dot-last','cx':last[0],'cy':last[1],'r':2.3}));
-  });
-})();
-</script>
 </body>
 </html>
