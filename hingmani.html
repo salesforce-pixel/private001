@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="color-scheme" content="light dark"/>
 <meta name="robots" content="noindex, nofollow"/>
-<meta name="description" content="Dr. Hingmani — read-only clinical coordination journal (hilar cholangiocarcinoma, Bismuth IV, ILBS Delhi). Snapshot as of 18 Jul 2026: discharged home after an 11-day 5th admission for acute cholangitis. Fever-free since ~15 Jul; pre-discharge bloods improved (bilirubin normal, platelets recovered). Home IV antibiotics for 5 days; liver-enzyme rise and an unrepeated INR remain open. Chemotherapy (C3D8) never given — restart and biliary stenting are outpatient decisions. Not a medical record — all decisions rest with the treating team."/>
-<title>Dr. Hingmani — Clinical Journal · as of 18 Jul 2026</title>
+<meta name="description" content="Dr. Hingmani — read-only clinical coordination journal (hilar cholangiocarcinoma, Bismuth IV, ILBS Delhi). Snapshot as of 19 Jul 2026: at home after an 11-day 5th admission for acute cholangitis. Fever-free since ~15 Jul; pre-discharge bloods improved. The repeat bile culture shows a new organism (Klebsiella pneumoniae) sensitive to only two antibiotics — confirming the discharge prescription but leaving little escalation room. Liver-enzyme rise and an unrepeated INR remain open; Hepatology review 25 Jul. Not a medical record — all decisions rest with the treating team."/>
+<title>Dr. Hingmani — Clinical Journal · as of 19 Jul 2026</title>
 
 <!-- External fonts are optional; a full system-font stack is the fallback. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -212,6 +212,7 @@ h3.blk::before{content:"";width:14px;height:2px;background:var(--brand-rule);bor
 .callout{margin:14px 0 0;padding:11px 14px;border-radius:10px;background:var(--info-bg);border:1px solid var(--info-rule);
   font-size:13.5px;line-height:1.55;color:var(--ink-2)}
 .callout.warn{background:var(--warn-bg);border-color:var(--warn-rule)}
+.callout.ok{background:var(--ok-bg);border-color:var(--ok-rule)}
 .callout .lbl{font-weight:700;color:var(--ink)}
 
 /* at-a-glance fields */
@@ -506,7 +507,7 @@ details.rec>summary:hover{background:var(--paper-2)}
       <a href="#records"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M8 12h8M8 16h8"/></svg>Records</a>
     </nav>
     <div class="side-foot">
-      <b>Snapshot:</b> <span id="asOfSide">18 Jul 2026</span><br>
+      <b>Snapshot:</b> <span id="asOfSide">19 Jul 2026</span><br>
       <span id="staleSide"></span>
       Read-only coordination journal.<br>Not a medical record.
     </div>
@@ -525,14 +526,16 @@ details.rec>summary:hover{background:var(--paper-2)}
         <span class="s-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
         <div>
           <h1 class="s-title" id="today-h">Today — current situation</h1>
-          <p class="s-sub">Snapshot as of <b>18 July 2026</b> · <span id="staleInline"></span>Discharged home · 5th admission closed (11 days) · Cycle&nbsp;3</p>
+          <p class="s-sub">Snapshot as of <b>19 July 2026</b> · <span id="staleInline"></span>At home · 5th admission closed (11 days) · Cycle&nbsp;3 interrupted</p>
         </div>
       </div>
 
       <div class="hero">
-        <div class="hero-band"><span aria-hidden="true">✓</span> Discharged home 18 July — infection settled; two lab questions stay open</div>
+        <div class="hero-band"><span aria-hidden="true">⚠</span> At home, improving — but the bile bacteria have changed and only two antibiotics still work</div>
         <div class="hero-body">
           <p class="hero-headline">She was discharged home on 18 July after 11 days. She has been fever-free since about 15 July, and the pre-discharge blood tests reversed almost everything that looked wrong two days earlier — but her bile-duct enzymes are still climbing and a clotting test was never repeated.</p>
+
+          <p class="hero-p"><b>New since discharge (19 July):</b> the repeat bile culture taken on <b>15 July</b> has come back, and it does two things. It <b>confirms the antibiotics she was sent home on were the right ones</b> — the bacteria in her bile have <b>changed</b> to <b><em>Klebsiella pneumoniae</em></b>, and Elores and fosfomycin are the only two drugs that work against it, which is exactly what was prescribed. But it also shows <b>how little room is left</b>: two antibiotics that previously worked — tigecycline and ceftazidime-avibactam — are now resistant, as are both carbapenems. Practically: <b>finish the full course</b>, and if a fever happens, <b>ask for a culture before any antibiotic is started</b>. See <a href="#tests">Tests</a>.</p>
 
           <p class="hero-p"><span class="pii">Dr.&nbsp;Hingmani</span> was inpatient at <span class="pii">ILBS Delhi</span> from <strong>8 to 18 July</strong> with <strong>acute cholangitis</strong> (a bile-duct infection) on a re-blocked left bile segment. After a breakthrough fever on <strong>14 July</strong> cancelled a first discharge attempt, her <strong>left biliary drain was exchanged and repositioned</strong> — and that worked. <strong>The 14 July fever was her last one.</strong> The <strong>18 July</strong> bloods show the infection response fully settled: bilirubin back to normal, white cells normal, and the chemotherapy-related <strong>platelet drop has recovered</strong> (85 → 175).</p>
 
@@ -545,9 +548,9 @@ details.rec>summary:hover{background:var(--paper-2)}
             <div><dt>Location</dt><dd>At home<small>Discharged 18 Jul 2026</small></dd></div>
             <div><dt>Admission</dt><dd>5th · closed<small>8–18 Jul · 11 days</small></dd></div>
             <div><dt>Main issue</dt><dd>Cholangitis settling<small>Fever-free since ~15 Jul</small></dd></div>
-            <div><dt>Treatment now</dt><dd>Home IV antibiotics<small>Elores + fosfomycin · 5 days</small></dd></div>
+            <div><dt>Treatment now</dt><dd>Home IV antibiotics<small>Elores + fosfomycin to ~22–23 Jul</small></dd></div>
             <div><dt>Chemotherapy</dt><dd>Not given since 6 Jul<small>Restart = outpatient decision</small></dd></div>
-            <div><dt>Next review</dt><dd>Hepatology, 3–4 days<small>With CBC / LFT / KFT / INR</small></dd></div>
+            <div><dt>Next review</dt><dd>Sat 25 July<small>Hepatology · CBC/LFT/KFT/INR</small></dd></div>
           </dl>
         </div>
       </div>
@@ -555,12 +558,13 @@ details.rec>summary:hover{background:var(--paper-2)}
       <!-- immediate care priorities -->
       <h3 class="blk">Immediate care priorities</h3>
       <ol class="prio">
-        <li class="p-danger"><div class="p-t">Book the Hepatology review for ~21–22 July — and book the blood tests <em>with</em> it</div><div class="p-why">The discharge note asks for CBC, liver, kidney and INR at 3–4 days. Add <strong>CA 19-9 and HBV viral load</strong>: both are 5–6 weeks old and have now been missed on five consecutive panels. The pattern has been that they are remembered when results are interpreted, not when the draw is booked.</div><span class="p-st" style="color:var(--danger)">Due ~21–22 Jul</span></li>
+        <li class="p-danger"><div class="p-t">Hepatology review is Saturday 25 July — book the blood tests <em>with</em> it</div><div class="p-why">Ask for CBC, liver, kidney and INR, and add <strong>CA 19-9 and the hepatitis-B viral load</strong>: both are 5–6 weeks old and have been missed on five consecutive panels, because they get remembered when results are read rather than when the draw is booked. Two notes on the timing: it is day 7 rather than the 3–4 days the discharge note asked for, so <strong>do not wait for it</strong> if fever, jaundice, drain changes or new pain appear — but it does fall after the antibiotic course ends, which makes it a clean read of the liver enzymes.</div><span class="p-st" style="color:var(--danger)">Sat 25 Jul</span></li>
         <li class="p-danger"><div class="p-t">Watch the bile-duct enzyme trend — the one open lab question</div><div class="p-why">ALP rose 379 → 467 and GGT 289 → 312 while bilirubin returned to normal. A normal bilirubin means the drained parts of the liver are clearing; an isolated enzyme rise can mean a segment that is blocked but cannot contribute bilirubin. If they keep climbing off antibiotics, the undrained segment question re-opens.</div><span class="p-st" style="color:var(--danger)">Decides at the next blood test</span></li>
         <li class="p-danger"><div class="p-t">Get the INR rechecked — she went home on 1.41, unrepeated</div><div class="p-why">Last measured 16 July; there was no clotting test on the pre-discharge panel and no vitamin K was given. The platelet concern has resolved (175), so this is now the only clotting-related barrier to a chemotherapy port or any further drain procedure.</div><span class="p-st" style="color:var(--danger)">Unresolved</span></li>
-        <li class="p-warn"><div class="p-t">Make the home IV antibiotic course workable — and ask why these two drugs</div><div class="p-why">Elores 3&nbsp;g and fosfomycin 4&nbsp;g, both IV twice daily (10&nbsp;am / 10&nbsp;pm) to about 22–23 July. Settle who administers them, what vein access is used, and what to do if a dose is missed. Worth asking the team's reasoning: on the culture report Elores was tested against the <em>E. coli</em> only and fosfomycin against neither organism — though stopping amikacin makes sense given her hearing symptom.</div><span class="p-st" style="color:var(--warn)">Running to ~22–23 Jul</span></li>
+        <li class="p-warn"><div class="p-t">Complete the full IV antibiotic course — the drug choice is now confirmed correct</div><div class="p-why">Elores 3&nbsp;g and fosfomycin 4&nbsp;g, both IV twice daily (10&nbsp;am / 10&nbsp;pm) to about 22–23 July. The 15 July culture shows these are the <strong>only two antibiotics</strong> that work against her current bacteria, so finishing the course matters more than usual — an interrupted course is how the second drug gets lost. Settle who administers them, what vein access is used, and what to do if a dose is missed.</div><span class="p-st" style="color:var(--warn)">Running to ~22–23 Jul</span></li>
+        <li class="p-danger"><div class="p-t">If a fever happens — ask for a culture BEFORE any antibiotic is started</div><div class="p-why">Her current bacteria are sensitive to only two drugs, and two former fallbacks (tigecycline, ceftazidime-avibactam) are now resistant. Amikacin was not tested, so it cannot be assumed either. A sample taken before treatment starts is what preserves the ability to choose a working antibiotic — and it argues for going to ILBS rather than starting anything locally.</div><span class="p-st" style="color:var(--danger)">Standing</span></li>
         <li class="p-warn"><div class="p-t">Home fever and red-flag plan is live again</div><div class="p-why">Fever above 100.4°F, shivering, worsening jaundice, upper-right abdominal pain, black stool or bleeding, confusion, fainting, chest pain or breathlessness → paracetamol, blood count, call ILBS, go to the ER. <strong>Not Levofloxacin</strong>, and oral Augmentin will not cover her bacteria.</div><span class="p-st" style="color:var(--warn)">Standing</span></li>
-        <li class="p-info"><div class="p-t">Oncology review — restarting chemotherapy, and the stenting decision</div><div class="p-why">C3D8 was never given. The blood-count barrier has now cleared (platelets 175). Ask about the interim PET scan, secure the IV steroid pre-medication for durvalumab, and get a <strong>baseline hearing test before any further cisplatin</strong>. The discharge note also schedules a <strong>biliary stenting decision</strong> — the highest-value conversation of the visit.</div><span class="p-st" style="color:var(--info)">Next outpatient visit</span></li>
+        <li class="p-info"><div class="p-t">After 25 July, contact Dr. Nikhil to set the durvalumab (C3D8) date</div><div class="p-why">C3D8 was never given. Taking the 25 July results to Oncology is the right order — those bloods are the evidence needed. The blood-count barrier has already cleared (platelets 175). Take the overdue CA 19-9 with you; without it the planned PET scan is much harder to interpret. Also secure the IV steroid pre-medication for durvalumab, and a <strong>baseline hearing test before any further cisplatin</strong>. The discharge note separately schedules a <strong>biliary stenting decision</strong> — now with an added argument, since each infection has left fewer antibiotics available.</div><span class="p-st" style="color:var(--info)">After Sat 25 Jul</span></li>
         <li class="p-info"><div class="p-t">Check potassium, and confirm three medication points</div><div class="p-why">Potassium corrected to 3.94 in hospital but no supplement was prescribed, while the cisplatin-related loss continues — it is on the follow-up panel. Also confirm: the discharge list reverts to older brand names (take one of each drug, not two), lists two laxatives, and omits the oral iron — the last is consistent with the iron studies but worth confirming rather than assuming.</div><span class="p-st" style="color:var(--info)">At the review</span></li>
       </ol>
 
@@ -569,7 +573,8 @@ details.rec>summary:hover{background:var(--paper-2)}
       <div class="safety">
         <div class="safety-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg> Safety warnings — do not miss</div>
         <ul>
-          <li class="stop"><span class="badge" aria-hidden="true">✕</span><b>Never start Levofloxacin.</b> The <em>E. coli</em> is resistant on both cultures. <b>Piperacillin-tazobactam is no longer a fallback either</b> (now resistant on both organisms). <span class="sr">This is a do-not-use antibiotic warning.</span></li>
+          <li class="stop"><span class="badge" aria-hidden="true">✕</span><b>Never start Levofloxacin</b> — resistant on all three cultures including the current <em>Klebsiella</em>. <b>Piperacillin-tazobactam, both carbapenems, tigecycline and ceftazidime-avibactam are also resistant.</b> <b>Only Elores and fosfomycin still work.</b> <span class="sr">This is a do-not-use antibiotic warning.</span></li>
+          <li class="stop"><span class="badge" aria-hidden="true">✕</span><b>Take a culture BEFORE starting or changing any antibiotic.</b> With only two working drugs and bacteria that have already changed once, a pre-treatment sample is what preserves the ability to choose. <b>Do not assume amikacin</b> — it was not tested against the current organism.</li>
           <li class="stop"><span class="badge" aria-hidden="true">✕</span><b>Home fever plan = paracetamol + CBC + call ILBS</b> — <b>not</b> Levofloxacin, and oral Augmentin will not cover her multidrug-resistant biliary bacteria. Do not let starting it delay an ER visit.</li>
           <li class="caution"><span class="badge" aria-hidden="true">!</span><b>No NSAIDs.</b> No known drug allergies. Paracetamol / Ultracet for pain instead.</li>
           <li class="rule"><span class="badge" aria-hidden="true">i</span><b>No systemic steroids without antiviral cover</b> on board (steroids accelerate HBV reactivation). Currently satisfied — she is on TAF.</li>
@@ -677,7 +682,17 @@ details.rec>summary:hover{background:var(--paper-2)}
 
       <div class="grid g-2">
         <div class="test t-danger">
-          <div class="test-top"><span class="test-name">Bile culture</span><span class="test-when">8 Jul 2026 · Final</span><span class="pill danger"><span class="dot"></span>Drug-resistant</span></div>
+          <div class="test-top"><span class="test-name">Bile culture &mdash; repeat</span><span class="test-when">15 Jul 2026 &middot; Final</span><span class="pill danger"><span class="dot"></span>New organism &middot; 2 drugs left</span></div>
+          <dl>
+            <div><dt>Reason</dt><dd>Repeat culture before discharge, taken the day after the left drain was exchanged.</dd></div>
+            <div><dt>Key finding</dt><dd><b><em>Klebsiella pneumoniae</em>, heavy growth</b> &mdash; a <b>different organism</b>. Neither the <em>Pseudomonas</em> nor the <em>E. coli</em> from 8 July was found.</dd></div>
+            <div><dt>Sensitivity</dt><dd><b>Only two antibiotics work: Elores and fosfomycin</b> (colistin intermediate). Resistant to both carbapenems, tigecycline, ceftazidime-avibactam and everything else tested. <b>Amikacin was not tested.</b></dd></div>
+            <div><dt>Action</dt><dd>Confirms the discharge prescription &mdash; she went home on exactly those two drugs. Complete the course; take a culture before any future antibiotic.</dd></div>
+          </dl>
+        </div>
+
+        <div class="test t-danger">
+          <div class="test-top"><span class="test-name">Bile culture — admission</span><span class="test-when">8 Jul 2026 · Superseded</span><span class="pill"><span class="dot"></span>Superseded 15 Jul</span></div>
           <dl>
             <div><dt>Reason</dt><dd>Acute cholangitis on admission — guide antibiotics given her resistance history.</dd></div>
             <div><dt>Key finding</dt><dd><b><em>Pseudomonas aeruginosa</em> + <em>E. coli</em></b> isolated.</dd></div>
@@ -717,37 +732,70 @@ details.rec>summary:hover{background:var(--paper-2)}
       </div>
 
       <!-- micro sensitivity table -->
-      <h3 class="blk">Antibiotic sensitivity — bile culture, 8 Jul 2026</h3>
-      <p class="s-sub" style="margin-top:-4px;margin-bottom:10px"><b>Most important conclusion:</b> no single agent covers both organisms — the effective combination is a <b>carbapenem</b> (for <em>Pseudomonas</em>) plus <b>amikacin</b> (for <em>E. coli</em>). Piperacillin-tazobactam covers neither.</p>
+      <h3 class="blk">Antibiotic sensitivity — current organism (bile culture, 15 Jul 2026)</h3>
+      <p class="s-sub" style="margin-top:-4px;margin-bottom:10px"><b>Most important conclusion:</b> the bacteria in her bile have <b>changed</b>. The 15 July culture grew <b><em>Klebsiella pneumoniae</em> (heavy growth)</b> — the <em>Pseudomonas</em> and <em>E. coli</em> found on 8 July were <b>not</b> present. This organism is sensitive to <b>only two antibiotics — Elores and fosfomycin</b> — and those are exactly the two she was discharged on.</p>
       <div class="tw">
         <table>
-          <caption class="sr">Antibiotic sensitivity for Pseudomonas aeruginosa and E. coli from the 8 July 2026 bile culture.</caption>
-          <thead><tr><th scope="col">Antibiotic</th><th scope="col"><em>Pseudomonas</em></th><th scope="col"><em>E. coli</em></th></tr></thead>
+          <caption class="sr">Antibiotic sensitivity for Klebsiella pneumoniae from the 15 July 2026 bile culture.</caption>
+          <thead><tr><th scope="col">Antibiotic</th><th scope="col">MIC</th><th scope="col"><em>Klebsiella pneumoniae</em></th></tr></thead>
           <tbody>
-            <tr><td>Piperacillin-tazobactam</td><td class="sens-R">R</td><td class="sens-R">R</td></tr>
-            <tr><td>Meropenem / carbapenem</td><td class="sens-S">S</td><td class="sens-R">R</td></tr>
-            <tr><td>Amikacin</td><td class="sens-x">—</td><td class="sens-S">S</td></tr>
-            <tr><td>Gentamicin</td><td class="sens-x">—</td><td class="sens-S">S</td></tr>
-            <tr><td>Tigecycline</td><td class="sens-x">—</td><td class="sens-S">S</td></tr>
-            <tr><td>Ceftriaxone-EDTA-sulbactam (Elores)</td><td class="sens-x">—</td><td class="sens-S">S</td></tr>
-            <tr><td>Ceftazidime-avibactam</td><td class="sens-x">—</td><td class="sens-R">R</td></tr>
-            <tr><td>Ceftazidime</td><td class="sens-R">R</td><td class="sens-R">R</td></tr>
-            <tr><td>Cefepime</td><td class="sens-I">I</td><td class="sens-R">R</td></tr>
-            <tr><td>Cefoperazone-sulbactam</td><td class="sens-I">I</td><td class="sens-R">R</td></tr>
-            <tr><td>Ciprofloxacin</td><td class="sens-S">S</td><td class="sens-R">R</td></tr>
-            <tr><td>Levofloxacin</td><td class="sens-S">S</td><td class="sens-R">R</td></tr>
+            <tr><td><b>Ceftriaxone-EDTA-sulbactam</b> (Elores)</td><td>—</td><td class="sens-S">S</td></tr>
+            <tr><td><b>Fosfomycin</b></td><td>64</td><td class="sens-S">S</td></tr>
+            <tr><td>Colistin</td><td>2</td><td class="sens-I">I</td></tr>
+            <tr><td>Imipenem</td><td>&ge;16</td><td class="sens-R">R</td></tr>
+            <tr><td>Meropenem</td><td>&ge;16</td><td class="sens-R">R</td></tr>
+            <tr><td>Tigecycline</td><td>2</td><td class="sens-R">R</td></tr>
+            <tr><td>Ceftazidime-avibactam</td><td>—</td><td class="sens-R">R</td></tr>
+            <tr><td>Ceftazidime</td><td>&ge;64</td><td class="sens-R">R</td></tr>
+            <tr><td>Cefepime</td><td>&ge;32</td><td class="sens-R">R</td></tr>
+            <tr><td>Cefoperazone-sulbactam</td><td>&ge;64</td><td class="sens-R">R</td></tr>
+            <tr><td>Piperacillin-tazobactam</td><td>&ge;128</td><td class="sens-R">R</td></tr>
+            <tr><td>Gentamicin</td><td>&ge;16</td><td class="sens-R">R</td></tr>
+            <tr><td>Ciprofloxacin</td><td>&ge;4</td><td class="sens-R">R</td></tr>
+            <tr><td>Levofloxacin</td><td>&ge;8</td><td class="sens-R">R</td></tr>
+            <tr><td>Amikacin</td><td>—</td><td class="sens-x">not tested</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="legend"><span><b class="sens-S">S</b> = Sensitive</span><span><b class="sens-I">I</b> = Intermediate</span><span><b class="sens-R">R</b> = Resistant</span><span><b class="sens-x">—</b> = Not reported / not tested</span></div>
-      <p class="s-sub" style="margin-top:8px">Resistance is broadening: the March 2026 <em>E. coli</em> was piperacillin-tazobactam- and carbapenem-sensitive; both are now lost. Even though <em>Pseudomonas</em> tests levofloxacin-sensitive, the do-not-use Levofloxacin rule stands — the co-infecting <em>E. coli</em> is resistant.</p>
-      <p class="callout warn" style="margin-top:10px"><span class="lbl">Worth asking about the discharge antibiotics:</span> she went home on <b>Elores + fosfomycin</b>. On this table Elores was tested against the <em>E. coli</em> only, and <b>fosfomycin was not tested against either organism</b> — so the <em>Pseudomonas</em> has no sensitivity-proven cover on the home regimen. This may well be deliberate: stopping amikacin avoids further hearing and kidney toxicity (she has a new hearing symptom), aminoglycosides need blood-level monitoring that is impractical at home, and IV fosfomycin is a recognised partner drug for resistant bacteria that simply was not on the tested panel. She is also fever-free with settled markers. <b>This is a question about the reasoning, not a flag that something is wrong</b> — and it is separate from the Levofloxacin rule, which is a firm contraindication.</p>
+      <div class="legend"><span><b class="sens-S">S</b> = Sensitive</span><span><b class="sens-I">I</b> = Intermediate</span><span><b class="sens-R">R</b> = Resistant</span><span><b class="sens-x">&mdash;</b> = Not reported / not tested</span></div>
+
+      <p class="callout warn" style="margin-top:12px"><span class="lbl">What this means &mdash; the options are running low:</span> two antibiotics that previously worked have now been <b>lost</b>: <b>tigecycline</b> (which carried her through the June admission) and <b>ceftazidime-avibactam</b> (one of the last broad-spectrum reserves). Both carbapenems are also resistant. <b>Amikacin &mdash; the drug that broke her 10&ndash;11 July fevers &mdash; was not tested on this panel</b>, so its status is unknown rather than available. Three things follow. <b>(1) Finish the full IV course</b> to ~22&ndash;23 July: with only two working drugs, an interrupted course is how the second one is lost. <b>(2) If a fever happens, ask for a culture to be taken BEFORE any antibiotic is started</b> &mdash; that sample is what preserves the ability to choose. <b>(3)</b> It adds a new argument to the <b>biliary stenting</b> discussion: each infection has ended with fewer antibiotics available, so removing the source matters beyond comfort and repeat procedures.</p>
+
+      <p class="s-sub" style="margin-top:10px"><b>Is this an active infection?</b> Not necessarily. Bile drained through a long-term catheter is <b>never sterile</b>, and she has been fever-free since about 15 July with settling blood tests. The most accurate reading is that this is <b>the organism that would cause the next infection if one happens</b> &mdash; not proof of one now. It does, though, give the unexplained rise in bile-duct enzymes a possible infection-related contributor alongside the mechanical one.</p>
+
+      <details class="rec" style="margin-top:14px"><summary>Previous culture &mdash; 8 July 2026 (superseded, kept for reference)</summary><div class="rec-body">
+        <p>This was the admission culture. It is <b>superseded</b> by the 15 July result above &mdash; but retained, because organisms turn over in colonised bile and an earlier one can return.</p>
+        <p><b>Grew:</b> <em>Pseudomonas aeruginosa</em> + <em>E. coli</em>; both resistant to piperacillin-tazobactam, and the <em>E. coli</em> also carbapenem-resistant.</p>
+        <div class="tw">
+          <table>
+            <caption class="sr">Antibiotic sensitivity for Pseudomonas aeruginosa and E. coli from the 8 July 2026 bile culture (superseded).</caption>
+            <thead><tr><th scope="col">Antibiotic</th><th scope="col"><em>Pseudomonas</em></th><th scope="col"><em>E. coli</em></th></tr></thead>
+            <tbody>
+              <tr><td>Piperacillin-tazobactam</td><td class="sens-R">R</td><td class="sens-R">R</td></tr>
+              <tr><td>Meropenem / carbapenem</td><td class="sens-S">S</td><td class="sens-R">R</td></tr>
+              <tr><td>Amikacin</td><td class="sens-x">&mdash;</td><td class="sens-S">S</td></tr>
+              <tr><td>Gentamicin</td><td class="sens-x">&mdash;</td><td class="sens-S">S</td></tr>
+              <tr><td>Tigecycline</td><td class="sens-x">&mdash;</td><td class="sens-S">S</td></tr>
+              <tr><td>Ceftriaxone-EDTA-sulbactam (Elores)</td><td class="sens-x">&mdash;</td><td class="sens-S">S</td></tr>
+              <tr><td>Ceftazidime-avibactam</td><td class="sens-x">&mdash;</td><td class="sens-R">R</td></tr>
+              <tr><td>Ceftazidime</td><td class="sens-R">R</td><td class="sens-R">R</td></tr>
+              <tr><td>Cefepime</td><td class="sens-I">I</td><td class="sens-R">R</td></tr>
+              <tr><td>Cefoperazone-sulbactam</td><td class="sens-I">I</td><td class="sens-R">R</td></tr>
+              <tr><td>Ciprofloxacin</td><td class="sens-S">S</td><td class="sens-R">R</td></tr>
+              <tr><td>Levofloxacin</td><td class="sens-S">S</td><td class="sens-R">R</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div></details>
+
+      <p class="s-sub" style="margin-top:10px">Resistance has broadened steadily: the March 2026 <em>E. coli</em> was sensitive to piperacillin-tazobactam and carbapenems; by July both were lost; the current <em>Klebsiella</em> has also lost tigecycline and ceftazidime-avibactam. <b>The do-not-use Levofloxacin rule stands</b> &mdash; it is resistant on this organism too, the third consecutive isolate.</p>
 
       <!-- pending -->
       <h3 class="blk">Pending &amp; upcoming investigations</h3>
       <ul class="pending">
-        <li><span class="ps pill danger">Due ~21–22 Jul</span><div><b>Hepatology follow-up bloods</b> — CBC, liver, kidney and <b>INR</b>, as the discharge note requests. The bile-duct-enzyme direction and the unrepeated INR are the two things this panel settles.</div></li>
+        <li><span class="ps pill danger">Sat 25 Jul</span><div><b>Hepatology follow-up bloods</b> — CBC, liver, kidney and <b>INR</b>, as the discharge note requests. The bile-duct-enzyme direction and the unrepeated INR are the two things this panel settles.</div></li>
         <li><span class="ps pill danger">Overdue</span><div><b>CA 19-9 and HBV viral load</b> — last done 11 Jun and 18 Jun, now missed on five consecutive panels. Add both to the follow-up draw; CA 19-9 is the key treatment-response read and makes the PET scan interpretable.</div></li>
+        <li><span class="ps pill ok">Resulted 17 Jul</span><div><b>Repeat bile culture (taken 15 Jul)</b> — <em>Klebsiella pneumoniae</em>, heavy growth; sensitive to only Elores and fosfomycin. This is what the discharge prescription was based on. See the sensitivity table above.</div></li>
         <li><span class="ps pill warn">Never resulted</span><div><b>Blood culture (sent 8 Jul)</b> — no result was ever reported, and she has since been discharged. Chase it or formally close it.</div></li>
         <li><span class="ps pill warn">Not done</span><div><b>Repeat procalcitonin</b> — advised within 6–24&nbsp;h of the 15-Jul value; never performed. The infection question was answered clinically instead (fever-free, counts and bilirubin settled).</div></li>
         <li><span class="ps pill info">Planned</span><div><b>Interim PET-CT</b> — a progress check to adjust cycles. Timing now follows whatever chemotherapy restart date Oncology sets. Not the formal resectability verdict.</div></li>
@@ -764,7 +812,7 @@ details.rec>summary:hover{background:var(--paper-2)}
         <span class="s-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5 3.5 13.5a5 5 0 0 1 7-7l7 7a5 5 0 0 1-7 7z"/><path d="M8.5 8.5l7 7"/></svg></span>
         <div>
           <h2 class="s-title" id="meds-h">Medications &amp; treatment safety</h2>
-          <p class="s-sub">The <b>18 July discharge sheet</b> is now the authoritative list. Doses shown as supplied — none inferred. Note the sheet is a prescription, not a full inventory: supplements and as-needed drugs it omits are marked <b>confirm</b> rather than assumed stopped.</p>
+          <p class="s-sub">The <b>18 July discharge sheet</b> is the authoritative list, and the <b>15 July bile culture confirms the two IV antibiotics on it are the correct choices</b>. Doses shown as supplied — none inferred. Note the sheet is a prescription, not a full inventory: supplements and as-needed drugs it omits are marked <b>confirm</b> rather than assumed stopped.</p>
         </div>
       </div>
 
@@ -773,8 +821,8 @@ details.rec>summary:hover{background:var(--paper-2)}
         <div class="tw"><table>
           <thead><tr><th scope="col">Medication</th><th scope="col">Dose / route</th><th scope="col">Status</th><th scope="col">Purpose / note</th></tr></thead>
           <tbody>
-            <tr><td><b>Elores</b> (ceftriaxone-EDTA-sulbactam)</td><td>3 g <span class="tag">IV</span> twice daily<br><small>10 am / 10 pm · 5 days</small></td><td><span class="pill ok">Active</span></td><td>Tested <b>sensitive</b> against her <em>E. coli</em> on the 8-Jul bile culture.</td></tr>
-            <tr><td><b>Fosfomycin</b></td><td>4 g <span class="tag">IV</span> twice daily<br><small>10 am / 10 pm · 5 days</small></td><td><span class="pill warn">Active · not tested</span></td><td>Not tested against either organism on the culture. A recognised partner drug for resistant bacteria — see the question raised in <a href="#tests">Tests</a>.</td></tr>
+            <tr><td><b>Elores</b> (ceftriaxone-EDTA-sulbactam)</td><td>3 g <span class="tag">IV</span> twice daily<br><small>10 am / 10 pm · 5 days</small></td><td><span class="pill ok">Active · sensitive</span></td><td><b>Sensitive</b> against the current <em>Klebsiella</em> (15 Jul culture) — the other of only two working drugs.</td></tr>
+            <tr><td><b>Fosfomycin</b></td><td>4 g <span class="tag">IV</span> twice daily<br><small>10 am / 10 pm · 5 days</small></td><td><span class="pill ok">Active · sensitive</span></td><td><b>Sensitive</b> against the current <em>Klebsiella</em> (15 Jul culture, MIC 64) — one of only two working drugs.</td></tr>
           </tbody>
         </table></div>
         <p class="s-sub" style="margin-top:8px">Practical points to settle at home: who administers the injections, what vein access is used, and what to do if a dose is missed or late.</p>
@@ -897,13 +945,13 @@ details.rec>summary:hover{background:var(--paper-2)}
           </dl>
         </div>
 
-        <div class="care-card c-warn">
-          <div class="care-top"><span class="care-code">OUT-036</span><span class="care-title">Cholangitis — settling</span><span class="care-badge pill warn"><span class="dot"></span>Improving</span></div>
+        <div class="care-card c-danger">
+          <div class="care-top"><span class="care-code">OUT-036</span><span class="care-title">Antibiotic options nearly exhausted</span><span class="care-badge pill danger"><span class="dot"></span>Highest priority</span></div>
           <dl>
-            <div class="care-row"><dt>State</dt><dd>Fever-free since ~15 Jul. Inflammatory markers fully settled on 18 Jul. Completing 5 days of home IV antibiotics to ~22–23 Jul.</dd></div>
-            <div class="care-row"><dt>Next</dt><dd>Finish the course; settle the practical arrangements; ask the team's reasoning for the drug change.</dd></div>
-            <div class="care-row"><dt>Escalate if</dt><dd>Any fever, shivering, worsening jaundice or abdominal pain → paracetamol, blood count, call ILBS, ER. <b>Not Levofloxacin.</b></dd></div>
-            <div class="care-row"><dt>Open</dt><dd>The 8-Jul blood culture was never resulted; the advised repeat procalcitonin was never done.</dd></div>
+            <div class="care-row"><dt>State</dt><dd>The 15 July bile culture grew <b><em>Klebsiella pneumoniae</em></b> (heavy growth) sensitive to <b>only Elores and fosfomycin</b>. Both carbapenems, tigecycline and ceftazidime-avibactam are now resistant; amikacin was not tested.</dd></div>
+            <div class="care-row"><dt>Why it matters</dt><dd>Two former rescue drugs have been lost. There is very little left to escalate to if another infection happens.</dd></div>
+            <div class="care-row"><dt>Next</dt><dd><b>Complete the full IV course</b> to ~22–23 July. <b>Culture before any future antibiotic.</b> Fever-free since ~15 July and markers settled, so the infection itself is resolving.</dd></div>
+            <div class="care-row"><dt>Escalate if</dt><dd>Any fever or shivering → ILBS, with a culture taken before treatment starts. Not Levofloxacin; no oral antibiotic will cover this organism.</dd></div>
           </dl>
         </div>
 
@@ -964,9 +1012,9 @@ details.rec>summary:hover{background:var(--paper-2)}
 
       <h3 class="blk">What comes next</h3>
       <div class="upcoming">
-        <div class="up-step"><div class="when">Now — at home</div><div class="what"><b>Finish the antibiotics, watch for red flags.</b> Complete the IV course to ~22–23 Jul. Any fever, shivering, worsening jaundice or abdominal pain → paracetamol, blood count, call ILBS, ER. Watch the drain output and site.</div></div>
-        <div class="up-step"><div class="when">In 3–4 days</div><div class="what"><b>Hepatology review (~21–22 Jul).</b> Blood count, liver, kidney and INR — plus the overdue CA 19-9 and hepatitis-B viral load. The bile-duct enzyme direction is the key read.</div></div>
-        <div class="up-step"><div class="when">Next milestone</div><div class="what"><b>Oncology review — restart chemotherapy, decide on biliary stenting.</b> No firm date; both are open decisions. Interim PET-CT follows the restart. Formal resectability reassessment at ~4 cycles.</div></div>
+        <div class="up-step"><div class="when">Now — at home</div><div class="what"><b>Finish the antibiotics, watch for red flags.</b> Complete the IV course to ~22–23 Jul — with only two working drugs, finishing matters. Any fever, shivering, worsening jaundice or abdominal pain → <b>culture first</b>, paracetamol, blood count, call ILBS, ER. Watch the drain output and site.</div></div>
+        <div class="up-step"><div class="when">Saturday 25 July</div><div class="what"><b>Hepatology review.</b> Blood count, liver, kidney and INR — plus the overdue CA 19-9 and hepatitis-B viral load. The bile-duct enzyme direction is the key read, and this visit falls after the antibiotic course ends, so it is a clean one.</div></div>
+        <div class="up-step"><div class="when">After 25 July</div><div class="what"><b>Contact Dr. Nikhil to set the durvalumab (C3D8) date</b>, taking the 25 July results in. The biliary stenting decision sits alongside it. Interim PET-CT follows the restart; formal resectability reassessment at ~4 cycles.</div></div>
       </div>
     </section>
 
@@ -1008,7 +1056,8 @@ details.rec>summary:hover{background:var(--paper-2)}
       </div>
 
       <ul class="tl">
-        <li class="tl-item" data-type="event"><div class="tl-date">18 Jul<small>day 11</small></div><div class="tl-mark m-ok"></div><div class="tl-body"><p class="tl-t">Discharged home — 5th admission closed<span class="tl-cat">Discharge</span></p><p class="tl-d">Home after 11 days on a 5-day IV antibiotic course (Elores + fosfomycin) plus the oral medicines including the hepatitis-B antiviral. Advice: 1800 kcal + 80&nbsp;g protein daily; Hepatology review in 3–4 days with blood tests including INR; <b>chemotherapy restart and biliary stenting both deferred to outpatient decisions</b>. Left drain still external; the right-posterior segment still undrained.</p></div></li>
+        <li class="tl-item" data-type="test"><div class="tl-date">19 Jul<small>day 1 home</small></div><div class="tl-mark m-danger"></div><div class="tl-body"><p class="tl-t">Repeat bile culture read — new organism, only two antibiotics left<span class="tl-cat">Test</span></p><p class="tl-d">The culture taken 15 July (resulted 17 July) grew <b><em>Klebsiella pneumoniae</em>, heavy growth</b> — the <em>Pseudomonas</em> and <em>E. coli</em> from 8 July were <b>not</b> present. Sensitive to <b>only Elores and fosfomycin</b>, which is exactly what she was discharged on, so the prescription was culture-directed. But <b>tigecycline and ceftazidime-avibactam are now resistant</b>, as are both carbapenems — the escalation options are nearly gone. Adds weight to the biliary stenting discussion.</p></div></li>
+        <li class="tl-item" data-type="event"><div class="tl-date">18 Jul<small>day 11</small></div><div class="tl-mark m-ok"></div><div class="tl-body"><p class="tl-t">Discharged home — 5th admission closed<span class="tl-cat">Discharge</span></p><p class="tl-d">Home after 11 days on a 5-day IV antibiotic course (Elores + fosfomycin) plus the oral medicines including the hepatitis-B antiviral. Advice: 1800 kcal + 80&nbsp;g protein daily; Hepatology review in 3–4 days with blood tests including INR; <b>chemotherapy restart and biliary stenting both deferred to outpatient decisions</b>. Left drain still external; the right-posterior segment still undrained. Hepatology review set for Saturday 25 July.</p></div></li>
         <li class="tl-item" data-type="lab"><div class="tl-date">18 Jul<small>day 11</small></div><div class="tl-mark m-ok"></div><div class="tl-body"><p class="tl-t">Pre-discharge bloods reverse the 16-Jul concern<span class="tl-cat">Lab</span></p><p class="tl-d">Bilirubin 1.15 → <b>0.99</b> (normal), neutrophils 6.55 → 2.79 and white cells 9.13 → 5.29 (the inflammatory response fully unwound), <b>platelets 85 → 175</b> and haemoglobin 8.2 → 9.1 with no transfusion, potassium 3.27 → 3.94. All counts rising together — genuine marrow recovery. <b>But ALP 379 → 467 and GGT 289 → 312 kept climbing</b> against the normal bilirubin, and the INR was not repeated.</p></div></li>
         <li class="tl-item" data-type="event"><div class="tl-date">~15 Jul<small>day 8</small></div><div class="tl-mark m-ok"></div><div class="tl-body"><p class="tl-t">Last fever — afebrile from here to discharge<span class="tl-cat">Event</span></p><p class="tl-d">The 14 July breakthrough fever proved to be her last. Family-reported; this is what confirmed the drain exchange had worked and that the unsettled 15–16 July bloods were the tail of that episode rather than a new problem.</p></div></li>
         <li class="tl-item" data-type="lab"><div class="tl-date">17 Jul<small>C3D12</small></div><div class="tl-mark m-warn"></div><div class="tl-body"><p class="tl-t">First iron studies — don't fit iron deficiency<span class="tl-cat">Lab</span></p><p class="tl-d">Ferritin 1853, TIBC 177.6 low, saturation normal — the pattern of anaemia of chronic disease, not deficiency. Triple-confounded (IV iron &lt;24&nbsp;h prior + active infection); the "IDA" label is now queried and a clean recheck is planned.</p></div></li>
@@ -1097,13 +1146,14 @@ details.rec>summary:hover{background:var(--paper-2)}
       </div></details>
 
       <details class="rec"><summary>Culture &amp; antibiotic-resistance history</summary><div class="rec-body">
-        <p><b>Resistance is broadening.</b> The March 2026 <em>E. coli</em> was piperacillin-tazobactam- and carbapenem-sensitive; both are now lost.</p>
+        <p><b>Resistance is broadening, and the organisms turn over.</b> The March 2026 <em>E. coli</em> was piperacillin-tazobactam- and carbapenem-sensitive; both are now lost. The current <em>Klebsiella</em> has additionally lost tigecycline and ceftazidime-avibactam, leaving <b>two working antibiotics</b>. Sensitivity conclusions expire with the culture that produced them.</p>
         <dl class="kv">
           <dt>8 Jul 2026</dt><dd><em>Pseudomonas</em> + <em>E. coli</em>; both pip-tazo-resistant, <em>E. coli</em> carbapenem-resistant. Sensitivities in <a href="#tests">Tests</a>.</dd>
           <dt>29 May 2026</dt><dd><em>E. coli</em> + <em>Klebsiella</em> (4th admission) — treated meropenem → tigecycline → Elores.</dd>
           <dt>28 Mar 2026</dt><dd><em>E. coli</em> heavy growth — pip-tazo- and carbapenem-sensitive then.</dd>
+          <dt>15 Jul 2026</dt><dd><b><em>Klebsiella pneumoniae</em>, heavy growth</b> — a new organism; the 8-Jul <em>Pseudomonas</em> and <em>E. coli</em> were not recovered. <b>Sensitive to Elores and fosfomycin only</b>; colistin intermediate; resistant to both carbapenems, tigecycline and ceftazidime-avibactam. Amikacin not tested.</dd>
           <dt>Blood culture</dt><dd>8 Jul — <b>never resulted</b>; she has since been discharged.</dd>
-          <dt>18 Jul discharge</dt><dd>Home course = <b>Elores + fosfomycin</b>. Elores was tested against the <em>E. coli</em> only; fosfomycin against neither organism — see the note in <a href="#tests">Tests</a>.</dd>
+          <dt>18 Jul discharge</dt><dd>Home course = <b>Elores + fosfomycin</b> — <b>exactly the two agents the 15-Jul culture is sensitive to.</b></dd>
         </dl>
       </div></details>
 
@@ -1145,7 +1195,7 @@ details.rec>summary:hover{background:var(--paper-2)}
         <p>Content is restated from a family-maintained four-file tracker (permanent reference, current state, canonical lab numbers, and archive). Where this page offers an interpretation of the numbers, that is <b>family-authored context</b>, clearly separate from the formal test findings in <a href="#tests">Tests</a>. <b>All clinical decisions rest with the treating physicians.</b></p>
         <p>Every laboratory value and test result carries its collection date; results not repeated on the latest panel are marked <i>stale</i> rather than silently carried forward.</p>
         <div class="foot-meta">
-          <span><b>Publish snapshot as of 18 July 2026.</b> <span id="asOfFoot"></span></span>
+          <span><b>Publish snapshot as of 19 July 2026.</b> <span id="asOfFoot"></span></span>
           <span>Prepared by family (<span class="pii">Rajeev</span>) for coordination.</span>
         </div>
       </div>
@@ -1176,7 +1226,7 @@ details.rec>summary:hover{background:var(--paper-2)}
    ========================================================================= */
 (function(){
   "use strict";
-  var SNAP = new Date(2026,6,18); // 18 Jul 2026 (month 0-indexed)
+  var SNAP = new Date(2026,6,19); // 19 Jul 2026 (month 0-indexed)
   var DAY = 86400000;
 
   /* ---- snapshot age ---- */
